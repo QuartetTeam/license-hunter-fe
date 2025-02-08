@@ -18,9 +18,6 @@
 
 ```
 /src
-├── api
-│ ├── apiService.ts // API 호출 함수
-│ └── endPoints.ts // API End Point
 ├── assets
 │ ├── fonts // 폰트
 │ ├── images // 로고 이미지
@@ -40,6 +37,7 @@
 
 ### 4. 컴포넌트 폴더 구조
 
+- Api: API 호출 로직을 관리하는 폴더
 - Container: 페이지 컨테이너를 관리하는 폴더
 - Store: 상태관리 및 핸들러 함수를 관리하는 폴더
 - View: 해당 페이지에서 사용할 컴포넌트를 관리하는 폴더
