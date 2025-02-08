@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './home.tsx';
-import MainPageContainer from './pages/MainPage';
+import { MainPageContainer, CertificateDetailContainer } from './pages';
 
 const AppRouter = () => {
     return (
@@ -8,6 +8,7 @@ const AppRouter = () => {
             <Routes>
                 <Route path="/" element={<Home/>}>
                     <Route index element={<MainPageContainer/>}/>
+                    <Route path="/certificateDetail" element={<CertificateDetailContainer/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

@@ -1,0 +1,57 @@
+.certificate-detail-view {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid gray;
+
+  .certificate-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin: 24px 16px;
+
+    .certificate-info {
+      width: 100%;
+    }
+  }
+
+  .certificate-button-group {
+    display: flex;
+    gap: 15px;
+
+    .certificate-button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 16px;
+      font-size: 16px;
+      color: white;
+      background-color: #5C78E0;
+
+    }
+  }
+
+  .certificate-qualifications {
+    .qualifications-title {
+      margin-bottom: 24px;
+    }
+
+    .qualifications-table {
+      border-collapse: collapse;
+      border: 1px solid gray;
+
+      .table-header {
+        width: 200px;
+        padding: 8px 0 8px 16px;
+        border: 1px solid gray;
+      }
+
+      .table-body {
+        padding: 8px 16px;
+      }
+
+      .table-body-first {
+        padding: 8px 16px;
+        border-top: 1px solid gray;
+      }
+    }
+  }
+}
