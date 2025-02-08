@@ -1,3 +1,3 @@
 import CertificateDetailContainer from './Container/CertificateDetailContainer.tsx';
 
-export { CertificateDetailContainer };
+export default CertificateDetailContainer;
