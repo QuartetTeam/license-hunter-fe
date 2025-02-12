@@ -3,7 +3,7 @@
 ### 1. 프로젝트 정보
 
 - 기술스택 : React, TypeScript, Vite
-- 상태관리 : useState, recoil
+- 상태관리 : useState, zustand
 - API 호출 : axios
 - 스타일 : scss
 - 라이브러리 : 추후 추가 예정
@@ -82,4 +82,6 @@ npm run dev
 
 ### 1. 코드 컨벤션
 
-Single Quote 사용 외에 나머지는 아직 고민 중입니다...!
+### 2. TDD 적용
+
+고민중...
