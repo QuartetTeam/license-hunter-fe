@@ -1,4 +1,4 @@
-import '@styles/pages/CertificateDetail/TabMenuView.scss';
+import '@styles/pages/CertificateDetail/tabMenuView.scss';
 
 const TabMenuView = () => {
     return (
