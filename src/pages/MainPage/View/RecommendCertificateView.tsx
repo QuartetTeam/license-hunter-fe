@@ -1,4 +1,4 @@
-import '@styles/pages/MainPage/RecommendCertificateView.scss';
+import '@styles/pages/MainPage/recommendCertificateView.scss';
 
 const RecommendCertificateView = () => {
     return (
