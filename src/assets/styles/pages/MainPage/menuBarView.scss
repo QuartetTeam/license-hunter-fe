@@ -1,0 +1,31 @@
+.menuBar {
+  height: 304px;
+  margin-bottom: 64px;
+  padding: 64px 220px;
+  background-color: #F1F1F6;
+
+  .menu-button-group {
+
+    .menu-button-group1 {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin: 0 104px 24px 104px;
+    }
+
+    .menu-button-group2 {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .menu-button {
+      display: flex;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      border-radius: 66px;
+      background-color: #FFFFFF;
+    }
+  }
+}

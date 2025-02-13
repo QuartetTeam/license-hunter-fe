@@ -1,0 +1,31 @@
+.recommend-certificate-box {
+  height: 344px;
+  margin: 0 184px;
+
+  .recommend-certificate-title {
+    font-size: 36px;
+  }
+
+  .recommend-certificate-group {
+    height: calc(100% - 64px);
+    display: flex;
+    gap: 40px;
+    padding: 32px 0;
+
+    .recommend-certificate-info {
+      width: 50%;
+      height: 100%;
+      border-radius: 16px;
+      background-color: #8D8D8D;
+    }
+  }
+
+  .more-information {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    background-color: #5C78E0;
+  }
+
+}
