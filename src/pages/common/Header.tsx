@@ -4,6 +4,12 @@ import { useNavigate } from 'react-router-dom';
 const Header = () => {
     const navigate = useNavigate();
 
+    // 'quartet' 버튼 클릭 시 '메인' 페이지로 이동
+    const onHomeButtonClick = () => {
+        window.scrollTo(0, 0);
+        navigate('/');
+    };
+
     // '내 캘린더' 버튼 클릭 시 '내 캘린더' 페이지로 이동
     const onMyCalenderButtonClick = () => {
         window.scrollTo(0, 0);
@@ -19,7 +25,7 @@ const Header = () => {
     return (
         <div className="header">
             <div className="header-container">
-                <div className="title">quartet</div>
+                <div className="title" onClick={onHomeButtonClick}>quartet</div>
                 <div className="header-button-group">
                     <button className="my-calender-button" onClick={onMyCalenderButtonClick}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
