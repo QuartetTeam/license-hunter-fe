@@ -1,6 +1,6 @@
 import MenuBarView from '../View/MenuBarView.tsx';
 import RecommendCertificateView from '../View/RecommendCertificateView.tsx';
-import SearchBoxView from '../View/SearchBoxView.tsx';
+import SearchBoxView from '../../components/SearchBoxView.tsx';
 
 const MainPageContainer = () => {
     return (
