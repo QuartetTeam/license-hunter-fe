@@ -1,6 +1,6 @@
-import '@styles/pages/components/searchBoxView.scss';
+import '@styles/pages/components/searchBox.scss';
 
-const SearchBoxView = () => {
+const SearchBox = () => {
     return (
         <div className="searchBox">
             <div className="searchBox-group">
@@ -17,4 +17,4 @@ const SearchBoxView = () => {
     );
 };
 
-export default SearchBoxView;
+export default SearchBox;
