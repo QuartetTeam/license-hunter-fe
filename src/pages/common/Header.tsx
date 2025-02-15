@@ -1,12 +1,27 @@
 import '@styles/layout/Header.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+    const navigate = useNavigate();
+
+    // '내 캘린더' 버튼 클릭 시 '내 캘린더' 페이지로 이동
+    const onMyCalenderButtonClick = () => {
+        window.scrollTo(0, 0);
+        navigate('/myCalender');
+    };
+
+    // '로그인' 버튼 클릭 시 '로그인' 페이지로 이동
+    const onLoginButtonClick = () => {
+        window.scrollTo(0, 0);
+        navigate('/login');
+    };
+
     return (
         <div className="header">
             <div className="header-container">
                 <div className="title">quartet</div>
                 <div className="header-button-group">
-                    <button className="my-calender-button">
+                    <button className="my-calender-button" onClick={onMyCalenderButtonClick}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                              stroke="currentColor" className="my-calender-button-icon">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -14,7 +29,7 @@ const Header = () => {
                         </svg>
                         내 캘린더
                     </button>
-                    <button className="login-button">로그인</button>
+                    <button className="login-button" onClick={onLoginButtonClick}>로그인</button>
                 </div>
             </div>
         </div>
