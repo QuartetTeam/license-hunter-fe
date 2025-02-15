@@ -1,9 +1,17 @@
+import { useNavigate } from 'react-router-dom';
 import '@styles/pages/components/searchBox.scss';
 
 const SearchBox = () => {
+    const navigate = useNavigate();
+
+    const onSearchButtonClick = () => {
+        window.scrollTo(0, 0);
+        navigate('/certificateSearch');
+    };
+
     return (
         <div className="searchBox">
-            <div className="searchBox-group">
+            <div className="searchBox-group" onClick={onSearchButtonClick}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
                      stroke="currentColor" className="searchBox-icon">
                     <path strokeLinecap="round" strokeLinejoin="round"

@@ -1,0 +1,16 @@
+.certificate-search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .certificate-search-field {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .certificate-search-field-title {
+      width: 80%;
+      font-size: 36px;
+    }
+  }
+}
