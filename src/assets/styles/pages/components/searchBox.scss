@@ -1,0 +1,40 @@
+.searchBox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .searchBox-group {
+    width: 80%;
+    height: 47px;
+    display: flex;
+    gap: 16px;
+    margin-bottom: 64px;
+    position: relative;
+
+    .searchBox-icon {
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      left: 24px;
+      top: 16px;
+    }
+
+    .searchBox-input {
+      width: 90%;
+      padding: 16px 0 16px 64px;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      outline: none;
+      background-color: #F8F8F8;
+    }
+
+    .searchBox-submit {
+      width: 10%;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      background-color: #5C78E0;
+    }
+  }
+}
