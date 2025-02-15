@@ -12,12 +12,31 @@
     }
 
     .header-button-group {
-      margin: 24.5px 24px;
+      display: flex;
+      gap: 16px;
+      margin: 24px 24px;
+
+      .my-calender-button {
+        width: 100px;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        background: none;
+        border: none;
+
+        .my-calender-button-icon {
+          width: 24px;
+          height: 24px;
+          padding: 2px;
+        }
+      }
+
+      .login-button {
+        background: none;
+        border: none;
+      }
     }
 
-    .login {
-      background: none;
-      border: none;
-    }
+
   }
 }
