@@ -1,6 +1,14 @@
 import '@styles/layout/Header.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+    const navigate = useNavigate();
+
+    const onLoginButtonClick = () => {
+        window.scrollTo(0, 0);
+        navigate('/login');
+    };
+
     return (
         <div className="header">
             <div className="header-container">
@@ -14,7 +22,7 @@ const Header = () => {
                         </svg>
                         내 캘린더
                     </button>
-                    <button className="login-button">로그인</button>
+                    <button className="login-button" onClick={onLoginButtonClick}>로그인</button>
                 </div>
             </div>
         </div>
