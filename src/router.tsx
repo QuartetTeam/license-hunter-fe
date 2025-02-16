@@ -1,6 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './home.tsx';
-import { MainPageContainer, CertificateDetailContainer, LoginContainer } from './pages';
+import {
+    MainPageContainer,
+    CertificateDetailContainer,
+    LoginContainer,
+    MyCalenderContainer,
+    CertificateSearchContainer
+} from './pages';
 
 const AppRouter = () => {
     return (
@@ -10,6 +16,8 @@ const AppRouter = () => {
                     <Route index element={<MainPageContainer/>}/>
                     <Route path="/certificateDetail" element={<CertificateDetailContainer/>}/>
                     <Route path="/login" element={<LoginContainer/>}/>
+                    <Route path="/myCalender" element={<MyCalenderContainer/>}/>
+                    <Route path="/certificateSearch" element={<CertificateSearchContainer/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

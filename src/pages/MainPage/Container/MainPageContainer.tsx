@@ -1,11 +1,11 @@
 import MenuBarView from '../View/MenuBarView.tsx';
 import RecommendCertificateView from '../View/RecommendCertificateView.tsx';
-import SearchBoxView from '../View/SearchBoxView.tsx';
+import SearchBox from '../../components/SearchBox.tsx';
 
 const MainPageContainer = () => {
     return (
         <>
-            <SearchBoxView/>
+            <SearchBox/>
             <MenuBarView/>
             <RecommendCertificateView/>
         </>
