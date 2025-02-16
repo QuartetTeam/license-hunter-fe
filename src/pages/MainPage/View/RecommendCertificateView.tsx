@@ -1,5 +1,6 @@
 import '@styles/pages/MainPage/recommendCertificateView.scss';
 import CertificateCard from '../../components/CertificateCard.tsx';
+import recommendCertificateCardData from '../MockData/recommendCertificateCardData.ts';
 
 const RecommendCertificateView = () => {
     return (
@@ -10,8 +11,7 @@ const RecommendCertificateView = () => {
                 </div>
                 <div className="recommend-certificate-card-group">
                     <div className="recommend-certificate-card">
-                        <CertificateCard/>
-                        <CertificateCard/>
+                        <CertificateCard mockData={recommendCertificateCardData}/>
                     </div>
                 </div>
                 <div className="three-dot-button">
