@@ -5,7 +5,8 @@ import {
     CertificateDetailContainer,
     LoginContainer,
     MyCalenderContainer,
-    CertificateSearchContainer
+    CertificateSearchContainer,
+    MyPageContainer
 } from './pages';
 
 const AppRouter = () => {
@@ -18,6 +19,7 @@ const AppRouter = () => {
                     <Route path="/login" element={<LoginContainer/>}/>
                     <Route path="/myCalender" element={<MyCalenderContainer/>}/>
                     <Route path="/certificateSearch" element={<CertificateSearchContainer/>}/>
+                    <Route path="/myPage" element={<MyPageContainer/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

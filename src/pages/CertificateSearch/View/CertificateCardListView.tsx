@@ -5,7 +5,7 @@ import certificateCardData from '../MockData/certificateCardData.ts';
 const CertificateCardListView = () => {
 
     return (
-        <div className="certificate-cardList-Group">
+        <div className="certificate-cardList-group">
             <CertificateCard mockData={certificateCardData}/>
         </div>
     );
