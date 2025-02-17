@@ -11,7 +11,7 @@ interface CertificateData {
 
 interface CertificateCardProps {
     mockData: CertificateData[];
-    trashIconSelected: boolean;
+    trashIconSelected?: boolean;
 }
 
 const CertificateCard: FC<CertificateCardProps> = ({ mockData = [], trashIconSelected = false }) => {
