@@ -1,5 +1,4 @@
 import '@styles/layout/Header.scss';
-import useMyPageState from '../MyPage/CustomHook/useMyPageState.ts';
 import useCommonState from './CustomHook/useCommonState.ts';
 
 const Header = () => {
