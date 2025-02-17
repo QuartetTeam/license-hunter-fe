@@ -11,21 +11,27 @@ interface CertificateData {
 
 interface CertificateCardProps {
     mockData: CertificateData[];
+    trashIconSelected: boolean;
 }
 
-const CertificateCard: FC<CertificateCardProps> = ({ mockData }) => {
+const CertificateCard: FC<CertificateCardProps> = ({ mockData = [], trashIconSelected = false }) => {
     const navigate = useNavigate();
 
     const onCertificateCardClick = () => {
         window.scrollTo(0, 0);
         navigate('/certificateDetail');
     };
-    
+
     return (
         <>
             {mockData?.map((item, index) => (
-                <div key={index} className="recommend-certificate-info" onClick={onCertificateCardClick}>
-                    <div className="recommend-certificate-info-box">
+                <div key={index} className="recommend-certificate-info">
+                    {trashIconSelected &&
+                        <div className="recommend-certificate-checkbox">
+                            <input type="checkbox" className="recommend-certificate-checkbox__icon"/>
+                        </div>
+                    }
+                    <div className="recommend-certificate-info-box" onClick={onCertificateCardClick}>
                         <div className="recommend-certificate-image"></div>
                         <div className="recommend-certificate-text">
                             <div className="recommend-certificate-name">{item.certificateName}</div>
