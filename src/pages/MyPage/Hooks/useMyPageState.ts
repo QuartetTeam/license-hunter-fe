@@ -13,6 +13,16 @@ const useMyPageState = () => {
     // 메일링 서비스 휴지통 아이콘 선택 여부
     const [trashIconSelected, setTashIconSelected] = useState<boolean>(false);
 
+    // 메일링 서비스 일시 중단 Toggle ON/OFF 여부
+    const [mailingServiceOn, setMailingServiceOn] = useState<boolean>(false);
+
+    // 메뉴 선택 시 해당 메뉴로 스크롤 이동
+    const scrollToSection = (elementId: string) => {
+        document.getElementById(elementId)?.scrollIntoView({
+            behavior: 'smooth'
+        });
+    };
+
     // '내 프로필' 메뉴 열기/닫기
     const onVisibleMyProfileClick = () => {
         setMyProfileVisible(!myProfileVisible);
@@ -33,22 +43,24 @@ const useMyPageState = () => {
         setTashIconSelected(!trashIconSelected);
     };
 
-    const scrollToSection = (elementId: string) => {
-        document.getElementById(elementId)?.scrollIntoView({
-            behavior: 'smooth'
-        });
+    // 메일링 서비스 Toggle 버튼 ON/OFF
+    const onMailingServiceClick = () => {
+        setMailingServiceOn(!mailingServiceOn);
     };
+
 
     return {
         myProfileVisible,
         mailingServiceVisible,
         accountManageVisible,
         trashIconSelected,
+        mailingServiceOn,
+        scrollToSection,
         onVisibleMyProfileClick,
         onVisibleMailingServiceClick,
         onVisibleAccountManageClick,
         onTrashButtonClick,
-        scrollToSection
+        onMailingServiceClick
     };
 };
 

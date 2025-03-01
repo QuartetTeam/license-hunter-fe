@@ -1,5 +1,5 @@
 import '@styles/layout/Header.scss';
-import useCommonState from './CustomHook/useCommonState.ts';
+import useCommonState from './Hooks/useCommonState.ts';
 
 const Header = () => {
     const { onHomeButtonClick, onMyCalenderButtonClick, onLoginButtonClick, onMyPageButtonClick } = useCommonState();

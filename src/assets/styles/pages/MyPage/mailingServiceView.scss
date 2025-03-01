@@ -13,11 +13,11 @@
     &__icon {
       width: 32px;
       height: 32px;
-      margin: 8px 8px 8px 0;
+      margin: 4px 8px 4px 0;
     }
 
     &__title {
-      font-size: 36px;
+      font-size: 32px;
     }
   }
 
@@ -30,21 +30,6 @@
     .mailing-service-tools {
       display: flex;
       gap: 16px;
-
-      &__checkbox {
-        padding: 4px;
-
-        &__icon {
-          width: 16px;
-          height: 16px;
-        }
-      }
-
-
-      &__trash {
-        width: 24px;
-        height: 24px;
-      }
     }
 
     .mailing-serviceList-group {
