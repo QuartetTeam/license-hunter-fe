@@ -1,11 +1,11 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './home.tsx';
 import {
-    MainPageContainer,
     CertificateDetailContainer,
-    LoginContainer,
-    MyCalenderContainer,
     CertificateSearchContainer,
+    LoginContainer,
+    MainPageContainer,
+    MyCalendarContainer,
     MyPageContainer
 } from './pages';
 
@@ -17,7 +17,7 @@ const AppRouter = () => {
                     <Route index element={<MainPageContainer/>}/>
                     <Route path="/certificateDetail" element={<CertificateDetailContainer/>}/>
                     <Route path="/login" element={<LoginContainer/>}/>
-                    <Route path="/myCalender" element={<MyCalenderContainer/>}/>
+                    <Route path="/myCalender" element={<MyCalendarContainer/>}/>
                     <Route path="/certificateSearch" element={<CertificateSearchContainer/>}/>
                     <Route path="/myPage" element={<MyPageContainer/>}/>
                 </Route>

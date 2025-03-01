@@ -7,15 +7,16 @@ export default defineConfig({
     resolve: {
         alias: {
             '@styles': '/src/assets/styles',
-            '@icon': '/src/assets/icons'
+            '@icon': '/src/assets/icons',
+            '@api': '/src/API/queries'
         }
     },
     server: {
         proxy: {
-            '/api': {
-                target: 'https://127.0.0.1:8080',
+            '/path': {
+                target: 'http://34.64.253.116:8080',
                 changeOrigin: true,
-                rewrite: (path) => path.replace(/^\/api/, ''),
+                rewrite: (path) => path.replace(/^\/path/, ''),
                 secure: false,
                 ws: true
             }
