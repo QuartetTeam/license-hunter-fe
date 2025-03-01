@@ -2,7 +2,7 @@ import '@styles/pages/MyPage/myProfileView.scss';
 import useMyPageState from '../Hooks/useMyPageState.ts';
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
 import ArrowUp from '@icon/icon-arrow-up.svg?react';
-import FavoriteFieldButton from '../../components/FavoriteFieldButton.tsx';
+import FieldButton from '../../components/FieldButton.tsx';
 
 const MyProfileView = () => {
     const { myProfileVisible, onVisibleMyProfileClick } = useMyPageState();
@@ -38,9 +38,9 @@ const MyProfileView = () => {
                         <div className="my-profile-interest-field">
                             <div className="my-profile-interest-field__title">관심 분야 (Max 3 선택해 주세요)</div>
                             <div className="my-profile-interest-field__button-group">
-                                <FavoriteFieldButton fieldName="보건·의료"/>
-                                <FavoriteFieldButton fieldName="경영·회계·사무"/>
-                                <FavoriteFieldButton fieldName="문화·예술·디자인·방송"/>
+                                <FieldButton fieldName="보건·의료"/>
+                                <FieldButton fieldName="경영·회계·사무"/>
+                                <FieldButton fieldName="문화·예술·디자인·방송"/>
                             </div>
                         </div>
                         <div className="my-profile-interest-save">

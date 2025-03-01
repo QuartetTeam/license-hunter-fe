@@ -5,7 +5,7 @@ interface IFavoriteFieldButtonProps {
     fieldName: string;
 }
 
-const FavoriteFieldButton = ({ fieldName }: IFavoriteFieldButtonProps) => {
+const FieldButton = ({ fieldName }: IFavoriteFieldButtonProps) => {
     const FieldIcon = IconList[fieldName];
 
     return (
@@ -16,4 +16,4 @@ const FavoriteFieldButton = ({ fieldName }: IFavoriteFieldButtonProps) => {
     );
 };
 
-export default FavoriteFieldButton;
+export default FieldButton;

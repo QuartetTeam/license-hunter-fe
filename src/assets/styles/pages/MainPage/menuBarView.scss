@@ -25,24 +25,9 @@
         gap: 24px;
       }
 
-      .menu-button-group {
-        height: 64px;
-        display: flex;
-        justify-content: center;
-        padding: 16px;
-        border: none;
+      .favorite-field-button {
         border-radius: 66px;
         background-color: #FFFFFF;
-        align-items: center;
-
-        &__icon {
-          width: 32px;
-          height: 32px;
-        }
-
-        &__text {
-          font-size: 16px;
-        }
       }
     }
 

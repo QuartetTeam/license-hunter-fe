@@ -48,7 +48,6 @@ const useMyPageState = () => {
         setMailingServiceOn(!mailingServiceOn);
     };
 
-
     return {
         myProfileVisible,
         mailingServiceVisible,
