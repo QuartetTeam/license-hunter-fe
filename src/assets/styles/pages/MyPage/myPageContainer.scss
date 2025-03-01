@@ -4,10 +4,14 @@
   display: flex;
   justify-content: center;
 
+  .certificate-info {
+    width: 414px;
+  }
+
   .myPage-container-group {
-    width: calc(100% - 300px);
+    width: 1165px;
     height: 100%;
     display: flex;
-    gap: 20px;
+    gap: 36px;
   }
 }

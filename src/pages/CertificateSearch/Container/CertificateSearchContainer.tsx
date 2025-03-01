@@ -7,12 +7,14 @@ const CertificateSearchContainer = () => {
 
     return (
         <div className="certificate-search-container">
-            <div className="certificate-search-field">
-                <div className="certificate-search-field-title">IT / engineering</div>
+            <div className="certificate-search">
+                <div className="certificate-search__field">
+                    <div className="certificate-search__field-title">IT / engineering</div>
+                </div>
+                <SearchBox/>
+                <CertificateTagView/>
+                <CertificateCardListView/>
             </div>
-            <SearchBox/>
-            <CertificateTagView/>
-            <CertificateCardListView/>
         </div>
     );
 };

@@ -21,30 +21,37 @@
     }
   }
 
-  .mailing-service-tools {
+  .mailing-serviceList {
     display: flex;
-    gap: 16px;
+    flex-direction: column;
+    gap: 24px;
+    padding: 20px;
 
-    &__checkbox {
-      padding: 4px;
+    .mailing-service-tools {
+      display: flex;
+      gap: 16px;
 
-      &__icon {
-        width: 16px;
-        height: 16px;
+      &__checkbox {
+        padding: 4px;
+
+        &__icon {
+          width: 16px;
+          height: 16px;
+        }
+      }
+
+
+      &__trash {
+        width: 24px;
+        height: 24px;
       }
     }
 
-
-    &__trash {
-      width: 24px;
-      height: 24px;
+    .mailing-serviceList-group {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      width: 100%;
     }
-  }
-
-  .mailing-serviceList-group {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    width: 100%;
   }
 }
