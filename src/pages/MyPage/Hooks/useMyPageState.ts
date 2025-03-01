@@ -4,6 +4,9 @@ const useMyPageState = () => {
     // '내 프로필' 메뉴 접기 여부
     const [myProfileVisible, setMyProfileVisible] = useState<boolean>(true);
 
+    // '관심 분야 선택창' ON/OFF 여부
+    const [favoriteFieldVisible, setFavoriteFieldVisible] = useState<boolean>(false);
+
     // '메일링 서비스 리스트' 메뉴 접기 여부
     const [mailingServiceVisible, setMailingServiceVisible] = useState<boolean>(true);
 
@@ -16,6 +19,7 @@ const useMyPageState = () => {
     // 메일링 서비스 일시 중단 Toggle ON/OFF 여부
     const [mailingServiceOn, setMailingServiceOn] = useState<boolean>(false);
 
+
     // 메뉴 선택 시 해당 메뉴로 스크롤 이동
     const scrollToSection = (elementId: string) => {
         document.getElementById(elementId)?.scrollIntoView({
@@ -26,6 +30,11 @@ const useMyPageState = () => {
     // '내 프로필' 메뉴 열기/닫기
     const onVisibleMyProfileClick = () => {
         setMyProfileVisible(!myProfileVisible);
+    };
+
+    // '관심 분야 선택창' 열기/닫기
+    const onVisibleFavoriteFieldClick = () => {
+        setFavoriteFieldVisible(!favoriteFieldVisible);
     };
 
     // '메일링 서비스 리스트' 메뉴 열기/닫기
@@ -50,12 +59,14 @@ const useMyPageState = () => {
 
     return {
         myProfileVisible,
+        favoriteFieldVisible,
         mailingServiceVisible,
         accountManageVisible,
         trashIconSelected,
         mailingServiceOn,
         scrollToSection,
         onVisibleMyProfileClick,
+        onVisibleFavoriteFieldClick,
         onVisibleMailingServiceClick,
         onVisibleAccountManageClick,
         onTrashButtonClick,

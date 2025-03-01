@@ -18,17 +18,17 @@ const Alert = ({
             isOpen={alertVisible}
             onRequestClose={onVisibleAlertClick}
             contentLabel="알림창"
-            className="modal-overlay"
+            className="alert-overlay"
         >
-            <div className="modal-container">
-                <div className="modal-header">
+            <div className="alert-container">
+                <div className="alert-header">
                     <CancelIcon onClick={onVisibleAlertClick}/>
                 </div>
-                <div className="modal-body">
-                    <div className="modal-body__title">{alertTitle}</div>
-                    <div className="modal-body__content">{alertContent}</div>
+                <div className="alert-body">
+                    <div className="alert-body__title">{alertTitle}</div>
+                    <div className="alert-body__content">{alertContent}</div>
                 </div>
-                <div className="modal-footer">
+                <div className="alert-footer">
                     <CancelButton name={alertCancelMessage} clickEvent={onVisibleAlertClick}/>
                     <ConfirmButton name={alertConfirmMessage} clickEvent={onVisibleAlertClick}/>
                 </div>
