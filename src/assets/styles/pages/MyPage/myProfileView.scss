@@ -1,25 +1,30 @@
 .my-profile {
+  width: 912px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   padding: 24px;
   border: 1px solid #E0E0E0;
   border-radius: 8px;
 
   .my-profile-title {
     display: flex;
-    margin-bottom: 24px;
     align-items: center;
 
     &__icon {
       width: 32px;
       height: 32px;
-      margin: 8px 8px 8px 0;
+      margin: 4px 8px 4px 0;
     }
 
     &__text {
-      font-size: 36px;
+      font-size: 32px;
     }
   }
 
-  .my-profile-image {
+  .my-profile-box {
+    width: 864px;
+    height: 318px;
     display: flex;
     gap: 28px;
 
@@ -58,11 +63,37 @@
         flex-direction: column;
         gap: 4px;
 
-        &__input {
-          padding: 4px 8px;
-          outline: none;
+        &__title {
+          font-size: 16px;
+        }
+
+        &__group {
+          width: 534px;
+          height: 40px;
+          display: flex;
+          align-items: center;
           border: 1px solid #E2E2E2;
           border-radius: 4px;
+
+          &__input {
+            width: 469px;
+            height: 24px;
+            margin: 8px;
+            font-size: 16px;
+            outline: none;
+            border: none;
+          }
+
+          &__button {
+            width: 43px;
+            height: 32px;
+            margin: 4px 8px 4px 0;
+            padding: 8px;
+            border: 1px solid black;
+            border-radius: 8px;
+            font-size: 14px;
+            background-color: white;
+          }
         }
       }
 
@@ -71,16 +102,18 @@
         flex-direction: column;
         gap: 4px;
 
+        &__title {
+          font-size: 16px;
+        }
+
         &__button-group {
           display: flex;
-          gap: 75px;
+          gap: 8px;
           margin-top: 4px;
         }
 
-        &__button {
-          padding: 16px;
+        .favorite-field-button {
           border-radius: 16px;
-          background-color: #DCE3F9;
         }
       }
 
@@ -89,14 +122,13 @@
         justify-content: right;
 
         &__button {
-          width: 85px;
-          height: 32px;
-          padding: 4px 16px;
+          width: 62px;
+          height: 29px;
+          padding: 2.5px 16px;
+          font-size: 16px;
           border: none;
-          border-radius: 8px;
-          font-size: 14px;
-          color: white;
-          background-color: black;
+          color: #4F72F3;
+          background-color: white;
         }
 
       }

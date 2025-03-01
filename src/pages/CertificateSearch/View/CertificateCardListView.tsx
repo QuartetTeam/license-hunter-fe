@@ -6,7 +6,7 @@ const CertificateCardListView = () => {
 
     return (
         <div className="certificate-cardList-group">
-            <CertificateCard mockData={certificateCardData}/>
+            <CertificateCard mockData={certificateCardData} requiredCalender={true}/>
         </div>
     );
 };

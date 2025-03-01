@@ -1,5 +1,5 @@
 import '@styles/layout/Header.scss';
-import useCommonState from './CustomHook/useCommonState.ts';
+import useCommonState from './Hooks/useCommonState.ts';
 
 const Header = () => {
     const { onHomeButtonClick, onMyCalenderButtonClick, onLoginButtonClick, onMyPageButtonClick } = useCommonState();
@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <div className="header">
             <div className="header-container">
-                <div className="title" onClick={onHomeButtonClick}>quartet</div>
+                <div className="title" onClick={onHomeButtonClick}>자격저격</div>
                 <div className="header-button-group">
                     <button className="my-calender-button" onClick={onMyCalenderButtonClick}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}

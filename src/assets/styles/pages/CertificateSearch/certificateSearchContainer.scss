@@ -2,14 +2,20 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  align-items: center;
 
-  .certificate-search-field {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  .certificate-search {
+    width: 1000px;
+    margin-bottom: 36px;
 
-    .certificate-search-field-title {
-      width: 80%;
+    &__field {
+      width: 100%;
+      display: flex;
+      justify-content: start;
+      margin-bottom: 36px;
+    }
+
+    &__field-title {
       font-size: 36px;
     }
   }

@@ -1,5 +1,8 @@
 import '@styles/pages/MyPage/myProfileView.scss';
-import useMyPageState from '../CustomHook/useMyPageState.ts';
+import useMyPageState from '../Hooks/useMyPageState.ts';
+import ArrowDown from '@icon/icon-arrow-down.svg?react';
+import ArrowUp from '@icon/icon-arrow-up.svg?react';
+import FieldButton from '../../components/FieldButton.tsx';
 
 const MyProfileView = () => {
     const { myProfileVisible, onVisibleMyProfileClick } = useMyPageState();
@@ -7,49 +10,41 @@ const MyProfileView = () => {
     return (
         <div id="my-profile" className="my-profile">
             <div className="my-profile-title">
-                {myProfileVisible ? (
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                         className="my-profile-title__icon" onClick={onVisibleMyProfileClick}>
-                        <path fillRule="evenodd"
-                              d="M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z"
-                              clipRule="evenodd"/>
-                    </svg>
-                ) : (
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                         className="my-profile-title__icon" onClick={onVisibleMyProfileClick}>
-                        <path fillRule="evenodd"
-                              d="M11.47 7.72a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 1 1-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 0 1-1.06-1.06l7.5-7.5Z"
-                              clipRule="evenodd"/>
-                    </svg>
-
-                )}
+                {myProfileVisible ? <ArrowDown className="my-profile-title__icon" onClick={onVisibleMyProfileClick}/> :
+                    <ArrowUp className="my-profile-title__icon" onClick={onVisibleMyProfileClick}/>}
                 <div className="my-profile-title__text">내 프로필</div>
             </div>
             {myProfileVisible && (
-                <div className="my-profile-image">
+                <div className="my-profile-box">
                     <div className="my-profile-image-box">
                         <div className="my-profile-image-box__image"></div>
                         <button className="my-profile-image-box__button">사진 변경</button>
                     </div>
                     <div className="my-profile-info">
                         <div className="my-profile-info-box">
-                            <div className="my-profile-info-box__title">선호하는 이름</div>
-                            <input className="my-profile-info-box__input"/>
+                            <div className="my-profile-info-box__title">사용자 이름</div>
+                            <div className="my-profile-info-box__group">
+                                <input className="my-profile-info-box__group__input"/>
+                                <button className="my-profile-info-box__group__button">저장</button>
+                            </div>
                         </div>
                         <div className="my-profile-info-box">
-                            <div className="my-profile-info-box__title">사용자 이름</div>
-                            <input className="my-profile-info-box__input"/>
+                            <div className="my-profile-info-box__title">이메일</div>
+                            <div className="my-profile-info-box__group">
+                                <input className="my-profile-info-box__group__input"/>
+                                <button className="my-profile-info-box__group__button">저장</button>
+                            </div>
                         </div>
                         <div className="my-profile-interest-field">
-                            <div>관심 분야 최대 3개 선택해주세요</div>
+                            <div className="my-profile-interest-field__title">관심 분야 (Max 3 선택해 주세요)</div>
                             <div className="my-profile-interest-field__button-group">
-                                <div className="my-profile-interest-field__button">비지니스</div>
-                                <div className="my-profile-interest-field__button">IT·엔지니어링</div>
-                                <div className="my-profile-interest-field__button">GenAI</div>
+                                <FieldButton fieldName="보건·의료"/>
+                                <FieldButton fieldName="경영·회계·사무"/>
+                                <FieldButton fieldName="문화·예술·디자인·방송"/>
                             </div>
                         </div>
                         <div className="my-profile-interest-save">
-                            <button className="my-profile-interest-save__button">Save</button>
+                            <button className="my-profile-interest-save__button">수정</button>
                         </div>
                     </div>
                 </div>
