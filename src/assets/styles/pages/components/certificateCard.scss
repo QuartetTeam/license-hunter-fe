@@ -1,13 +1,13 @@
-.recommend-certificate-info {
+.certificate-info {
   width: 486px;
   height: 150px;
   display: flex;
   gap: 15px;
-  padding: 16px 8px;
+  padding: 17px 11px;
   border: 1px solid #CAC4D0;
   border-radius: 16px;
 
-  .recommend-certificate-checkbox {
+  .certificate-info-checkbox {
     padding: 4px;
 
     &__icon {
@@ -16,26 +16,26 @@
     }
   }
 
-  .recommend-certificate-info-box {
+  .certificate-info-box {
     width: 100%;
     height: 100%;
     display: flex;
     gap: 15px;
     cursor: pointer;
 
-    .recommend-certificate-image {
+    &__image {
       width: 127px;
       height: 116px;
       background-color: #E0E0E0;
     }
 
-    .recommend-certificate-text {
+    &__text {
       width: 223.96px;
       display: flex;
       flex-direction: column;
       gap: 16px;
 
-      .recommend-certificate-name {
+      &__name {
         margin-bottom: 16px;
         font-size: 20px;
         color: #5C78E0;
@@ -43,7 +43,7 @@
       }
     }
 
-    .recommend-certificate-calender {
+    .certificate-info-calender {
       height: 24px;
       display: flex;
       gap: 1.48px;
@@ -61,6 +61,5 @@
     }
 
   }
-
 
 }
