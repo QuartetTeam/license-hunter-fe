@@ -2,16 +2,8 @@ import Modal from 'react-modal';
 import ConfirmButton from './ConfirmButton.tsx';
 import CancelButton from './CancelButton.tsx';
 import CancelIcon from '@icon/icon-button-cancel.svg?react';
+import IAlertProps from './types/alertTypes.ts';
 import '@styles/pages/components/alert.scss';
-
-interface IAlertProps {
-    alertVisible: boolean;
-    onVisibleAlertClick: () => void;
-    alertTitle: string;
-    alertContent: string;
-    alertConfirmMessage: string;
-    alertCancelMessage: string;
-}
 
 const Alert = ({
                    alertVisible,
