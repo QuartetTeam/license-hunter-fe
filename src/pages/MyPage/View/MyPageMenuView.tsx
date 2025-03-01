@@ -1,5 +1,5 @@
 import '@styles/pages/MyPage/myPageMenuView.scss';
-import useMyPageState from '../CustomHook/useMyPageState.ts';
+import useMyPageState from '../Hooks/useMyPageState.ts';
 
 const MyPageMenuView = () => {
     const { scrollToSection } = useMyPageState();

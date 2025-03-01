@@ -1,35 +1,37 @@
 import '@styles/pages/MyPage/accountManageView.scss';
-import useMyPageState from '../CustomHook/useMyPageState.ts';
+import useMyPageState from '../Hooks/useMyPageState.ts';
+import ArrowDown from '@icon/icon-arrow-down.svg?react';
+import ArrowUp from '@icon/icon-arrow-up.svg?react';
+import ToggleON from '@icon/icon-toggle-on.svg?react';
+import ToggleOFF from '@icon/icon-toggle-off.svg?react';
 
 const AccountManageView = () => {
-    const { accountManageVisible, onVisibleAccountManageClick } = useMyPageState();
+    const {
+        accountManageVisible,
+        onVisibleAccountManageClick,
+        mailingServiceOn,
+        onMailingServiceClick
+    } = useMyPageState();
 
     return (
         <div id="account-manage" className="account-manage">
             <div className="account-manage-title">
-                {accountManageVisible ? (
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                         className="account-manage-title__icon" onClick={onVisibleAccountManageClick}>
-                        <path fillRule="evenodd"
-                              d="M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z"
-                              clipRule="evenodd"/>
-                    </svg>
-                ) : (
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                         className="account-manage-title__icon" onClick={onVisibleAccountManageClick}>
-                        <path fillRule="evenodd"
-                              d="M11.47 7.72a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 1 1-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 0 1-1.06-1.06l7.5-7.5Z"
-                              clipRule="evenodd"/>
-                    </svg>
-
-                )}
+                {accountManageVisible ?
+                    <ArrowDown className="account-manage-title__icon" onClick={onVisibleAccountManageClick}/> :
+                    <ArrowUp className="account-manage-title__icon" onClick={onVisibleAccountManageClick}/>}
                 <div className="account-manage-title__text">계정 관리</div>
             </div>
             {accountManageVisible && (
                 <div className="account-manage-box">
                     <div className="mailing-service-interruption">
                         <div className="mailing-service-interruption__text">메일링 서비스 일시 중단</div>
-                        <div>ON</div>
+                        <div>
+                            {mailingServiceOn ? (
+                                <div className="mailing-service-interruption__toggle">ON
+                                    <ToggleON onClick={onMailingServiceClick}/></div>) : (
+                                <div className="mailing-service-interruption__toggle">OFF
+                                    <ToggleOFF onClick={onMailingServiceClick}/></div>)}
+                        </div>
                     </div>
                     <div className="delete-account">
                         <div className="delete-account__text">

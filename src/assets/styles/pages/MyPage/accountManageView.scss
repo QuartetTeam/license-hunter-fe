@@ -13,11 +13,11 @@
     &__icon {
       width: 32px;
       height: 32px;
-      margin: 8px 8px 8px 0;
+      margin: 4px 8px 4px 0;
     }
 
     &__text {
-      font-size: 36px;
+      font-size: 32px;
     }
   }
 
@@ -30,9 +30,15 @@
       width: 540px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
 
       &__text {
         color: #595D62;
+      }
+
+      &__toggle {
+        display: flex;
+        align-items: center;
       }
 
     }
