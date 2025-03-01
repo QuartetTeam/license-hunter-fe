@@ -1,6 +1,5 @@
 import '@styles/pages/components/certificateCard.scss';
 import { useNavigate } from 'react-router-dom';
-import { FC } from 'react';
 // import CheckboxChecked from '@icon/icon-checkbox-check.svg?react';
 import CheckboxEmpty from '@icon/icon-checkbox-empty.svg?react';
 
@@ -18,11 +17,11 @@ interface ICertificateCardProps {
     requiredCalender?: boolean;
 }
 
-const CertificateCard: FC<ICertificateCardProps> = ({
-                                                        mockData = [],
-                                                        trashIconSelected = false,
-                                                        requiredCalender = false
-                                                    }) => {
+const CertificateCard = ({
+                             mockData = [],
+                             trashIconSelected = false,
+                             requiredCalender = false
+                         }: ICertificateCardProps) => {
     const navigate = useNavigate();
 
     const onCertificateCardClick = () => {

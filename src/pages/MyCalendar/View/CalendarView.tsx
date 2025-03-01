@@ -1,8 +1,14 @@
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
+// import useGetCalenderQuery from '@api/calender/useCalenderQueries.ts';
 import '@styles/pages/MyCalender/CalenderView.scss';
+import useGetCalenderQuery from '../../../API/queries/calender/useCalenderQueries.ts';
 
-const CalenderView = () => {
+const CalendarView = () => {
+    const { data: getCalenderData } = useGetCalenderQuery();
+    console.log('getCalenderData: ', getCalenderData);
+
+
     return (
         <div className="my-calender">
             <FullCalendar
@@ -22,4 +28,4 @@ const CalenderView = () => {
     );
 };
 
-export default CalenderView;
+export default CalendarView;
