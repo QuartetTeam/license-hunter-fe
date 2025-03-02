@@ -1,1 +1,0 @@
-import{r as t}from"./index-BofL8h0e.js";const r=e=>t.createElement("svg",{width:25,height:24,viewBox:"0 0 25 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...e},t.createElement("path",{d:"M7.5 17L17.5 7M7.5 7L17.5 17",stroke:"#444444",strokeWidth:1.5,strokeLinecap:"round"}));export{r as S};
