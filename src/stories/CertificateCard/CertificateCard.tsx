@@ -1,20 +1,31 @@
-import { useNavigate } from 'react-router-dom';
 // import CheckboxChecked from '@icon/icon-checkbox-check.svg?react';
 import CheckboxEmpty from '@icon/icon-checkbox-empty.svg?react';
-import ICertificateCardProps from './types/certificateCardTypes.ts';
 import '@styles/pages/components/certificateCard.scss';
 
+
+interface ICertificateData {
+    /** Mock Data Type*/
+    certificateName: string;
+    receiptDate: string;
+    testDate: string;
+    calenderCount: number;
+}
+
+interface ICertificateCardProps {
+    /** Mock Data */
+    mockData: ICertificateData[];
+    /** Clicked Trash Icon */
+    trashIconSelected?: boolean;
+    /** Calender Icon ON/OFF */
+    requiredCalender?: boolean;
+}
+
+/** Certificate Card Component for Recommend Certificate and Certificate Search */
 const CertificateCard = ({
                              mockData = [],
                              trashIconSelected = false,
                              requiredCalender = false
                          }: ICertificateCardProps) => {
-    const navigate = useNavigate();
-
-    const onCertificateCardClick = () => {
-        window.scrollTo(0, 0);
-        navigate('/certificateDetail');
-    };
 
     return (
         <>
@@ -26,7 +37,7 @@ const CertificateCard = ({
                             {/*<CheckboxChecked/>*/}
                         </div>
                     }
-                    <div className="certificate-info-box" onClick={onCertificateCardClick}>
+                    <div className="certificate-info-box">
                         <div className="certificate-info-box__image"></div>
                         <div className="certificate-info-box__text">
                             <div className="certificate-info-box__text__name">{item.certificateName}</div>
