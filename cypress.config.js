@@ -1,9 +1,11 @@
-export default {
-  projectId: "53s32p",
+import {defineConfig} from "vite";
 
-  e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
-  },
-};
+export default defineConfig({
+    projectId: "53s32p",
+    e2e: {
+        baseUrl: "http://localhost:5173/",
+        viewportWidth: 1440,
+        viewportHeight: 720,
+    }
+});
+
