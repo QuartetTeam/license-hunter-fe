@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const useCertificateDetailState = () => {
+const useCertDetailState = () => {
     // 메일링 서비스 알림창 ON/OFF 여부
     const [mailingAlertVisible, setMailingAlertVisible] = useState<boolean>(false);
 
@@ -25,4 +25,4 @@ const useCertificateDetailState = () => {
     };
 };
 
-export default useCertificateDetailState;
+export default useCertDetailState;

@@ -1,18 +1,22 @@
 import Alert from '../../components/Alert.tsx';
 import { calenderAlertMessage, cancelButtonMessage, confirmButtonMessage, mailingAlertMessage } from '../Messages';
-import CertificateSchedule from './CertificateDetailInfo/CertificateSchedule.tsx';
-import CertificateQualifications from './CertificateDetailInfo/CertificateQualifications.tsx';
-import CertificateContent from './CertificateDetailInfo/CertificateContent.tsx';
-import useCertificateDetailState from '../Hooks/useCertificateDetailState.ts';
+import CertSchedule from './CertDetailInfo/CertSchedule.tsx';
+import CertQualifications from './CertDetailInfo/CertQualifications.tsx';
+import CertContent from './CertDetailInfo/CertContent.tsx';
+import useCertDetailState from '../useCertDetailState.ts';
+import useCertDetailService from '../useCertDetailService.ts';
 import '@styles/pages/CertificateDetail/certificateDetailView.scss';
 
-const CertificateDetailView = () => {
+
+const CertDetailView = () => {
     const {
         mailingAlertVisible,
         calenderAlertVisible,
         onVisibleMailingAlertClick,
         onVisibleCalenderAlertClick
-    } = useCertificateDetailState();
+    } = useCertDetailState();
+
+    const { addMailingsService } = useCertDetailService();
 
     return (
         <>
@@ -36,14 +40,14 @@ const CertificateDetailView = () => {
                                 </button>
                             </div>
                         </div>
-                        <CertificateSchedule/>
-                        <CertificateContent/>
-                        <CertificateQualifications/>
+                        <CertSchedule/>
+                        <CertContent/>
+                        <CertQualifications/>
                     </div>
                     <Alert alertTitle={mailingAlertMessage.title} alertContent={mailingAlertMessage.content}
                            alertVisible={mailingAlertVisible} onVisibleAlertClick={onVisibleMailingAlertClick}
                            alertConfirmMessage={confirmButtonMessage.subscribe}
-                           alertCancelMessage={cancelButtonMessage.think}/>
+                           alertCancelMessage={cancelButtonMessage.think} addMailingService={addMailingsService}/>
                     <Alert alertTitle={calenderAlertMessage.title} alertContent={calenderAlertMessage.content}
                            alertVisible={calenderAlertVisible} onVisibleAlertClick={onVisibleCalenderAlertClick}
                            alertConfirmMessage={confirmButtonMessage.add}
@@ -54,4 +58,4 @@ const CertificateDetailView = () => {
     );
 };
 
-export default CertificateDetailView;
+export default CertDetailView;

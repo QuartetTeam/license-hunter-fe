@@ -1,6 +1,4 @@
 interface ICalendarResponseType {
-    code: string;
-    message: string;
     data: string[];
 }
 

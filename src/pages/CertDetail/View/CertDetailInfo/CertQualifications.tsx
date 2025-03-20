@@ -1,7 +1,7 @@
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
 import '@styles/pages/CertificateDetail/certificateQualifications.scss';
 
-const CertificateQualifications = () => {
+const CertQualifications = () => {
     return (
         <div className="certificate-detail-box">
             <div className="certification-title">
@@ -49,4 +49,4 @@ const CertificateQualifications = () => {
     );
 };
 
-export default CertificateQualifications;
+export default CertQualifications;
