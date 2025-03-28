@@ -1,9 +1,9 @@
 import CertDetailView from './View/CertDetailView.tsx';
-import useCertDetailService from './useCertDetailService.ts';
+import useCertService from '../../features/Certification/useCertService.ts';
 
 const CertContainer = () => {
 
-    const { getCertDetailData } = useCertDetailService();
+    const { getCertDetailData } = useCertService();
     console.log('getCertDetailData: ', getCertDetailData);
 
     return (

@@ -1,3 +1,3 @@
-import LoginContainer from './Container/LoginContainer.tsx';
+import LoginContainer from './LoginContainer.tsx';
 
 export default LoginContainer;

@@ -1,4 +1,4 @@
-import Alert from '../../components/Alert.tsx';
+import Alert from '../../../components/Alert.tsx';
 import {
     calenderAlertMessage,
     cancelButtonMessage,
@@ -9,8 +9,8 @@ import CertSchedule from './CertDetailInfo/CertSchedule.tsx';
 import CertQualifications from './CertDetailInfo/CertQualifications.tsx';
 import CertContent from './CertDetailInfo/CertContent.tsx';
 import useCertDetailState from '../useCertDetailState.ts';
-import useCertDetailService from '../useCertDetailService.ts';
 import '@styles/pages/CertificateDetail/certificateDetailView.scss';
+import useMailingService from '../../../features/MailingService/useMailingService.ts';
 
 
 const CertDetailView = () => {
@@ -21,7 +21,7 @@ const CertDetailView = () => {
         onVisibleCalenderAlertClick
     } = useCertDetailState();
 
-    const { addMailingsService } = useCertDetailService();
+    const { addMailingsService } = useMailingService();
 
     return (
         <>

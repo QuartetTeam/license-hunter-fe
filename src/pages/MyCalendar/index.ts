@@ -1,3 +1,3 @@
-import MyCalendarContainer from './Container/MyCalendarContainer.tsx';
+import MyCalendarContainer from './MyCalendarContainer.tsx';
 
 export default MyCalendarContainer;

@@ -1,5 +1,5 @@
-import QuartetView from '../View/QuartetView.tsx';
-import SocialLoginView from '../View/SocialLoginView.tsx';
+import QuartetView from './View/QuartetView.tsx';
+import SocialLoginView from './View/SocialLoginView.tsx';
 import '@styles/pages/Login/loginContainer.scss';
 
 const LoginContainer = () => {

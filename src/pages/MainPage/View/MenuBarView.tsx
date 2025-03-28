@@ -1,10 +1,10 @@
-import useMainPageService from '../useMainPageService.ts';
+import useCertService from '../../../features/Certification/useCertService.ts';
 import '@styles/pages/MainPage/menuBarView.scss';
-import FieldButton from '../../components/FieldButton.tsx';
+import FieldButton from '../../../components/FieldButton.tsx';
 
 const MenuBarView = () => {
 
-    const { getCertCategoryData } = useMainPageService();
+    const { getCertCategoryData } = useCertService();
     console.log('getCertCategoryData: ', getCertCategoryData);
 
     return (

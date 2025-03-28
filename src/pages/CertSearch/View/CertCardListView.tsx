@@ -1,11 +1,11 @@
-import useCertSearchService from '../useCertSearchService.ts';
-import CertificateCard from '../../components/CertificateCard.tsx';
+import useCertService from '../../../features/Certification/useCertService.ts';
+import CertificateCard from '../../../components/CertificateCard.tsx';
 import '@styles/pages/CertificateSearch/certificateCardListView.scss';
-import certCardData from '../MockData/certCardData.ts';
+import certCardData from '../../../mocks/certification/certCardData.ts';
 
 const CertCardListView = () => {
 
-    const { getCertData } = useCertSearchService();
+    const { getCertData } = useCertService();
     console.log('getCertData: ', getCertData);
 
     return (

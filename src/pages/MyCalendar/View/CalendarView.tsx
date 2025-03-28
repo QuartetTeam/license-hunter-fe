@@ -1,10 +1,14 @@
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import useCalendarService from '../useCalendarService.ts';
+import useCalendarService from '../../../features/MyCalendar/useCalendarService.ts';
 import '@styles/pages/MyCalender/CalenderView.scss';
 
 const CalendarView = () => {
-    const { getCalendarData, addCalendarService, deleteCalendarService } = useCalendarService();
+    const {
+        getCalendarData,
+        addCalendarService,
+        deleteCalendarService
+    } = useCalendarService();
     console.log('getCalendar: ', getCalendarData);
     console.log('addCalendarService: ', addCalendarService);
     console.log('deleteCalendarService: ', deleteCalendarService);

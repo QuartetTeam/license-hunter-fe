@@ -4,6 +4,7 @@ import {
     usePostCalendarMutation
 } from './queries/useCalendarQuery.ts';
 import {
+    useGetCategoryQuery,
     useGetCertDetailQuery,
     useGetCertQuery,
     useGetCertRecommendQuery
@@ -15,5 +16,10 @@ import {
 } from './queries/useMailingsQuery.ts';
 
 export { useGetCalendarQuery, usePostCalendarMutation, useDeleteCalendarMutation };
-export { useGetCertQuery, useGetCertRecommendQuery, useGetCertDetailQuery };
+export {
+    useGetCertQuery,
+    useGetCertRecommendQuery,
+    useGetCategoryQuery,
+    useGetCertDetailQuery
+};
 export { useGetMailingsQuery, usePostMailingsMutation, useDeleteMailingsMutation };

@@ -1,3 +1,3 @@
-import MyPageContainer from './Container/MyPageContainer.tsx';
+import MyPageContainer from './MyPageContainer.tsx';
 
 export default MyPageContainer;

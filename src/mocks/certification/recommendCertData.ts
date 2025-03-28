@@ -1,4 +1,4 @@
-const recommendCertificateCardData =
+const recommendCertData =
     [
         {
             'certificateName': '정보처리기사',
@@ -14,4 +14,4 @@ const recommendCertificateCardData =
         }
     ];
 
-export default recommendCertificateCardData;
+export default recommendCertData;
