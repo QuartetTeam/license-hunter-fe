@@ -10,4 +10,11 @@ const calendarQueryKey = {
     delete: 'deleteCalendarData'
 };
 
-export { mailingQueryKey, calendarQueryKey };
+const certQueryKey = {
+    get: 'getCertData',
+    getDetail: 'getCertDetailData',
+    getRecommend: 'getCertRecommendData',
+    getCategory: 'getCertCategoryData'
+};
+
+export { mailingQueryKey, calendarQueryKey, certQueryKey };

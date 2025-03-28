@@ -1,4 +1,4 @@
-const certificateCardData =
+const certCardData =
     [
         {
             'certificateName': '정보처리기사',
@@ -314,4 +314,4 @@ const certificateCardData =
         }
     ];
 
-export default certificateCardData;
+export default certCardData;

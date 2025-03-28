@@ -1,9 +1,9 @@
 import SearchBox from '../../components/SearchBox.tsx';
-import CertificateCardListView from '../View/CertificateCardListView.tsx';
-import CertificateTagView from '../View/CertificateTagView.tsx';
+import CertCardListView from '../View/CertCardListView.tsx';
+import CertTagView from '../View/CertTagView.tsx';
 import '@styles/pages/CertificateSearch/certificateSearchContainer.scss';
 
-const CertificateSearchContainer = () => {
+const CertSearchContainer = () => {
 
     return (
         <div className="certificate-search-container">
@@ -12,11 +12,11 @@ const CertificateSearchContainer = () => {
                     <div className="certificate-search__field-title">IT / engineering</div>
                 </div>
                 <SearchBox/>
-                <CertificateTagView/>
-                <CertificateCardListView/>
+                <CertTagView/>
+                <CertCardListView/>
             </div>
         </div>
     );
 };
 
-export default CertificateSearchContainer;
+export default CertSearchContainer;

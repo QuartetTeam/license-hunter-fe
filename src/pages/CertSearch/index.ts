@@ -1,3 +1,3 @@
-import CertificateSearchContainer from './Container/CertificateSearchContainer.tsx';
+import CertSearchContainer from './Container/CertSearchContainer.tsx';
 
-export default CertificateSearchContainer;
+export default CertSearchContainer;

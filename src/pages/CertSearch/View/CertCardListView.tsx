@@ -1,14 +1,18 @@
+import useCertSearchService from '../useCertSearchService.ts';
 import CertificateCard from '../../components/CertificateCard.tsx';
 import '@styles/pages/CertificateSearch/certificateCardListView.scss';
-import certificateCardData from '../MockData/certificateCardData.ts';
+import certCardData from '../MockData/certCardData.ts';
 
-const CertificateCardListView = () => {
+const CertCardListView = () => {
+
+    const { getCertData } = useCertSearchService();
+    console.log('getCertData: ', getCertData);
 
     return (
         <div className="certificate-cardList-group">
-            <CertificateCard mockData={certificateCardData} requiredCalender={true}/>
+            <CertificateCard mockData={certCardData} requiredCalender={true}/>
         </div>
     );
 };
 
-export default CertificateCardListView;
+export default CertCardListView;

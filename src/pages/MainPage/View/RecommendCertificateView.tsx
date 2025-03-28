@@ -1,8 +1,13 @@
-import '@styles/pages/MainPage/recommendCertificateView.scss';
-import CertificateCard from '../../components/CertificateCard.tsx';
+import useMainPageService from '../useMainPageService.ts';
 import recommendCertificateCardData from '../MockData/recommendCertificateCardData.ts';
+import CertificateCard from '../../components/CertificateCard.tsx';
+import '@styles/pages/MainPage/recommendCertificateView.scss';
 
 const RecommendCertificateView = () => {
+
+    const { getCertCategoryData } = useMainPageService();
+    console.log('getCertCategoryData: ', getCertCategoryData);
+
     return (
         <>
             <div className="recommend-certificate-view">

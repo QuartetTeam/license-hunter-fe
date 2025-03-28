@@ -1,7 +1,12 @@
+import useMainPageService from '../useMainPageService.ts';
 import '@styles/pages/MainPage/menuBarView.scss';
 import FieldButton from '../../components/FieldButton.tsx';
 
 const MenuBarView = () => {
+
+    const { getCertCategoryData } = useMainPageService();
+    console.log('getCertCategoryData: ', getCertCategoryData);
+
     return (
         <div className="menuBar-view">
             <div className="menuBar">

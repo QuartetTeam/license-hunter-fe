@@ -7,8 +7,7 @@ export default defineConfig({
     resolve: {
         alias: {
             '@styles': '/src/assets/styles',
-            '@icon': '/src/assets/icons',
-            '@api': '/src/API/queries'
+            '@icon': '/src/assets/icons'
         }
     },
     server: {

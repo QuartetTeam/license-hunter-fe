@@ -1,5 +1,10 @@
 import Alert from '../../components/Alert.tsx';
-import { calenderAlertMessage, cancelButtonMessage, confirmButtonMessage, mailingAlertMessage } from '../Messages';
+import {
+    calenderAlertMessage,
+    cancelButtonMessage,
+    confirmButtonMessage,
+    mailingAlertMessage
+} from '../Messages';
 import CertSchedule from './CertDetailInfo/CertSchedule.tsx';
 import CertQualifications from './CertDetailInfo/CertQualifications.tsx';
 import CertContent from './CertDetailInfo/CertContent.tsx';
@@ -34,9 +39,11 @@ const CertDetailView = () => {
                             </div>
                             <div className="certificate-button-group">
                                 <button className="certificate-button">접수 바로가기</button>
-                                <button className="certificate-button" onClick={onVisibleMailingAlertClick}>메일링 서비스
+                                <button className="certificate-button"
+                                        onClick={onVisibleMailingAlertClick}>메일링 서비스
                                 </button>
-                                <button className="certificate-button" onClick={onVisibleCalenderAlertClick}>캘린더 추가하기
+                                <button className="certificate-button"
+                                        onClick={onVisibleCalenderAlertClick}>캘린더 추가하기
                                 </button>
                             </div>
                         </div>
@@ -44,12 +51,17 @@ const CertDetailView = () => {
                         <CertContent/>
                         <CertQualifications/>
                     </div>
-                    <Alert alertTitle={mailingAlertMessage.title} alertContent={mailingAlertMessage.content}
-                           alertVisible={mailingAlertVisible} onVisibleAlertClick={onVisibleMailingAlertClick}
+                    <Alert alertTitle={mailingAlertMessage.title}
+                           alertContent={mailingAlertMessage.content}
+                           alertVisible={mailingAlertVisible}
+                           onVisibleAlertClick={onVisibleMailingAlertClick}
                            alertConfirmMessage={confirmButtonMessage.subscribe}
-                           alertCancelMessage={cancelButtonMessage.think} addMailingService={addMailingsService}/>
-                    <Alert alertTitle={calenderAlertMessage.title} alertContent={calenderAlertMessage.content}
-                           alertVisible={calenderAlertVisible} onVisibleAlertClick={onVisibleCalenderAlertClick}
+                           alertCancelMessage={cancelButtonMessage.think}
+                           addMailingsService={addMailingsService}/>
+                    <Alert alertTitle={calenderAlertMessage.title}
+                           alertContent={calenderAlertMessage.content}
+                           alertVisible={calenderAlertVisible}
+                           onVisibleAlertClick={onVisibleCalenderAlertClick}
                            alertConfirmMessage={confirmButtonMessage.add}
                            alertCancelMessage={cancelButtonMessage.think}/>
                 </div>

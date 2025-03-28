@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './home.tsx';
 import {
     CertContainer,
-    CertificateSearchContainer,
+    CertSearchContainer,
     LoginContainer,
     MainPageContainer,
     MyCalendarContainer,
@@ -18,7 +18,7 @@ const AppRouter = () => {
                     <Route path="/certificateDetail" element={<CertContainer/>}/>
                     <Route path="/login" element={<LoginContainer/>}/>
                     <Route path="/myCalender" element={<MyCalendarContainer/>}/>
-                    <Route path="/certificateSearch" element={<CertificateSearchContainer/>}/>
+                    <Route path="/certificateSearch" element={<CertSearchContainer/>}/>
                     <Route path="/myPage" element={<MyPageContainer/>}/>
                 </Route>
             </Routes>

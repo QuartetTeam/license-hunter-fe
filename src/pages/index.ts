@@ -5,7 +5,7 @@ import MainPageContainer from './MainPage';
 import CertContainer from './CertDetail';
 import LoginContainer from './Login';
 import MyCalendarContainer from './MyCalendar';
-import CertificateSearchContainer from './CertificateSearch';
+import CertSearchContainer from './CertSearch';
 import MyPageContainer from './MyPage';
 
 export {
@@ -16,6 +16,6 @@ export {
     CertContainer,
     LoginContainer,
     MyCalendarContainer,
-    CertificateSearchContainer,
+    CertSearchContainer,
     MyPageContainer
 };

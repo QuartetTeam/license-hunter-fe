@@ -5,6 +5,7 @@ interface IAlertProps {
     alertContent: string;
     alertConfirmMessage: string;
     alertCancelMessage: string;
+    addMailingsService?: () => void;
 }
 
 export default IAlertProps;

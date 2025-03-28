@@ -11,7 +11,8 @@ const Alert = ({
                    alertTitle,
                    alertContent,
                    alertConfirmMessage,
-                   alertCancelMessage
+                   alertCancelMessage,
+                   addMailingsService
                }: IAlertProps) => {
     return (
         <Modal
@@ -29,8 +30,14 @@ const Alert = ({
                     <div className="alert-body__content">{alertContent}</div>
                 </div>
                 <div className="alert-footer">
-                    <CancelButton name={alertCancelMessage} clickEvent={onVisibleAlertClick}/>
-                    <ConfirmButton name={alertConfirmMessage} clickEvent={onVisibleAlertClick}/>
+                    <CancelButton name={alertCancelMessage}
+                                  clickEvent={onVisibleAlertClick}/>
+                    <ConfirmButton name={alertConfirmMessage} clickEvent={() => {
+                        onVisibleAlertClick();
+                        if (addMailingsService) {
+                            addMailingsService();
+                        }
+                    }}/>
                 </div>
             </div>
         </Modal>

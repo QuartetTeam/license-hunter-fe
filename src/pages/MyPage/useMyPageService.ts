@@ -1,4 +1,4 @@
-import { useDeleteMailingsMutation, useGetMailingsQuery } from '../../API/queries/useMailingsQuery.ts';
+import { useDeleteMailingsMutation, useGetMailingsQuery } from '../../api/queries/useMailingsQuery.ts';
 
 const useMyPageService = () => {
 

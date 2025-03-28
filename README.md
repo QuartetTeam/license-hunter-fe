@@ -17,6 +17,12 @@
 
 ```
 /src
+├── API
+│ ├── common // API 호출을 위한 공통 폴더
+│ │ ├── API.ts // API 호출 (axios)
+│ │ ├── endpoints.ts // API endpoint 관리
+│ │ └── queryKeys.ts // React Query key 관리
+│ └── queries // React Query
 ├── assets
 │ ├── fonts // 폰트
 │ ├── images // 로고 이미지
@@ -27,19 +33,27 @@
 │ ├── store // Recoil store, 전역 상태 관리
 ├── pages
 │ ├── common // 공통 컴포넌트
-│ ├── license // 자격증 페이지
+│ ├── CertDetail // 자격증 상세 페이지
+│ ├── CertSearch // 자격증 검색 페이지
+│ ├── Login // 로그인 페이지
+│ ├── MainPage // 메인 페이지
+│ ├── MyCalendar // 내 캘린더
+│ ├── MyPage // 마이페이지
 │ └── index.ts // 프로젝트 진입점
 ├── App.tsx // axios 인터셉터, 토큰 관리
 ├── vite.config.ts // 백엔드 프록시 설정
 └── main.tsx  // 애플리케이션 최초 실행 모듈
 ```
 
-### 4. 컴포넌트 폴더 구조
+### 4. 페이지별 폴더 구조
 
-- Api: API 호출 로직을 관리하는 폴더
-- Container: 페이지 컨테이너를 관리하는 폴더
-- Store: 상태관리 및 핸들러 함수를 관리하는 폴더
-- View: 해당 페이지에서 사용할 컴포넌트를 관리하는 폴더
+```
+├── ... // 페이지명 폴더
+│ ├── View // 해당 페이지에서 사용할 컴포넌트를 관리하는 폴더
+│ ├── ...Service // 페이지에서 사용할 API 호출 데이터를 가져오거나 데이터를 가공하는 파일
+│ ├── use...State // 페이지에서 사용할 상태 관리를 모아놓은 파일
+│ ├── ...Container // 페이지 컨테이너를 관리하는 폴더
+```
 
 ### 5. 프로젝트 실행
 

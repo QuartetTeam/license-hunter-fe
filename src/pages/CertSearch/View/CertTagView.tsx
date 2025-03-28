@@ -1,6 +1,6 @@
 import '@styles/pages/CertificateSearch/certificateTagView.scss';
 
-const CertificateTagView = () => {
+const CertTagView = () => {
     return (
         <div className="certificate-tag-view">
             <div className="certificate-tag-group">
@@ -25,4 +25,4 @@ const CertificateTagView = () => {
     );
 };
 
-export default CertificateTagView;
+export default CertTagView;
