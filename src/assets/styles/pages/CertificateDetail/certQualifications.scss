@@ -1,6 +1,6 @@
-@import '../../../styles/index.scss';
+@use '../../../styles/index.scss' as *;
 
-.qualifications-table {
+.qual-table {
   border-collapse: collapse;
   border: 1px solid #E2E2E2;
 

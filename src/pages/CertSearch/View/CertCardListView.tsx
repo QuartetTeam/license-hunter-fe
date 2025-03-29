@@ -1,7 +1,7 @@
 import useCertService from '../../../features/Certification/useCertService.ts';
 import CertificateCard from '../../../components/CertificateCard.tsx';
-import '@styles/pages/CertificateSearch/certificateCardListView.scss';
 import certCardData from '../../../mocks/certification/certCardData.ts';
+import '@styles/pages/CertificateSearch/certCardListView.scss';
 
 const CertCardListView = () => {
 
@@ -9,7 +9,7 @@ const CertCardListView = () => {
     console.log('getCertData: ', getCertData);
 
     return (
-        <div className="certificate-cardList-group">
+        <div className="cert-cardList-group">
             <CertificateCard mockData={certCardData} requiredCalender={true}/>
         </div>
     );

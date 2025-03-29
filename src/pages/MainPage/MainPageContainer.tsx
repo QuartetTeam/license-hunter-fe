@@ -1,5 +1,5 @@
 import MenuBarView from './View/MenuBarView.tsx';
-import RecommendCertificateView from './View/RecommendCertificateView.tsx';
+import RecommendCertView from './View/RecommendCertView.tsx';
 import SearchBox from '../../components/SearchBox.tsx';
 
 const MainPageContainer = () => {
@@ -7,7 +7,7 @@ const MainPageContainer = () => {
         <>
             <SearchBox/>
             <MenuBarView/>
-            <RecommendCertificateView/>
+            <RecommendCertView/>
         </>
     );
 };

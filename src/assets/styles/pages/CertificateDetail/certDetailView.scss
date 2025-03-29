@@ -1,11 +1,11 @@
-@import '../../../styles/index.scss';
+@use '../../../styles/index.scss' as *;
 
-.certificate-detail-view {
+.cert-detail-view {
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  .certificate-detail {
+  .cert-detail {
     width: 986px;
 
     &-title {
@@ -23,7 +23,7 @@
       padding: 24px;
       border: 1px solid #DDDDDD;
 
-      .certificate-preview {
+      .cert-preview {
         display: flex;
         flex-direction: column;
         gap: 36px;
@@ -46,11 +46,11 @@
           }
         }
 
-        .certificate-button-group {
+        .cert-btn-group {
           display: flex;
           gap: 15px;
 
-          .certificate-button {
+          .cert-btn {
             padding: 12.5px 16px;
             border: none;
             border-radius: 16px;
@@ -65,14 +65,14 @@
   }
 }
 
-.certificate-detail-box {
+.cert-detail-box {
   display: flex;
   flex-direction: column;
   gap: 16px;
   width: 938px;
 }
 
-.certification {
+.cert {
   &-title {
     display: flex;
     gap: 8px;

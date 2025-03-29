@@ -1,13 +1,13 @@
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
-import '@styles/pages/CertificateDetail/certificateContent.scss';
+import '@styles/pages/CertificateDetail/certContent.scss';
 
 const CertContent = () => {
     return (
-        <div className="certificate-detail-box">
-            <div className="certification-title">
-                <ArrowDown className="certification-title__icon"/>시험내용
+        <div className="cert-detail-box">
+            <div className="cert-title">
+                <ArrowDown className="cert-title__icon"/>시험내용
             </div>
-            <div className="certification-subtitle">화학분석기사 시험내용</div>
+            <div className="cert-subtitle">화학분석기사 시험내용</div>
             <table className="content-table">
                 <thead>
                 <tr>

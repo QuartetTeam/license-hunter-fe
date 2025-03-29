@@ -1,13 +1,13 @@
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
-import '@styles/pages/CertificateDetail/certificateSchedule.scss';
+import '@styles/pages/CertificateDetail/certSchedule.scss';
 
 const CertSchedule = () => {
     return (
-        <div className="certificate-detail-box">
-            <div className="certification-title">
-                <ArrowDown className="certification-title__icon"/>시험일정
+        <div className="cert-detail-box">
+            <div className="cert-title">
+                <ArrowDown className="cert-title__icon"/>시험일정
             </div>
-            <div className="certification-subtitle">화학분석기사 시험일정</div>
+            <div className="cert-subtitle">화학분석기사 시험일정</div>
             <table className="schedule-table">
                 <thead>
                 <tr>
