@@ -1,25 +1,40 @@
 import {
-    useDeleteCalendarMutation,
-    useGetCalendarQuery,
-    usePostCalendarMutation
+    useLogin,
+    useLogout,
+    useMoveToAuth,
+    useRefresh
+} from './queries/useAuthQuery.ts';
+
+import {
+    useAddCalendar,
+    useDeleteCalendar,
+    useGetCalendar
 } from './queries/useCalendarQuery.ts';
 import {
-    useGetCategoryQuery,
-    useGetCertDetailQuery,
-    useGetCertQuery,
-    useGetCertRecommendQuery
+    useGetCategory,
+    useGetCert,
+    useGetCertDetail,
+    useGetCertRecommend
 } from './queries/useCertQuery.ts';
 import {
-    useDeleteMailingsMutation,
-    useGetMailingsQuery,
-    usePostMailingsMutation
+    useAddMailings,
+    useDeleteMailings,
+    useGetMailings
 } from './queries/useMailingsQuery.ts';
 
-export { useGetCalendarQuery, usePostCalendarMutation, useDeleteCalendarMutation };
 export {
-    useGetCertQuery,
-    useGetCertRecommendQuery,
-    useGetCategoryQuery,
-    useGetCertDetailQuery
+    useMoveToAuth,
+    useLogin,
+    useRefresh,
+    useLogout
 };
-export { useGetMailingsQuery, usePostMailingsMutation, useDeleteMailingsMutation };
+export { useGetCalendar, useAddCalendar, useDeleteCalendar };
+export {
+    useGetCert,
+    useGetCertRecommend,
+    useGetCategory,
+    useGetCertDetail
+};
+export {
+    useGetMailings, useAddMailings, useDeleteMailings
+};

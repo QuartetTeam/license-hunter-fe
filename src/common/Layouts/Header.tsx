@@ -1,5 +1,5 @@
 import '@styles/layout/Header.scss';
-import useCommonState from './Hooks/useCommonState.ts';
+import useLayoutsState from './useLayoutsState.ts';
 
 const Header = () => {
     const {
@@ -7,7 +7,7 @@ const Header = () => {
         onMyCalenderButtonClick,
         onLoginButtonClick,
         onMyPageButtonClick
-    } = useCommonState();
+    } = useLayoutsState();
 
     return (
         <div className="header">

@@ -1,12 +1,46 @@
 import axios from 'axios';
 import endpoints from './endpoints.ts';
 
-const { BASE_URL, CALENDAR, MAILINGS, CERTIFICATIONS } = endpoints;
+const { BASE_URL, LOGIN, CALENDAR, MAILINGS, CERTIFICATIONS } = endpoints;
+
+// 소셜 로그인 팝업 이동 (카카오, 네이버, 구글)
+const moveToOAuth2 = (loginType: string) => {
+    return async () => {
+        const response = await axios.post(`${BASE_URL}/${LOGIN}/${loginType}`);
+        return response.data;
+    };
+};
+
+// 소셜 로그인 (카카오, 네이버, 구글)
+const login = () => {
+    return async () => {
+        const response = await axios.post(`${BASE_URL}/oauth2-jwt-header`);
+        return response.data;
+    };
+};
+
+// Refresh Token 재발급 (카카오, 네이버, 구글)
+const refresh = (refreshToken: object) => {
+    return async () => {
+        const response = await axios.post(`${BASE_URL}/oauth2-jwt-header`, refreshToken);
+        return response.data;
+    };
+};
+
+// 소셜 로그아웃 (카카오, 네이버, 구글)
+const logout = () => {
+    return async () => {
+        const response = await axios.post(`${BASE_URL}/logout`);
+        return response.data;
+    };
+};
 
 // 메일링 서비스 조회
-const getMailingsData = async () => {
-    const response = await axios.get(`${BASE_URL}/${MAILINGS}`);
-    return response.data.data.content;
+const getMailingsData = () => {
+    return async () => {
+        const response = await axios.get(`${BASE_URL}/${MAILINGS}`);
+        return response.data.data.content;
+    };
 };
 
 // 메일리 서비스 추가
@@ -92,6 +126,10 @@ const getCertCategoryData = () => {
 };
 
 export {
+    moveToOAuth2,
+    login,
+    refresh,
+    logout,
     getMailingsData,
     addMailingsData,
     deleteMailingsData,

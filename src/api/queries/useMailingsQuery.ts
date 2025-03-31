@@ -3,21 +3,21 @@ import { mailingQueryKey } from '../common/queryKeys.ts';
 import { addMailingsData, deleteMailingsData, getMailingsData } from '../common/API.ts';
 
 
-const useGetMailingsQuery = () => {
+const useGetMailings = () => {
     return useQuery({
         queryKey: [mailingQueryKey.get],
         queryFn: getMailingsData
     });
 };
 
-const usePostMailingsMutation = (certificationId: number) => {
+const useAddMailings = (certificationId: number) => {
     return useMutation({
         mutationKey: [mailingQueryKey.post],
         mutationFn: addMailingsData(certificationId)
     });
 };
 
-const useDeleteMailingsMutation = (mailingsId: number) => {
+const useDeleteMailings = (mailingsId: number) => {
     return useMutation({
         mutationKey: [mailingQueryKey.delete],
         mutationFn: deleteMailingsData(mailingsId)
@@ -25,4 +25,4 @@ const useDeleteMailingsMutation = (mailingsId: number) => {
 };
 
 
-export { useGetMailingsQuery, usePostMailingsMutation, useDeleteMailingsMutation };
+export { useGetMailings, useAddMailings, useDeleteMailings };

@@ -1,3 +1,17 @@
+const authQueryKey = {
+    postMvToAuth: 'postMvToAuth',
+    postLogin: 'postLogin',
+    postRefresh: 'postRefresh',
+    postLogout: 'postLogout'
+};
+
+const certQueryKey = {
+    get: 'getCertData',
+    getDetail: 'getCertDetailData',
+    getRecommend: 'getCertRecommendData',
+    getCategory: 'getCertCategoryData'
+};
+
 const mailingQueryKey = {
     get: 'getMailingData',
     post: 'postMailingData',
@@ -10,11 +24,5 @@ const calendarQueryKey = {
     delete: 'deleteCalendarData'
 };
 
-const certQueryKey = {
-    get: 'getCertData',
-    getDetail: 'getCertDetailData',
-    getRecommend: 'getCertRecommendData',
-    getCategory: 'getCertCategoryData'
-};
 
-export { mailingQueryKey, calendarQueryKey, certQueryKey };
+export { authQueryKey, mailingQueryKey, calendarQueryKey, certQueryKey };

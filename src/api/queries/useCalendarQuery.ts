@@ -2,25 +2,25 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import { calendarQueryKey } from '../common/queryKeys.ts';
 import { addCalendarData, deleteCalendarData, getCalendarData } from '../common/API.ts';
 
-const useGetCalendarQuery = () => {
+const useGetCalendar = () => {
     return useQuery({
         queryKey: [calendarQueryKey.get],
         queryFn: getCalendarData
     });
 };
 
-const usePostCalendarMutation = (certificationId: number) => {
+const useAddCalendar = (certificationId: number) => {
     return useMutation({
         mutationKey: [calendarQueryKey.post],
         mutationFn: addCalendarData(certificationId)
     });
 };
 
-const useDeleteCalendarMutation = (certificationId: number) => {
+const useDeleteCalendar = (certificationId: number) => {
     return useMutation({
         mutationKey: [calendarQueryKey.delete],
         mutationFn: deleteCalendarData(certificationId)
     });
 };
 
-export { useGetCalendarQuery, usePostCalendarMutation, useDeleteCalendarMutation };
+export { useGetCalendar, useAddCalendar, useDeleteCalendar };

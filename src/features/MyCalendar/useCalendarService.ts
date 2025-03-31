@@ -1,16 +1,16 @@
-import { useDeleteCalendarMutation, useGetCalendarQuery, usePostCalendarMutation } from '../../api';
+import { useAddCalendar, useDeleteCalendar, useGetCalendar } from '../../api';
 
 const useCalendarService = () => {
-    const { data: getCalendarData } = useGetCalendarQuery();
+    const { data: getCalendarData } = useGetCalendar();
 
-    const addCalendarMutation = usePostCalendarMutation(1);
+    const addCalendar = useAddCalendar(1);
     const addCalendarService = () => {
-        addCalendarMutation.mutate();
+        addCalendar.mutate();
     };
 
-    const deleteCalendarMutation = useDeleteCalendarMutation(1);
+    const deleteCalendar = useDeleteCalendar(1);
     const deleteCalendarService = () => {
-        deleteCalendarMutation.mutate();
+        deleteCalendar.mutate();
     };
 
     return {

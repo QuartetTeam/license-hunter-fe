@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-const useCommonState = () => {
+const useLayoutsState = () => {
     const navigate = useNavigate();
 
     // 'quartet' 버튼 클릭 시 '메인' 페이지로 이동
@@ -35,4 +35,4 @@ const useCommonState = () => {
     };
 };
 
-export default useCommonState;
+export default useLayoutsState;

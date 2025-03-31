@@ -1,24 +1,20 @@
-import {
-    useDeleteMailingsMutation,
-    useGetMailingsQuery,
-    usePostMailingsMutation
-} from '../../api';
+import { useAddMailings, useDeleteMailings, useGetMailings } from '../../api';
 
 const useMailingService = () => {
 
     // 메일링 서비스 조회
-    const { data: getMailingData } = useGetMailingsQuery();
+    const { data: getMailingData } = useGetMailings();
 
     // 메일링 서비스 추가
-    const addMailingsMutation = usePostMailingsMutation(1);
+    const addMailings = useAddMailings(1);
     const addMailingsService = () => {
-        addMailingsMutation.mutate();
+        addMailings.mutate();
     };
 
     // 메일링 서비스 삭제
-    const deleteMailingsMutation = useDeleteMailingsMutation(1);
+    const deleteMailings = useDeleteMailings(1);
     const deleteMailingsService = () => {
-        deleteMailingsMutation.mutate();
+        deleteMailings.mutate();
     };
 
     return {
