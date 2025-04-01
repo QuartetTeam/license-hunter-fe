@@ -123,3 +123,7 @@ npm run build-storybook
 ```
 npm run cypress
 ```
+
+## 자격저격 웹사이트 접속
+
+https://quartet-sigma.vercel.app/
