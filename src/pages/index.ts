@@ -1,11 +1,11 @@
-import Header from './common/Header';
-import Container from './common/Container';
-import Footer from './common/Footer';
+import Header from '../common/Layouts/Header.tsx';
+import Container from '../common/Layouts/Container.tsx';
+import Footer from '../common/Layouts/Footer.tsx';
 import MainPageContainer from './MainPage';
-import CertificateDetailContainer from './CertificateDetail';
+import CertContainer from './CertDetail';
 import LoginContainer from './Login';
 import MyCalendarContainer from './MyCalendar';
-import CertificateSearchContainer from './CertificateSearch';
+import CertSearchContainer from './CertSearch';
 import MyPageContainer from './MyPage';
 
 export {
@@ -13,9 +13,9 @@ export {
     Container,
     Footer,
     MainPageContainer,
-    CertificateDetailContainer,
+    CertContainer,
     LoginContainer,
     MyCalendarContainer,
-    CertificateSearchContainer,
+    CertSearchContainer,
     MyPageContainer
 };
