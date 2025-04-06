@@ -21,6 +21,7 @@ import {
     useDeleteMailings,
     useGetMailings
 } from './queries/useMailingsQuery.ts';
+import endpoints from './common/endpoints.ts';
 
 export {
     useMoveToAuth,
@@ -38,3 +39,4 @@ export {
 export {
     useGetMailings, useAddMailings, useDeleteMailings
 };
+export default endpoints;
