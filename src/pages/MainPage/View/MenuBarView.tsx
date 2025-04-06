@@ -1,6 +1,6 @@
 import useCertService from '../../../features/Certification/useCertService.ts';
-import '@styles/pages/MainPage/menuBarView.scss';
 import FieldButton from '../../../components/FieldButton.tsx';
+import '@styles/pages/MainPage/menuBarView.scss';
 
 const MenuBarView = () => {
 

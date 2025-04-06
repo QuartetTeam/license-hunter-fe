@@ -1,5 +1,4 @@
 import CertificateCard from '../../../components/CertificateCard.tsx';
-import '@styles/pages/MyPage/mailingServiceView.scss';
 import useMyPageState from '../useMyPageState.ts';
 import useMailingService from '../../../features/MailingService/useMailingService.ts';
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
@@ -8,6 +7,7 @@ import ArrowUp from '@icon/icon-arrow-up.svg?react';
 import CheckboxEmpty from '@icon/icon-checkbox-empty.svg?react';
 import TrashIcon from '@icon/icon-trash.svg?react';
 import mailingServiceData from '../../../mocks/mailingsService/mailingServiceData.ts';
+import '@styles/pages/MyPage/mailingServiceView.scss';
 
 const MailingServiceView = () => {
     const {

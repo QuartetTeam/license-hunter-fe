@@ -15,28 +15,18 @@ const CalendarView = () => {
     // addCalendarService();
     // deleteCalendarService();
 
-    // const schedulesData = getCalendarData.map((item, _) =>
-    //     item.map((schedules) => ({
-    //         title: schedules.scheduleType,
-    //         date: schedules.date
-    //     }))
-    // );
-    //
-    // console.log('schedulesData: ', schedulesData);
-
     return (
         <div className="my-calender">
             <FullCalendar
                 plugins={[dayGridPlugin]}
                 initialView="dayGridMonth"
-                //events={
-                //schedulesData
-                // [
-                //     { title: '자격증1 시험일', start: '2025-02-15', end: '2025-02-21' },
-                //     { title: '자격증2 접수일', start: '2025-02-15', end: '2025-02-21' }
-                //     { title: '', date: ''}
-                // ]
-                //}
+                events={
+                    [
+                        { title: '자격증1 시험일', start: '2025-02-15', end: '2025-02-21' },
+                        { title: '자격증2 접수일', start: '2025-02-15', end: '2025-02-21' },
+                        { title: '', date: '' }
+                    ]
+                }
             />
         </div>
     );

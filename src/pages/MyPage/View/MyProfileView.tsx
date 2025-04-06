@@ -1,10 +1,10 @@
-import '@styles/pages/MyPage/myProfileView.scss';
 import useMyPageState from '../useMyPageState.ts';
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
 import ArrowUp from '@icon/icon-arrow-up.svg?react';
 import FieldButton from '../../../components/FieldButton.tsx';
 import CheckFavoriteField from '../../../components/CheckFavoriteField.tsx';
 import { cancelButtonMessage, confirmButtonMessage } from '../Messages/buttonMessages.ts';
+import '@styles/pages/MyPage/myProfileView.scss';
 
 const MyProfileView = () => {
     const {
