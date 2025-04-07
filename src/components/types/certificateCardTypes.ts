@@ -1,12 +1,13 @@
 interface ICertificateData {
-    certificateName: string;
-    receiptDate: string;
-    testDate: string;
-    calenderCount: number;
+    id: string;
+    name: string;
+    applicationDate: string;
+    examDate: string;
+    CalendarSubscriptionCount: number;
 }
 
 interface ICertificateCardProps {
-    mockData: ICertificateData[];
+    data: ICertificateData[];
     trashIconSelected?: boolean;
     requiredCalender?: boolean;
 }

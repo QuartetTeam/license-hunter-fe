@@ -4,10 +4,10 @@ import useCertService from '../../features/Certification/useCertService.ts';
 const CertContainer = () => {
 
     const { getCertDetailData } = useCertService();
-    console.log('getCertDetailData: ', getCertDetailData);
+    const certDetailData = getCertDetailData.data;
 
     return (
-        <CertDetailView/>
+        <CertDetailView data={certDetailData}/>
     );
 };
 

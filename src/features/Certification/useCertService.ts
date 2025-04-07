@@ -19,11 +19,24 @@ const useCertService = () => {
     // 자격증 추천 조회
     const { data: getCertRecommendData } = useGetCertRecommend();
 
+    // 날짜 데이터 가공
+    // "2025-03-08T00:00:00Z" -> "2025-03-08"
+    const formatDate = (date: string | string []) => {
+        if (Array.isArray(date)) {
+            const dateArray = date.map((item, _) => item.split('T')[0]);
+            return dateArray.join(' ~ ');
+        } else {
+            return date.split('T')[0];
+        }
+    };
+
+
     return {
         getCertData,
         getCertDetailData,
         getCertCategoryData,
-        getCertRecommendData
+        getCertRecommendData,
+        formatDate
     };
 };
 

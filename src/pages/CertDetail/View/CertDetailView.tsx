@@ -1,14 +1,19 @@
 import Alert from '../../../components/Alert.tsx';
-import { calenderAlertMessage, cancelButtonMessage, confirmButtonMessage, mailingAlertMessage } from '../Messages';
+import {
+    calenderAlertMessage,
+    cancelButtonMessage,
+    confirmButtonMessage,
+    mailingAlertMessage
+} from '../Messages';
 import CertSchedule from './CertDetailInfo/CertSchedule.tsx';
 import CertQualifications from './CertDetailInfo/CertQualifications.tsx';
 import CertContent from './CertDetailInfo/CertContent.tsx';
 import useCertDetailState from '../useCertDetailState.ts';
 import useMailingService from '../../../features/MailingService/useMailingService.ts';
+import { ICertDetailListDataTypes } from '../../../common/types/certTypes.ts';
 import '@styles/pages/CertificateDetail/certDetailView.scss';
 
-
-const CertDetailView = () => {
+const CertDetailView = ({ data }: { data: ICertDetailListDataTypes }) => {
     const {
         mailingAlertVisible,
         calenderAlertVisible,
@@ -22,14 +27,13 @@ const CertDetailView = () => {
         <>
             <div className="cert-detail-view">
                 <div className="cert-detail">
-                    <div className="cert-detail-title">화학분석기사</div>
+                    <div className="cert-detail-title">{data?.name}</div>
                     <div className="cert-detail-info">
                         <div className="cert-preview">
                             <div className="cert-preview-info">
                                 <div className="cert-preview-info__image"></div>
                                 <div className="cert-preview-info__description">
-                                    화학 분석 지식 및 기술 전문 인력 양성을 위해 제정된 제도이다.
-                                    자격증 취득 후 분석, 개발, 논문 및 보고서 등을 수행할 수 있다.
+                                    {data?.description}
                                 </div>
                             </div>
                             <div className="cert-btn-group">
@@ -42,9 +46,9 @@ const CertDetailView = () => {
                                 </button>
                             </div>
                         </div>
-                        <CertSchedule/>
-                        <CertContent/>
-                        <CertQualifications/>
+                        <CertSchedule cert={data?.name} data={data?.examSchedule}/>
+                        <CertContent cert={data?.name} data={data?.examDetail}/>
+                        <CertQualifications cert={data?.name} data={data?.qualification}/>
                     </div>
                     <Alert alertTitle={mailingAlertMessage.title}
                            alertContent={mailingAlertMessage.content}

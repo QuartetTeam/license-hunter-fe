@@ -1,6 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import { certQueryKey } from '../common/queryKeys.ts';
-import { getCertCategoryData, getCertData, getCertDetailData, getCertRecommendData } from '../common/API.ts';
+import {
+    getCertCategoryData,
+    getCertData,
+    getCertDetailData,
+    getCertRecommendData
+} from '../common/API.ts';
 
 const useGetCert = (categoryId: number, page: number, pageSize: number) => {
     return useQuery({

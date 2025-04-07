@@ -1,50 +1,28 @@
-const certList = {
-    'code': 200,
-    'message': '요청이 처리되었습니다.',
-    'data': {
-        'content': [
-            {
-                'id': 1,
-                'name': '정보처리기사',
-                'applicationDate': null,
-                'examDate': '2025-02-25T00:00:00Z',
-                'CalendarSubscriptionCount': 0
-            },
-            {
-                'id': 2,
-                'name': '네트워크관리사',
-                'applicationDate': null,
-                'examDate': '2025-06-01T00:00:00Z',
-                'CalendarSubscriptionCount': 0
-            }
-        ],
-        'pageable': {
-            'pageNumber': 0,
-            'pageSize': 15,
-            'sort': {
-                'empty': false,
-                'sorted': true,
-                'unsorted': false
-            },
-            'offset': 0,
-            'unpaged': false,
-            'paged': true
-        },
-        'last': true,
-        'totalElements': 2,
-        'totalPages': 1,
-        'size': 15,
-        'number': 0,
-        'sort': {
-            'empty': false,
-            'sorted': true,
-            'unsorted': false
-        },
-        'numberOfElements': 2,
-        'first': true,
-        'empty': false
+interface ICertDetailChildTypes {
+    type: string;
+    data: string [];
+}
+
+interface IExamDetailTypes {
+    type: string,
+    examSubject: ICertDetailChildTypes
+    examProcess: {
+        type: string,
+        examTime: ICertDetailChildTypes,
+        examType: ICertDetailChildTypes,
+        examNum: ICertDetailChildTypes
     }
-};
+}
+
+interface ICertDetailListDataTypes {
+    id: number,
+    name: string,
+    authorityName: string,
+    description: string,
+    examSchedule: ICertDetailChildTypes []
+    examDetail: (ICertDetailChildTypes | IExamDetailTypes) [],
+    qualification: ICertDetailChildTypes [];
+}
 
 const certDetailList: ICertDetailList = {
     'code': 200,
@@ -148,25 +126,10 @@ const certDetailList: ICertDetailList = {
     }
 };
 
-const recommendedList = {
-    'code': 200,
-    'message': '요청이 처리되었습니다.',
-    'data': [
-        {
-            'id': 1,
-            'name': '정보처리기사',
-            'applicationDate': null,
-            'examDate': '2025-03-25T00:00:00Z',
-            'CalendarSubscriptionCount': 0
-        },
-        {
-            'id': 2,
-            'name': '네트워크관리사',
-            'applicationDate': null,
-            'examDate': '2025-06-01T00:00:00Z',
-            'CalendarSubscriptionCount': 0
-        }
-    ]
-};
+interface ICertDetailList {
+    'code': number,
+    'message': string,
+    'data': ICertDetailListDataTypes
+}
 
-export { certList, certDetailList, recommendedList };
+export type { ICertDetailList };
