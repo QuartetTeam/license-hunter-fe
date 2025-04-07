@@ -39,6 +39,6 @@ if (commitMsgFile) {
 
 try {
   execSync(`npx jira-prepare-commit-msg ${commitMsgFile}`);
-} catch (_error) {
-  console.log('Note: jira-prepare-commit-msg not executed or failed');
+} catch (error) {
+  console.log('Note: jira-prepare-commit-msg failed:', error);
 }
