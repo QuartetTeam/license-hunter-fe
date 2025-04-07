@@ -8,7 +8,9 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prepare": "husky install",
+    "prepare": "husky install && npm run husky:build",
+    "husky:build": "esbuild .husky/prepare-commit-msg.ts --bundle --platform=node --outfile=.husky/build/prepare-commit-msg.cjs && esbuild .husky/commit-msg.ts --bundle --platform=node --outfile=.husky/build/commit-msg.cjs",
+    "postinstall": "chmod +x .husky/commit-msg .husky/prepare-commit-msg || true",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "cypress": "npx cypress open"
