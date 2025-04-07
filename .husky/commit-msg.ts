@@ -1,7 +1,14 @@
-const fs = require('fs');
+import fs from 'fs';
 
 const commitMsgFile = process.argv[2];
-const commitMsg = fs.readFileSync(commitMsgFile, 'utf8');
+
+
+if (!commitMsgFile) {
+    console.error('커밋 메시지 파일 경로가 제공되지 않았습니다.');
+    process.exit(1);
+}
+  
+const commitMsg = fs.readFileSync(commitMsgFile, 'utf8').trim();
 
 const commitPattern = /^(\[[A-Z]+-[0-9]+\] )?(✨ Feat|🎯 Fix|🚧 Progress|🐛 Bug|🎨 Design|💄 Style|♻️ Refactor|💡 Comment|📋 Docs|✅ Test|🔖 Chore|📝 Rename|🔥 Remove|📌 Init|🚑 !BREAKING CHANGE|🔔 Merge Request|⚡️ Perf|💚 CI): .+/;
 

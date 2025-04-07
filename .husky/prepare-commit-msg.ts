@@ -1,5 +1,5 @@
-const fs = require('fs');
-const { execSync } = require('child_process');
+import fs from 'fs';
+import { execSync } from 'child_process';
 
 const commitMsgFile = process.argv[2];
 
@@ -39,6 +39,6 @@ if (commitMsgFile) {
 
 try {
   execSync(`npx jira-prepare-commit-msg ${commitMsgFile}`);
-} catch (error) {
+} catch (_error) {
   console.log('Note: jira-prepare-commit-msg not executed or failed');
 }
