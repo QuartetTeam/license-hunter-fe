@@ -1,3 +1,5 @@
+import { ICertDetailList } from './dataTypes.ts';
+
 const certList = {
     'code': 200,
     'message': '요청이 처리되었습니다.',
