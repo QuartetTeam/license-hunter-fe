@@ -1,5 +1,7 @@
 export interface ISchedules {
     scheduleType: string,
+    examType: string,
+    examRound: string,
     date: string[]
 }
 

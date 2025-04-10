@@ -39,12 +39,12 @@ const useCalendarService = () => {
                 const date: string[] = calendarData[i].schedules[j].date;
                 if (date.length === 1) {
                     calendarEvents.push({
-                        title: `${name} - ${schedules[j].scheduleType}`,
+                        title: `${name} - ${schedules[j].scheduleType} ${schedules[j].examType} ${schedules[j].examRound}`,
                         date: formatDate(date)[0]
                     });
                 } else {
                     calendarEvents.push({
-                        title: `${name} - ${schedules[j].scheduleType}`,
+                        title: `${name} - ${schedules[j].scheduleType} ${schedules[j].examType} ${schedules[j].examRound}`,
                         start: formatDate(date)[0],
                         end: formatEndDate(formatDate(date)[1])
                     });
