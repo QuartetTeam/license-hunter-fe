@@ -1,10 +1,10 @@
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
+import { IQualification } from '../../../../common/types/certTypes.ts';
 import '@styles/pages/CertificateDetail/certQualifications.scss';
-import { ICertDetailChildTypes } from '../../../../common/types/certTypes.ts';
 
 const CertQualifications = ({ cert, data }: {
     cert: string,
-    data: ICertDetailChildTypes []
+    data: IQualification []
 }) => {
     return (
         <div className="cert-detail-box">

@@ -9,11 +9,14 @@ import CertSchedule from './CertDetailInfo/CertSchedule.tsx';
 import CertQualifications from './CertDetailInfo/CertQualifications.tsx';
 import CertContent from './CertDetailInfo/CertContent.tsx';
 import useCertDetailState from '../useCertDetailState.ts';
+import useCertService from '../../../features/Certification/useCertService.ts';
 import useMailingService from '../../../features/MailingService/useMailingService.ts';
+import useCalendarService from '../../../features/MyCalendar/useCalendarService.ts';
 import { ICertDetailListDataTypes } from '../../../common/types/certTypes.ts';
 import '@styles/pages/CertificateDetail/certDetailView.scss';
 
-const CertDetailView = ({ data }: { data: ICertDetailListDataTypes }) => {
+
+const CertDetailView = () => {
     const {
         mailingAlertVisible,
         calenderAlertVisible,
@@ -21,19 +24,22 @@ const CertDetailView = ({ data }: { data: ICertDetailListDataTypes }) => {
         onVisibleCalenderAlertClick
     } = useCertDetailState();
 
+    const { getCertDetailData } = useCertService();
+    const certDetailData: ICertDetailListDataTypes = getCertDetailData?.data;
     const { addMailingsService } = useMailingService();
+    const { addCalendarService } = useCalendarService();
 
     return (
         <>
             <div className="cert-detail-view">
                 <div className="cert-detail">
-                    <div className="cert-detail-title">{data?.name}</div>
+                    <div className="cert-detail-title">{certDetailData?.name}</div>
                     <div className="cert-detail-info">
                         <div className="cert-preview">
                             <div className="cert-preview-info">
                                 <div className="cert-preview-info__image"></div>
                                 <div className="cert-preview-info__description">
-                                    {data?.description}
+                                    {certDetailData?.description}
                                 </div>
                             </div>
                             <div className="cert-btn-group">
@@ -46,9 +52,12 @@ const CertDetailView = ({ data }: { data: ICertDetailListDataTypes }) => {
                                 </button>
                             </div>
                         </div>
-                        <CertSchedule cert={data?.name} data={data?.examSchedule}/>
-                        <CertContent cert={data?.name} data={data?.examDetail}/>
-                        <CertQualifications cert={data?.name} data={data?.qualification}/>
+                        <CertSchedule cert={certDetailData?.name}
+                                      data={certDetailData?.schedules}/>
+                        <CertContent cert={certDetailData?.name}
+                                     data={certDetailData?.examDetails}/>
+                        <CertQualifications cert={certDetailData?.name}
+                                            data={certDetailData?.qualification}/>
                     </div>
                     <Alert alertTitle={mailingAlertMessage.title}
                            alertContent={mailingAlertMessage.content}
@@ -56,13 +65,16 @@ const CertDetailView = ({ data }: { data: ICertDetailListDataTypes }) => {
                            onVisibleAlertClick={onVisibleMailingAlertClick}
                            alertConfirmMessage={confirmButtonMessage.subscribe}
                            alertCancelMessage={cancelButtonMessage.think}
-                           addMailingsService={addMailingsService}/>
+                           event={addMailingsService}
+                    />
                     <Alert alertTitle={calenderAlertMessage.title}
                            alertContent={calenderAlertMessage.content}
                            alertVisible={calenderAlertVisible}
                            onVisibleAlertClick={onVisibleCalenderAlertClick}
                            alertConfirmMessage={confirmButtonMessage.add}
-                           alertCancelMessage={cancelButtonMessage.think}/>
+                           alertCancelMessage={cancelButtonMessage.think}
+                           event={addCalendarService}
+                    />
                 </div>
             </div>
         </>

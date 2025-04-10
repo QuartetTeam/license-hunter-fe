@@ -8,14 +8,14 @@ const certList = {
             {
                 'id': 1,
                 'name': '정보처리기사',
-                'applicationDate': null,
+                'receiptDate': '2025-01-20T00:00:00Z',
                 'examDate': '2025-02-25T00:00:00Z',
                 'CalendarSubscriptionCount': 0
             },
             {
                 'id': 2,
                 'name': '네트워크관리사',
-                'applicationDate': null,
+                'receiptDate': '2025-05-13T00:00:00Z',
                 'examDate': '2025-06-01T00:00:00Z',
                 'CalendarSubscriptionCount': 0
             }
@@ -53,97 +53,102 @@ const certDetailList: ICertDetailList = {
     'message': '요청이 처리되었습니다.',
     'data': {
         'id': 1,
-        'name': '화학분석기사',
-        'authorityName': '산업인력공단',
-        'description': '화학분석기사는 화학 분석 지식 및 기술 전문 인력 양성을 위해 제정된 제도이다. 자격증 취득 후 분석, 개발, 논문 및 보고서 등을 수행할 수 있다.',
-        'examSchedule': [
-            {
-                'type': '시험일정명',
-                'data': ['화학분석기사 2회차']
-            },
-            {
-                'type': '접수일',
-                'data': ['2025-03-04T00:00:00Z', '2025-03-16T00:00:00Z']
-            },
-            {
-                'type': '시험일',
-                'data': ['2025-04-20T00:00:00Z']
-            },
-            {
-                'type': '합격자 발표일',
-                'data': ['2025-05-10T00:00:00Z']
-            }
-        ],
-        'examDetail': [
-            {
-                'type': '필기시험',
-                'examSubject': {
-                    type: '시험과목',
-                    data: ['화학의 이해와 원리안전관리', '분석계획수립과 분석절차기초', '화학물질 특성분석', '화학물질 구조 및 물성분석']
-                },
-                'examProcess': {
-                    type: '시험방법',
-                    'examTime': {
-                        'type': '문제형식',
-                        'data': ['객관식 4지 택일형']
-                    },
-                    'examType': {
-                        'type': '문항수',
-                        'data': ['80문항']
-                    },
-                    'examNum': {
-                        'type': '시험시간',
-                        'data': ['2시간']
-                    }
-                }
-            },
-            {
-                'type': '실기시험',
-                'examSubject': {
-                    type: '시험과목',
-                    data: ['화학분석 실무']
-                },
-                'examProcess': {
-                    type: '시험방법',
-                    'examTime': {
-                        'type': '시험시간',
-                        'data': ['복합형']
-                    },
-                    'examType': {
-                        'type': '문제형식',
-                        'data': ['']
-                    },
-                    'examNum': {
-                        'type': '문제수',
-                        'data': ['6시간 한도(필기 2시간, 작업 4시간 정도)']
-                    }
-                }
-            }
-        ],
+        'name': '가스기술사',
+        'authorityName': '한국산업인력공단',
+        'authorityIconImageUrl': null,
+        'applicationUrl': null,
+        'description': '고압가스 및 도시가스의 제조, 저장, 운반, 사용에 관한 설비의 설계, 감리, 안전관리 등을 수행할 수 있는 최고 수준의 기술자격입니다. 가스 관련 법령에 따른 기술 검토 및 안전진단 업무도 수행할 수 있습니다.',
+        'viewCount': 0,
+        'CalendarSubscription': 0,
         'qualification': [
             {
-                'type': '유사자격 소지자',
+                'type': '동일 및 유사 직무분야',
                 'data': [
-                    '1. 산업기사 + 유사 직무분야 실무경력 1년',
-                    '2. 기능사 + 유사 직무분야 실무경력 3년',
-                    '3. 동일 및 유사 분야 기사 자격증 소지자',
-                    '4. 동일 및 유사 분야 외국자격 소지자'
+                    '기사 취득 후 실무경력 4년',
+                    '산업기사 취득 후 실무경력 5년',
+                    '기능사 취득 후 실무경력 7년',
+                    '실무경력 9년 등',
+                    '동일 및 유사 직무분야의 다른 종목 기술사 등급 취득자\n'
                 ]
             },
             {
-                'type': '관련학과 졸업자',
+                'type': '관련학과',
                 'data': [
-                    '1. 관련학과 졸업자 또는 졸업예정자',
-                    '2. 3년제 전문대학 졸업자 + 실무경력 1년',
-                    '3. 2년제 전문대학 졸업자 + 실무경력 2년',
-                    '4. 기사 수준의 기술훈련과정 이수자',
-                    '5. 산업기사 수준의 기술훈련과정 이수자 + 실무경력 2년'
+                    '4년제 대졸(관련학과)후 실무경력 6년'
+                ]
+            }
+        ],
+        'examDetails': [
+            {
+                'examType': '필기',
+                'examSubject': '데베',
+                'examProcess': {
+                    'problemType': '객관식 4지 택일형',
+                    'problemNums': '60개',
+                    'examTime': '60분'
+                }
+            },
+            {
+                'examType': '필기',
+                'examSubject': '네트워크',
+                'examProcess': {
+                    'problemType': '객관식 4지 택일형',
+                    'problemNums': '20개',
+                    'examTime': '30분'
+                }
+            }
+        ],
+        'schedules': [
+            {
+                'scheduleType': '접수일',
+                'examType': '필기',
+                'examRound': '2025년도 135회',
+                'date': [
+                    '2025-01-06T10:00:00Z',
+                    '2025-01-09T18:00:00Z'
                 ]
             },
             {
-                'type': '실무 경력자',
-                'data': [
-                    '유사 직무분야 실무경력 4년 이상'
+                'scheduleType': '시험일',
+                'examType': '필기',
+                'examRound': '2025년도 135회',
+                'date': [
+                    '2025-02-08T09:00:00Z',
+                    '2025-02-08T09:00:00Z'
+                ]
+            },
+            {
+                'scheduleType': '합격일',
+                'examType': '필기',
+                'examRound': '2025년도 135회',
+                'date': [
+                    '2025-03-12T09:00:00Z'
+                ]
+            },
+            {
+                'scheduleType': '접수일',
+                'examType': '실기',
+                'examRound': '2025년도 135회',
+                'date': [
+                    '2025-03-17T10:00:00Z',
+                    '2025-03-21T18:00:00Z'
+                ]
+            },
+            {
+                'scheduleType': '시험일',
+                'examType': '실기',
+                'examRound': '2025년도 135회',
+                'date': [
+                    '2025-04-19T09:00:00Z',
+                    '2025-05-02T09:00:00Z'
+                ]
+            },
+            {
+                'scheduleType': '합격일',
+                'examType': '실기',
+                'examRound': '2025년도 135회',
+                'date': [
+                    '2025-05-09T09:00:00Z'
                 ]
             }
         ]
@@ -158,13 +163,15 @@ const recommendedList = {
             'id': 1,
             'name': '정보처리기사',
             'applicationDate': null,
-            'examDate': '2025-03-25T00:00:00Z',
+            'receiptDate': '2025-01-20T00:00:00Z',
+            'examDate': '2025-02-25T00:00:00Z',
             'CalendarSubscriptionCount': 0
         },
         {
             'id': 2,
             'name': '네트워크관리사',
             'applicationDate': null,
+            'receiptDate': '2025-05-13T00:00:00Z',
             'examDate': '2025-06-01T00:00:00Z',
             'CalendarSubscriptionCount': 0
         }

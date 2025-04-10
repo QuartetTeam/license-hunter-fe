@@ -1,11 +1,11 @@
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
-import { ICertDetailChildTypes } from '../../../../common/types/certTypes.ts';
 import useCertService from '../../../../features/Certification/useCertService.ts';
+import { IExamSchedule } from '../../../../common/types/certTypes.ts';
 import '@styles/pages/CertificateDetail/certSchedule.scss';
 
 const CertSchedule = ({ cert, data }: {
     cert: string,
-    data: ICertDetailChildTypes []
+    data: IExamSchedule []
 }) => {
     const { formatDate } = useCertService();
 
@@ -19,7 +19,8 @@ const CertSchedule = ({ cert, data }: {
                 <thead>
                 <tr>
                     {data.map((item, index) => (
-                        <th key={index} className="schedule-table-header">{item.type}</th>
+                        <th key={index}
+                            className="schedule-table-header">{item?.scheduleType}</th>
                     ))}
                 </tr>
                 </thead>
@@ -27,7 +28,7 @@ const CertSchedule = ({ cert, data }: {
                 <tr>
                     {data.map((item, index) => (
                         <td key={index}
-                            className="schedule-table-body">{formatDate(item.data)}</td>
+                            className="schedule-table-body">{formatDate(item?.date)}</td>
                     ))}
                 </tr>
                 </tbody>
