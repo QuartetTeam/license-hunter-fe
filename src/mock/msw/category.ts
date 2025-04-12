@@ -7,14 +7,18 @@ const { BASE_URL, CERTIFICATIONS } = endpoints;
 const categoryHandlers = [
 
     // GET /api/v1/certifications/category
-    http.get(`${BASE_URL}/${CERTIFICATIONS}/category`, () => {
-        return HttpResponse.json(categoryParentList);
-    }),
+    // GET /api/v1/certifications/category?mainCategoryId=1
+    http.get(`${BASE_URL}/${CERTIFICATIONS}/category`, ({ request }) => {
+        const url = new URL(request.url);
+        const mainCategoryId = url.searchParams.get('mainCategoryId');
 
-    // GET /api/v1/certifications/category
-    http.get(`${BASE_URL}/${CERTIFICATIONS}/category?patentId='1`, () => {
-        return HttpResponse.json(categoryChildList);
+        if (mainCategoryId) {
+            return HttpResponse.json(categoryChildList); // 소분류
+        }
+
+        return HttpResponse.json(categoryParentList); // 대분류
     })
+
 ];
 
 export default categoryHandlers;

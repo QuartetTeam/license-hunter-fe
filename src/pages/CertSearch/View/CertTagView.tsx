@@ -1,25 +1,22 @@
+import useCategoryService from '../../../features/Category/useCategoryService.ts';
+import { ICategoryDataTypes } from '../../../common/types/categoryTypes.ts';
 import '@styles/pages/CertificateSearch/certTagView.scss';
 
+
 const CertTagView = () => {
+
+    const { getCertChildCategoryData } = useCategoryService();
+    const certChildCategoryData: ICategoryDataTypes[] = getCertChildCategoryData?.data;
+
     return (
         <div className="cert-tag-view">
             <div className="cert-tag-group">
-                <div className="cert-tag">
-                    <div className="cert-tag-icon"></div>
-                    프로그래밍
-                </div>
-                <div className="cert-tag">
-                    <div className="cert-tag-icon"></div>
-                    네트워크
-                </div>
-                <div className="cert-tag">
-                    <div className="cert-tag-icon"></div>
-                    운영체제
-                </div>
-                <div className="cert-tag">
-                    <div className="cert-tag-icon"></div>
-                    서버관리
-                </div>
+                {certChildCategoryData?.map((item, index) => (
+                    <div key={index} className="cert-tag">
+                        <div className="cert-tag-icon"></div>
+                        {item.name}
+                    </div>
+                ))}
             </div>
         </div>
     );

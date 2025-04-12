@@ -1,11 +1,9 @@
-import useCertService from '../../../features/Certification/useCertService.ts';
 import FieldButton from '../../../components/FieldButton.tsx';
 import '@styles/pages/MainPage/menuBarView.scss';
 
 const MenuBarView = () => {
 
-    const { getCertCategoryData } = useCertService();
-    console.log('getCertCategoryData: ', getCertCategoryData);
+    // const { getCertCategoryData } = useCertService();
 
     return (
         <div className="menuBar-view">
