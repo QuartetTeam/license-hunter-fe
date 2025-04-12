@@ -110,6 +110,25 @@ npm run storybook
 npm run build-storybook
 ```
 
+## MSW
+
+### 1. 목표
+
+- 백엔드 API 배포 이전, 프론트엔드 개발을 위한 API Mocking 작업을 할 수 있습니다.
+- 백엔드팀과 Response를 충분히 협의 후 병행 작업이 가능하여 공수일자를 줄일 수 있습니다.
+- 반대로 프론트엔드에서 Response를 제안할 수도 있습니다.
+
+### 2. 원리
+
+- Service Worker가 네트워크 요청을 가로채서 미리 정의된 Mock 데이터를 응답합니다.
+- 실제 API 요청처럼 동작하므로 MSW의 Mock 데이터로 실제 프론트엔드 개발을 할 수 있습니다.
+
+### 3. 실행
+
+```
+npm run msw
+```
+
 ## Cypress
 
 ### 1. 목표
