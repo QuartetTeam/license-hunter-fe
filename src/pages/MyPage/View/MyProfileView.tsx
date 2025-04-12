@@ -4,15 +4,23 @@ import ArrowUp from '@icon/icon-arrow-up.svg?react';
 import FieldButton from '../../../components/FieldButton.tsx';
 import CheckFavoriteField from '../../../components/CheckFavoriteField.tsx';
 import { cancelButtonMessage, confirmButtonMessage } from '../Messages/buttonMessages.ts';
+import useUserService from '../../../features/User/useUserService.ts';
+import { IUserDataProps } from '../../../common/types/userTypes.ts';
 import '@styles/pages/MyPage/myProfileView.scss';
 
-const MyProfileView = () => {
+const MyProfileView = ({ data }: IUserDataProps) => {
     const {
         myProfileVisible,
         favoriteFieldVisible,
         onVisibleMyProfileClick,
         onVisibleFavoriteFieldClick
     } = useMyPageState();
+
+    const {
+        changeUserNickService,
+        changeUserEmailService,
+        changeUserInterestService
+    } = useUserService();
 
     return (
         <>
@@ -36,18 +44,24 @@ const MyProfileView = () => {
                             <div className="my-profile-info-box">
                                 <div className="my-profile-info-box__title">사용자 이름</div>
                                 <div className="my-profile-info-box__group">
-                                    <input className="my-profile-info-box__group__input"/>
+                                    <input className="my-profile-info-box__group__input"
+                                           value={data?.nickname}/>
                                     <button
-                                        className="my-profile-info-box__group__button">저장
+                                        className="my-profile-info-box__group__button"
+                                        onClick={changeUserNickService}>저장
                                     </button>
                                 </div>
                             </div>
                             <div className="my-profile-info-box">
-                                <div className="my-profile-info-box__title">이메일</div>
+                                <div className="my-profile-info-box__title"
+                                >이메일
+                                </div>
                                 <div className="my-profile-info-box__group">
-                                    <input className="my-profile-info-box__group__input"/>
+                                    <input className="my-profile-info-box__group__input"
+                                           value={data?.email}/>
                                     <button
-                                        className="my-profile-info-box__group__button">저장
+                                        className="my-profile-info-box__group__button"
+                                        onClick={changeUserEmailService}>저장
                                     </button>
                                 </div>
                             </div>
@@ -73,7 +87,9 @@ const MyProfileView = () => {
             <CheckFavoriteField favoriteFieldVisible={favoriteFieldVisible}
                                 onVisibleFavoriteFieldClick={onVisibleFavoriteFieldClick}
                                 alertConfirmMessage={confirmButtonMessage.complete}
-                                alertCancelMessage={cancelButtonMessage.cancel}/>
+                                alertCancelMessage={cancelButtonMessage.cancel}
+                                events={changeUserInterestService}
+            />
         </>
     );
 };

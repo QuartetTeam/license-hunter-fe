@@ -1,17 +1,19 @@
-import '@styles/pages/MyPage/accountManageView.scss';
-import useMyPageState from '../useMyPageState.ts';
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
 import ArrowUp from '@icon/icon-arrow-up.svg?react';
 import ToggleON from '@icon/icon-toggle-on.svg?react';
 import ToggleOFF from '@icon/icon-toggle-off.svg?react';
+import useMyPageState from '../useMyPageState.ts';
+import useUserService from '../../../features/User/useUserService.ts';
+import { IUserDataProps } from '../../../common/types/userTypes.ts';
+import '@styles/pages/MyPage/accountManageView.scss';
 
-const AccountManageView = () => {
+const AccountManageView = ({ data }: IUserDataProps) => {
     const {
         accountManageVisible,
-        onVisibleAccountManageClick,
-        mailingServiceOn,
-        onMailingServiceClick
+        onVisibleAccountManageClick
     } = useMyPageState();
+
+    const { changeUserMailingService, deleteUserDataService } = useUserService();
 
     return (
         <div id="account-manage" className="account-manage">
@@ -26,15 +28,17 @@ const AccountManageView = () => {
             {accountManageVisible && (
                 <div className="account-manage-box">
                     <div className="mailing-service-interruption">
-                        <div className="mailing-service-interruption__text">메일링 서비스 일시
-                            중단
+                        <div className="mailing-service-interruption__text">
+                            메일링 서비스 일시 중단
                         </div>
                         <div>
-                            {mailingServiceOn ? (
+                            {data?.status === 'ACTIVE' ? (
                                 <div className="mailing-service-interruption__toggle">ON
-                                    <ToggleON onClick={onMailingServiceClick}/></div>) : (
+                                    <ToggleON onClick={changeUserMailingService}/>
+                                </div>) : (
                                 <div className="mailing-service-interruption__toggle">OFF
-                                    <ToggleOFF onClick={onMailingServiceClick}/></div>)}
+                                    <ToggleOFF onClick={changeUserMailingService}/>
+                                </div>)}
                         </div>
                     </div>
                     <div className="delete-account">
@@ -45,7 +49,9 @@ const AccountManageView = () => {
                                 관련된 모든 것을 영구적으로 삭제합니다.
                             </div>
                         </div>
-                        <button className="delete-account__button">계정 삭제</button>
+                        <button className="delete-account__button"
+                                onClick={deleteUserDataService}>계정 삭제
+                        </button>
                     </div>
                 </div>
             )}

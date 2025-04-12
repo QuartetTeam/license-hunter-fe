@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 const useMyPageState = () => {
+
     // '내 프로필' 메뉴 접기 여부
     const [myProfileVisible, setMyProfileVisible] = useState<boolean>(true);
 
@@ -15,10 +16,6 @@ const useMyPageState = () => {
 
     // 메일링 서비스 휴지통 아이콘 선택 여부
     const [trashIconSelected, setTashIconSelected] = useState<boolean>(false);
-
-    // 메일링 서비스 일시 중단 Toggle ON/OFF 여부
-    const [mailingServiceOn, setMailingServiceOn] = useState<boolean>(false);
-
 
     // 메뉴 선택 시 해당 메뉴로 스크롤 이동
     const scrollToSection = (elementId: string) => {
@@ -52,25 +49,18 @@ const useMyPageState = () => {
         setTashIconSelected(!trashIconSelected);
     };
 
-    // 메일링 서비스 Toggle 버튼 ON/OFF
-    const onMailingServiceClick = () => {
-        setMailingServiceOn(!mailingServiceOn);
-    };
-
     return {
         myProfileVisible,
         favoriteFieldVisible,
         mailingServiceVisible,
         accountManageVisible,
         trashIconSelected,
-        mailingServiceOn,
         scrollToSection,
         onVisibleMyProfileClick,
         onVisibleFavoriteFieldClick,
         onVisibleMailingServiceClick,
         onVisibleAccountManageClick,
-        onTrashButtonClick,
-        onMailingServiceClick
+        onTrashButtonClick
     };
 };
 
