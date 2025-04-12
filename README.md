@@ -143,6 +143,24 @@ npm run msw
 npm run cypress
 ```
 
+## ESLint
+
+### 1. 실행
+
+- ESLint가 자동으로 수정할 수 있는 문제를 찾아서 수정합니다.
+- 단, 개발자의 의도가 있을지도 모르는 일부 오류는 수동 수정을 할 수 있도록 알려줍니다.
+
+```
+npm run lint:fix
+```
+
+- 프로젝트 전체의 코드 스타일 및 문법 오류를 검사합니다.
+- 이 프로젝트에서는 dev, main 브랜치로 PR 등록할 경우 자동으로 검사합니다.
+
+```
+npm run lint
+```
+
 ## 자격저격 웹사이트 접속
 
 https://quartet-sigma.vercel.app/
