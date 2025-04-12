@@ -1,11 +1,23 @@
 import { useQuery } from '@tanstack/react-query';
-import { certQueryKey } from '../common/queryKeys.ts';
-import { getCertCategoryData, getCertData, getCertDetailData, getCertRecommendData } from '../common/API.ts';
+import { certQueryKey } from '../API/queryKeys.ts';
+import {
+    getCertData,
+    getCertDetailData,
+    getCertRecommendData,
+    getSearchCertData
+} from '../API/API.ts';
 
 const useGetCert = (categoryId: number, page: number, pageSize: number) => {
     return useQuery({
         queryKey: [certQueryKey.get],
         queryFn: getCertData(categoryId, page, pageSize)
+    });
+};
+
+const useGetSearchCert = (name: string) => {
+    return useQuery({
+        queryKey: [certQueryKey.search],
+        queryFn: getSearchCertData(name)
     });
 };
 
@@ -23,16 +35,9 @@ const useGetCertRecommend = () => {
     });
 };
 
-const useGetCategory = () => {
-    return useQuery({
-        queryKey: [certQueryKey.getCategory],
-        queryFn: getCertCategoryData
-    });
-};
-
 export {
     useGetCert,
+    useGetSearchCert,
     useGetCertDetail,
-    useGetCertRecommend,
-    useGetCategory
+    useGetCertRecommend
 };

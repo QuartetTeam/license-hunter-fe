@@ -3,6 +3,7 @@ interface ICheckFavoriteFieldProps {
     onVisibleFavoriteFieldClick: () => void;
     alertConfirmMessage: string;
     alertCancelMessage: string;
+    events: () => void;
 }
 
 export default ICheckFavoriteFieldProps;

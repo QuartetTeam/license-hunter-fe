@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
-import { authQueryKey } from '../common/queryKeys.ts';
-import { login, logout, moveToOAuth2, refresh } from '../common/API.ts';
+import { authQueryKey } from '../API/queryKeys.ts';
+import { login, logout, moveToOAuth2, refresh } from '../API/API.ts';
 
 const useMoveToAuth = (loginType: string) => {
     return useMutation({
@@ -12,7 +12,7 @@ const useMoveToAuth = (loginType: string) => {
 const useLogin = () => {
     return useMutation({
         mutationKey: [],
-        mutationFn: login()
+        mutationFn: login
     });
 };
 
@@ -26,7 +26,7 @@ const useRefresh = (refreshToken: object) => {
 const useLogout = () => {
     return useMutation({
         mutationKey: [],
-        mutationFn: logout()
+        mutationFn: logout
     });
 };
 
