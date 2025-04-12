@@ -1,7 +1,10 @@
+import FieldButton from '../../../components/FieldButton.tsx';
 import '@styles/pages/MainPage/menuBarView.scss';
-import FieldButton from '../../components/FieldButton.tsx';
 
 const MenuBarView = () => {
+
+    // const { getCertCategoryData } = useCertService();
+
     return (
         <div className="menuBar-view">
             <div className="menuBar">

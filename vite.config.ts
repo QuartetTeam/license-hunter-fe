@@ -7,14 +7,14 @@ export default defineConfig({
     resolve: {
         alias: {
             '@styles': '/src/assets/styles',
-            '@icon': '/src/assets/icons',
-            '@api': '/src/API/queries'
+            '@icon': '/src/assets/icons'
         }
     },
     server: {
         proxy: {
             '/path': {
-                target: 'http://34.64.253.116:8080',
+                // target: 'http://34.64.253.116:8080',
+                target: 'http://quartet-load-balancer-602448148.ap-northeast-2.elb.amazonaws.com/',
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/path/, ''),
                 secure: false,

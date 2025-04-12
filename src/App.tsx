@@ -1,6 +1,7 @@
 import AppRouter from './router.tsx';
+import { CookiesProvider } from 'react-cookie';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import './assets/styles/index.scss';
+import '@styles/index.scss';
 
 const queryClient = new QueryClient();
 
@@ -8,9 +9,11 @@ function App() {
 
     return (
         <>
-            <QueryClientProvider client={queryClient}>
-                <AppRouter/>
-            </QueryClientProvider>
+            <CookiesProvider>
+                <QueryClientProvider client={queryClient}>
+                    <AppRouter/>
+                </QueryClientProvider>
+            </CookiesProvider>
         </>
     );
 }
