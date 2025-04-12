@@ -10,8 +10,10 @@ const CheckFavoriteField = ({
                                 favoriteFieldVisible,
                                 onVisibleFavoriteFieldClick,
                                 alertConfirmMessage,
-                                alertCancelMessage
+                                alertCancelMessage,
+                                events
                             }: ICheckFavoriteFieldProps) => {
+
     return (
         <Modal
             isOpen={favoriteFieldVisible}
@@ -47,8 +49,12 @@ const CheckFavoriteField = ({
                     </div>
                 </div>
                 <div className="favorite-field-footer">
-                    <CancelButton name={alertCancelMessage} clickEvent={onVisibleFavoriteFieldClick}/>
-                    <ConfirmButton name={alertConfirmMessage} clickEvent={onVisibleFavoriteFieldClick}/>
+                    <CancelButton name={alertCancelMessage}
+                                  clickEvent={onVisibleFavoriteFieldClick}/>
+                    <ConfirmButton name={alertConfirmMessage} clickEvent={() => {
+                        onVisibleFavoriteFieldClick();
+                        events();
+                    }}/>
                 </div>
             </div>
         </Modal>

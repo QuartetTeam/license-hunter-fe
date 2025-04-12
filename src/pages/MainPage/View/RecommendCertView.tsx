@@ -8,7 +8,7 @@ import '@styles/pages/MainPage/recommendCertView.scss';
 const RecommendCertView = () => {
 
     const { getCertRecommendData } = useCertService();
-    const recommendData: ICertData[] = getCertRecommendData?.data;
+    const recommendData: ICertData[] | undefined = getCertRecommendData?.data;
 
     return (
         <>

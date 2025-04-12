@@ -24,7 +24,7 @@ const SearchBox = () => {
                        placeholder="직무 혹은 기업을 검색하세요."/>
                 <button type="submit" className="searchBox-submit"
                         onClick={() => {
-                            setSearchCertData(searchCert);
+                            setSearchCertData(searchCert || []);
                             onSearchClick();
                         }}>검색
                 </button>

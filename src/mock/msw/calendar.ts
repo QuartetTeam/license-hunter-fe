@@ -1,6 +1,6 @@
 import { http, HttpResponse } from 'msw';
 import endpoints from '../../api/index.ts';
-import calendarList from '../data/calendarData.ts';
+import { addCalendar, calendarList } from '../data/calendarData.ts';
 
 const { BASE_URL, CALENDAR, CERTIFICATIONS } = endpoints;
 
@@ -13,10 +13,7 @@ const calendarHandlers = [
 
     // POST /api/v1/certifications/{certificationId}/calendars
     http.post(`${BASE_URL}/${CERTIFICATIONS}/:certificationId/${CALENDAR}`, () => {
-        return HttpResponse.json({
-            'code': 201,
-            'message': '리소스가 생성되었습니다.'
-        });
+        return HttpResponse.json(addCalendar);
     }),
 
     // DELETE /api/vi/calendars

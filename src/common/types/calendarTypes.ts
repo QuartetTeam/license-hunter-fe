@@ -17,3 +17,8 @@ export interface ICalendarList {
     message: string,
     data: ICalendarData []
 }
+
+export interface IAddCalendar {
+    code: number,
+    message: string
+}

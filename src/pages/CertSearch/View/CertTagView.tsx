@@ -6,7 +6,7 @@ import '@styles/pages/CertificateSearch/certTagView.scss';
 const CertTagView = () => {
 
     const { getCertChildCategoryData } = useCategoryService();
-    const certChildCategoryData: ICategoryDataTypes[] = getCertChildCategoryData?.data;
+    const certChildCategoryData: ICategoryDataTypes[] | undefined = getCertChildCategoryData?.data;
 
     return (
         <div className="cert-tag-view">

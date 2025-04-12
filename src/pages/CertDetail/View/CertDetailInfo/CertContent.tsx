@@ -3,8 +3,8 @@ import { IExamDetail } from '../../../../common/types/certTypes.ts';
 import '@styles/pages/CertificateDetail/certContent.scss';
 
 const CertContent = ({ cert, data }: {
-    cert: string,
-    data: IExamDetail []
+    cert?: string,
+    data?: IExamDetail []
 }) => {
     return (
         <div className="cert-detail-box">
@@ -26,7 +26,7 @@ const CertContent = ({ cert, data }: {
                 </tr>
                 </thead>
                 <tbody>
-                {data.map((item, index) => (
+                {data?.map((item, index) => (
                     <tr key={index}>
                         <td className="content-table-body">{item.examType}</td>
                         <td className="content-table-body">{item.examSubject}</td>

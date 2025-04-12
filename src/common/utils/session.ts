@@ -1,5 +1,5 @@
 import axios from 'axios';
-import authStore from '../store/authStore.ts';
+import authStore from '../store/auth/authStore.ts';
 
 const useIncludeAccessTokenAPI = () => {
     const accessToken = authStore((state) => state.accessToken);

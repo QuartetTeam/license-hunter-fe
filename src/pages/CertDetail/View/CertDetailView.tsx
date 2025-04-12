@@ -25,7 +25,7 @@ const CertDetailView = () => {
     } = useCertDetailState();
 
     const { getCertDetailData } = useCertService();
-    const certDetailData: ICertDetailListDataTypes = getCertDetailData?.data;
+    const certDetailData: ICertDetailListDataTypes | undefined = getCertDetailData?.data;
     const { addMailingsService } = useMailingService();
     const { addCalendarService } = useCalendarService();
 

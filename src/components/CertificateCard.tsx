@@ -10,7 +10,7 @@ const CertificateCard = ({
                              trashIconSelected = false
                              // requiredCalender = false
                          }: {
-    data: ICertData[] | IMailingContent[],
+    data?: ICertData[] | IMailingContent[],
     trashIconSelected?: boolean
 }) => {
 

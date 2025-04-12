@@ -18,7 +18,7 @@ const MailingServiceView = () => {
     } = useMyPageState();
 
     const { getMailingData, deleteMailingsService } = useMailingService();
-    const mailingData: IMailingContent[] = getMailingData?.data?.content;
+    const mailingData: IMailingContent[] | undefined = getMailingData?.data?.content;
 
     return (
         <div id="mailing-service" className="mailing-service">

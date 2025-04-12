@@ -6,7 +6,7 @@ import '@styles/pages/MyCalender/CalenderView.scss';
 
 const CalendarView = () => {
     const { getCalendarData, formatCalendarData } = useCalendarService();
-    const calendarData: ICalendarData[] = getCalendarData?.data;
+    const calendarData: ICalendarData[] | undefined = getCalendarData?.data;
 
     return (
         <div className="my-calender">
@@ -14,7 +14,7 @@ const CalendarView = () => {
                 plugins={[dayGridPlugin]}
                 initialView="dayGridMonth"
                 events={
-                    formatCalendarData(calendarData)
+                    formatCalendarData(calendarData ?? [])
                 }
             />
         </div>

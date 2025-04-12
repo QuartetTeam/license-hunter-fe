@@ -3,8 +3,8 @@ import { IQualification } from '../../../../common/types/certTypes.ts';
 import '@styles/pages/CertificateDetail/certQualifications.scss';
 
 const CertQualifications = ({ cert, data }: {
-    cert: string,
-    data: IQualification []
+    cert?: string,
+    data?: IQualification []
 }) => {
     return (
         <div className="cert-detail-box">
@@ -14,7 +14,7 @@ const CertQualifications = ({ cert, data }: {
             <div className="cert-subtitle">{cert} 응시자격</div>
             <table className="qual-table">
                 <tbody>
-                {data.map((item, index) => (
+                {data?.map((item, index) => (
                     item.data.map((dataItem, dataIndex) => (
                         <tr key={index}>
                             {dataIndex === 0 && (

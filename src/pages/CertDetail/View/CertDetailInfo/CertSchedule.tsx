@@ -4,8 +4,8 @@ import { IExamSchedule } from '../../../../common/types/certTypes.ts';
 import '@styles/pages/CertificateDetail/certSchedule.scss';
 
 const CertSchedule = ({ cert, data }: {
-    cert: string,
-    data: IExamSchedule []
+    cert?: string,
+    data?: IExamSchedule []
 }) => {
     const { formatDate } = useCertService();
 
@@ -18,7 +18,7 @@ const CertSchedule = ({ cert, data }: {
             <table className="schedule-table">
                 <thead>
                 <tr>
-                    {data.map((item, index) => (
+                    {data?.map((item, index) => (
                         <th key={index}
                             className="schedule-table-header">{item?.scheduleType}</th>
                     ))}
@@ -26,7 +26,7 @@ const CertSchedule = ({ cert, data }: {
                 </thead>
                 <tbody>
                 <tr>
-                    {data.map((item, index) => (
+                    {data?.map((item, index) => (
                         <td key={index}
                             className="schedule-table-body">{formatDate(item?.date)}</td>
                     ))}
