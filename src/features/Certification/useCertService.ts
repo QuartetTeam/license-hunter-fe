@@ -33,7 +33,7 @@ const useCertService = () => {
     // "2025-03-08T00:00:00Z" -> "2025-03-08"
     const formatDate = (date: string | string []) => {
         if (Array.isArray(date)) {
-            const dateArray = date.map((item, _) => item.split('T')[0]);
+            const dateArray = date.map((item) => item.split('T')[0]);
             return dateArray.join(' ~ ');
         } else {
             if (date === '') {

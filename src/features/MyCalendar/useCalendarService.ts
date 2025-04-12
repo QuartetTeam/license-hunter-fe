@@ -18,7 +18,7 @@ const useCalendarService = () => {
     // 날짜 데이터 가공
     // "2025-03-08T00:00:00Z" -> "2025-03-08"
     const formatDate = (date: string[]) => {
-        return date.map((item, _) => item.split('T')[0]);
+        return date.map((item) => item.split('T')[0]);
     };
 
     // 마지막 날짜 데이터 가공 (하루 더하기)
