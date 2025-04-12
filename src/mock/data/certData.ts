@@ -1,41 +1,51 @@
-import { ICertDetailList } from './dataTypes.ts';
+import {
+    ICertDetailList,
+    ICertList,
+    ICertSearchList,
+    IRecommendedList
+} from './dataTypes.ts';
 
-const certList = {
+const certList: ICertList = {
     'code': 200,
     'message': '요청이 처리되었습니다.',
     'data': {
         'content': [
             {
-                'id': 1,
-                'name': '정보처리기사',
-                'receiptDate': '2025-01-20T00:00:00Z',
-                'examDate': '2025-02-25T00:00:00Z',
-                'CalendarSubscriptionCount': 0
+                'id': 575,
+                'mainCategory': '경매·중개',
+                'subCategory': '유통·물류',
+                'name': '경매사(수산)',
+                'applicationDate': '2025-05-19T09:00:00Z',
+                'examDate': '2025-06-21T09:00:00Z',
+                'calendarSubscription': 0
             },
             {
-                'id': 2,
-                'name': '네트워크관리사',
-                'receiptDate': '2025-05-13T00:00:00Z',
-                'examDate': '2025-06-01T00:00:00Z',
-                'CalendarSubscriptionCount': 0
+                'id': 576,
+                'mainCategory': '경매·중개',
+                'subCategory': '유통·물류',
+                'name': '경매사(약용)',
+                'applicationDate': '',
+                'examDate': '',
+                'calendarSubscription': 0
             }
         ],
         'pageable': {
             'pageNumber': 0,
-            'pageSize': 15,
+            'pageSize': 2,
             'sort': {
                 'empty': false,
                 'sorted': true,
                 'unsorted': false
             },
             'offset': 0,
-            'unpaged': false,
-            'paged': true
+            'paged': true,
+            'unpaged': false
         },
-        'last': true,
-        'totalElements': 2,
-        'totalPages': 1,
-        'size': 15,
+        'last': false,
+        'totalPages': 3,
+        'totalElements': 6,
+        'first': true,
+        'size': 2,
         'number': 0,
         'sort': {
             'empty': false,
@@ -43,9 +53,24 @@ const certList = {
             'unsorted': false
         },
         'numberOfElements': 2,
-        'first': true,
         'empty': false
     }
+};
+
+const certSearchList: ICertSearchList = {
+    'code': 200,
+    'message': '요청이 처리되었습니다.',
+    'data': [
+        {
+            'id': 2,
+            'mainCategory': '기계',
+            'subCategory': '기계장비설비.설치',
+            'name': '건설기계기술사',
+            'applicationDate': '2025-07-14T10:00:00Z',
+            'examDate': '2025-04-19T09:00:00Z',
+            'calendarSubscription': 0
+        }
+    ]
 };
 
 const certDetailList: ICertDetailList = {
@@ -155,27 +180,65 @@ const certDetailList: ICertDetailList = {
     }
 };
 
-const recommendedList = {
+const recommendedList: IRecommendedList = {
     'code': 200,
     'message': '요청이 처리되었습니다.',
     'data': [
         {
-            'id': 1,
-            'name': '정보처리기사',
-            'applicationDate': null,
-            'receiptDate': '2025-01-20T00:00:00Z',
-            'examDate': '2025-02-25T00:00:00Z',
-            'CalendarSubscriptionCount': 0
+            'id': 369,
+            'mainCategory': '건설',
+            'subCategory': '건설기계운전',
+            'name': '굴착기운전기능사',
+            'applicationDate': '2025-04-17T10:00:00Z',
+            'examDate': '2025-04-11T09:00:00Z',
+            'calendarSubscription': 0
         },
         {
-            'id': 2,
-            'name': '네트워크관리사',
-            'applicationDate': null,
-            'receiptDate': '2025-05-13T00:00:00Z',
-            'examDate': '2025-06-01T00:00:00Z',
-            'CalendarSubscriptionCount': 0
+            'id': 377,
+            'mainCategory': '건설',
+            'subCategory': '건설기계운전',
+            'name': '기중기운전기능사',
+            'applicationDate': '2025-04-21T10:00:00Z',
+            'examDate': '2025-05-31T09:00:00Z',
+            'calendarSubscription': 0
+        },
+        {
+            'id': 385,
+            'mainCategory': '건설',
+            'subCategory': '건설기계운전',
+            'name': '로더운전기능사',
+            'applicationDate': '2025-04-21T10:00:00Z',
+            'examDate': '2025-05-31T09:00:00Z',
+            'calendarSubscription': 0
+        },
+        {
+            'id': 386,
+            'mainCategory': '건설',
+            'subCategory': '건설기계운전',
+            'name': '롤러운전기능사',
+            'applicationDate': '2025-04-21T10:00:00Z',
+            'examDate': '2025-05-31T09:00:00Z',
+            'calendarSubscription': 0
+        },
+        {
+            'id': 388,
+            'mainCategory': '건설',
+            'subCategory': '건설기계운전',
+            'name': '모터그레이더운전기능사',
+            'applicationDate': '',
+            'examDate': '',
+            'calendarSubscription': 0
+        },
+        {
+            'id': 406,
+            'mainCategory': '건설',
+            'subCategory': '건설기계운전',
+            'name': '불도저운전기능사',
+            'applicationDate': '2025-04-21T10:00:00Z',
+            'examDate': '2025-05-31T09:00:00Z',
+            'calendarSubscription': 0
         }
     ]
 };
 
-export { certList, certDetailList, recommendedList };
+export { certList, certSearchList, certDetailList, recommendedList };
