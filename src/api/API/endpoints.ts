@@ -3,7 +3,9 @@ const endpoints = {
     LOGIN: '/oauth2/authorization',
     CALENDAR: 'calendars',
     MAILINGS: 'mailings',
-    CERTIFICATIONS: 'certifications'
+    CERTIFICATIONS: 'certifications',
+    MEMBERS: 'members/me',
+    PROFILE: 'profile'
 };
 
 export default endpoints;

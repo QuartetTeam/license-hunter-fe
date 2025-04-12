@@ -11,17 +11,24 @@ import {
     useGetCalendar
 } from './queries/useCalendarQuery.ts';
 import {
-    useGetCategory,
     useGetCert,
     useGetCertDetail,
     useGetCertRecommend
 } from './queries/useCertQuery.ts';
+import { useGetCategory, useGetChildCategory } from './queries/useCategoryQuery.ts';
 import {
-    useAddMailings,
-    useDeleteMailings,
-    useGetMailings
-} from './queries/useMailingsQuery.ts';
-import endpoints from './common/endpoints.ts';
+    useAddMailing,
+    useDeleteMailing,
+    useGetMailing
+} from './queries/useMailingQuery.ts';
+import {
+    useDeleteUser,
+    useGetUser,
+    usePatchUserEmail,
+    usePatchUserInterest,
+    usePatchUserNick
+} from './queries/useUserQuery.ts';
+import endpoints from './API/endpoints.ts';
 
 export {
     useMoveToAuth,
@@ -32,11 +39,19 @@ export {
 export { useGetCalendar, useAddCalendar, useDeleteCalendar };
 export {
     useGetCert,
-    useGetCertRecommend,
-    useGetCategory,
-    useGetCertDetail
+    useGetCertDetail,
+    useGetCertRecommend
 };
 export {
-    useGetMailings, useAddMailings, useDeleteMailings
+    useGetCategory,
+    useGetChildCategory
+};
+export {
+    useGetMailing,
+    useAddMailing,
+    useDeleteMailing
+};
+export {
+    useGetUser, useDeleteUser, usePatchUserNick, usePatchUserEmail, usePatchUserInterest
 };
 export default endpoints;

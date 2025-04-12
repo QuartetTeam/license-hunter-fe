@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
-import { calendarQueryKey } from '../common/queryKeys.ts';
-import { addCalendarData, deleteCalendarData, getCalendarData } from '../common/API.ts';
+import { calendarQueryKey } from '../API/queryKeys.ts';
+import { addCalendarData, deleteCalendarData, getCalendarData } from '../API/API.ts';
 
 const useGetCalendar = () => {
     return useQuery({
