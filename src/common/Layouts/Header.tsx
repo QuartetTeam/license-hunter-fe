@@ -1,18 +1,21 @@
-import '@styles/layout/Header.scss';
-import useLayoutsState from './useLayoutsState.ts';
+import { useNavigate } from 'react-router-dom';
+import './style/Header.scss';
 
 const Header = () => {
-  const { onHomeButtonClick, onMyCalenderButtonClick, onLoginButtonClick, onMyPageButtonClick } =
-    useLayoutsState();
+  const navigate = useNavigate();
+  const moveToPage = (page: string) => {
+    window.scrollTo(0, 0);
+    navigate(page);
+  };
 
   return (
     <div className="header">
       <div className="header-container">
-        <div className="title" onClick={onHomeButtonClick}>
+        <div className="title" onClick={() => moveToPage('/')}>
           자격저격
         </div>
         <div className="header-button-group">
-          <button className="my-calender-button" onClick={onMyCalenderButtonClick}>
+          <button className="my-calender-button" onClick={() => moveToPage('/myCalender')}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -29,10 +32,10 @@ const Header = () => {
             </svg>
             내 캘린더
           </button>
-          <button className="login-button" onClick={onLoginButtonClick}>
+          <button className="login-button" onClick={() => moveToPage('/login')}>
             로그인
           </button>
-          <button className="myPage-button" onClick={onMyPageButtonClick}>
+          <button className="myPage-button" onClick={() => moveToPage('/myPage')}>
             마이페이지
           </button>
         </div>
