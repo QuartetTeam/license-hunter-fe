@@ -12,9 +12,9 @@ export default defineConfig({
     },
     server: {
         proxy: {
-            '/path': {
-                // target: 'http://34.64.253.116:8080',
-                target: 'http://quartet-load-balancer-602448148.ap-northeast-2.elb.amazonaws.com/',
+            '/api': {
+                // target: 'http://34.64.253.116:8080/api/v1',
+                target: 'http://quartet-load-balancer-602448148.ap-northeast-2.elb.amazonaws.com/api/v1',
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/path/, ''),
                 secure: false,

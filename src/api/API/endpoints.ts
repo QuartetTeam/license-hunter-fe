@@ -1,5 +1,5 @@
 const endpoints = {
-    BASE_URL: '/path/api/v1',
+    BASE_URL: '/api',
     LOGIN: '/oauth2/authorization',
     CALENDAR: 'calendars',
     MAILINGS: 'mailings',
