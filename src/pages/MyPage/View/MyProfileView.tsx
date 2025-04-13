@@ -5,7 +5,7 @@ import FavoriteFieldButton from '@component/FavoriteFieldButton.tsx';
 import CheckFavoriteField from '@component/CheckFavoriteField.tsx';
 import { cancelButtonMessage, confirmButtonMessage } from '../Messages/buttonMessages.ts';
 import useUserService from '@feature/User/useUserService.ts';
-import { IUserDataProps } from '@type/userTypes.ts';
+import { IUserDataProps } from '@type/user.ts';
 import '../style/myProfileView.scss';
 
 const MyProfileView = ({ data }: IUserDataProps) => {

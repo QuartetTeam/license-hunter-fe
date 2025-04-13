@@ -1,17 +1,17 @@
 import axios from 'axios';
 import endpoints from './endpoints.ts';
-import { IAddMailing, IMailingList } from '../../common/types/mailingTypes.ts';
-import { ICalendarList } from '../../common/types/calendarTypes.ts';
+import { IAddMailing, IMailingList } from '@type/mailing.ts';
+import { ICalendarList } from '@type/calendar.ts';
 import { IAddCalendar, ICertList, ICertSearchList } from '../../mock/data/dataTypes.ts';
-import { ICertDetailList, IRecommendedList } from '../../common/types/certTypes.ts';
-import { ICategoryTypes } from '../../common/types/categoryTypes.ts';
+import { ICertDetailList, IRecommendedList } from '@type/cert.ts';
+import { ICategoryTypes } from '@type/category.ts';
 import {
   IChangeEmail,
   IChangeInterest,
   IChangeMailingStatus,
   IChangeNick,
   IUserList,
-} from '../../common/types/userTypes.ts';
+} from '@type/user.ts';
 
 const { BASE_URL, LOGIN, CALENDAR, MAILINGS, CERTIFICATIONS, MEMBERS, PROFILE } = endpoints;
 

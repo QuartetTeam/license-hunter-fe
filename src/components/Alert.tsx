@@ -2,7 +2,7 @@ import Modal from 'react-modal';
 import ConfirmButton from './ConfirmButton.tsx';
 import CancelButton from './CancelButton.tsx';
 import CancelIcon from '@icon/icon-button-cancel.svg?react';
-import IAlertProps from './types/alertTypes.ts';
+import IAlertProps from './types/alert.ts';
 import './style/alert.scss';
 
 const Alert = ({

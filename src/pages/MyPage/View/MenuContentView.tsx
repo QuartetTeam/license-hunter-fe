@@ -2,7 +2,7 @@ import MyProfileView from './MyProfileView.tsx';
 import MailingServiceView from './MailingServiceView.tsx';
 import AccountManageView from './AccountManageView.tsx';
 import useUserService from '@feature/User/useUserService.ts';
-import { IUserData } from '@type/userTypes.ts';
+import { IUserData } from '@type/user.ts';
 import '../style/menuContentView.scss';
 
 const MenuContentView = () => {

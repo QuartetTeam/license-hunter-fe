@@ -12,7 +12,7 @@ import CertContent from './CertDetailInfo/CertContent.tsx';
 import useCertService from '@feature/Certification/useCertService.ts';
 import useMailingService from '@feature/MailingService/useMailingService.ts';
 import useCalendarService from '@feature/MyCalendar/useCalendarService.ts';
-import { ICertDetailListDataTypes } from '@type/certTypes.ts';
+import { ICertDetailListDataTypes } from '@type/cert.ts';
 import '../style/certDetailView.scss';
 
 const CertDetailView = () => {

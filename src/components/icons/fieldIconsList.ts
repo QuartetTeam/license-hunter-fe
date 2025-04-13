@@ -9,7 +9,7 @@ import ChemBioIcon from '@icon/Field/icon-chem-bio.svg?react';
 import BusinessSalesIcon from '@icon/Field/icon-business-sales.svg?react';
 import ConstructionIcon from '@icon/Field/icon-construction.svg?react';
 import MachineIcon from '@icon/Field/icon-machine.svg?react';
-import { FieldIconsMap } from '../types/iconTypes.ts';
+import { FieldIconsMap } from '../types/icon.ts';
 import { Field } from '../types/Field.ts';
 
 export const fieldIconsList: FieldIconsMap = {

@@ -1,8 +1,8 @@
 // import CheckboxChecked from '@icon/icon-checkbox-check.svg?react';
 import CheckboxEmpty from '@icon/icon-checkbox-empty.svg?react';
 import useCertService from '../features/Certification/useCertService.ts';
-import { ICertData } from '@type/certTypes.ts';
-import { IMailingContent } from '@type/mailingTypes.ts';
+import { ICertData } from '@type/cert.ts';
+import { IMailingContent } from '@type/mailing.ts';
 import './style/certificateCard.scss';
 
 const CertificateCard = ({

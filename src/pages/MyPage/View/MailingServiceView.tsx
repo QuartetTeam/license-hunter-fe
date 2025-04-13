@@ -6,7 +6,7 @@ import ArrowUp from '@icon/icon-arrow-up.svg?react';
 // import CheckboxChecked from '@icon/icon-checkbox-check.svg?react';
 import CheckboxEmpty from '@icon/icon-checkbox-empty.svg?react';
 import TrashIcon from '@icon/icon-trash.svg?react';
-import { IMailingContent } from '@type/mailingTypes.ts';
+import { IMailingContent } from '@type/mailing.ts';
 import '../style/mailingServiceView.scss';
 
 const MailingServiceView = () => {

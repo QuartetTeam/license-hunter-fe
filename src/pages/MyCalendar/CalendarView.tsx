@@ -1,7 +1,7 @@
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import useCalendarService from '@feature/MyCalendar/useCalendarService.ts';
-import { ICalendarData } from '@type/calendarTypes.ts';
+import { ICalendarData } from '@type/calendar.ts';
 import './CalenderView.scss';
 
 const CalendarView = () => {
