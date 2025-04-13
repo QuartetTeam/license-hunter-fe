@@ -9,8 +9,8 @@ import { IUserDataProps } from '@type/user.ts';
 import '../style/myProfileView.scss';
 
 const MyProfileView = ({ data }: IUserDataProps) => {
-  const [myProfileVisible, setMyProfileVisible] = useState<boolean>(true);
-  const [favoriteFieldVisible, setFavoriteFieldVisible] = useState<boolean>(false);
+  const [myProfileVisible, setMyProfileVisible] = useState(true);
+  const [favoriteFieldVisible, setFavoriteFieldVisible] = useState(false);
   const onVisibleMyProfileClick = () => {
     setMyProfileVisible(!myProfileVisible);
   };

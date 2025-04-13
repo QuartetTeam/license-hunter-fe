@@ -16,8 +16,8 @@ import { ICertDetailListDataTypes } from '@type/cert.ts';
 import '../style/certDetailView.scss';
 
 const CertDetailView = () => {
-  const [mailingAlertVisible, setMailingAlertVisible] = useState<boolean>(false);
-  const [calenderAlertVisible, setCalenderAlertVisible] = useState<boolean>(false);
+  const [mailingAlertVisible, setMailingAlertVisible] = useState(false);
+  const [calenderAlertVisible, setCalenderAlertVisible] = useState(false);
   const onVisibleMailingAlertClick = () => {
     setMailingAlertVisible(!mailingAlertVisible);
   };
