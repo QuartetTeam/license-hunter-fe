@@ -1,8 +1,12 @@
-import useMyPageState from '../useMyPageState.ts';
 import '@styles/pages/MyPage/myPageMenuView.scss';
 
 const MyPageMenuView = () => {
-  const { scrollToSection } = useMyPageState();
+  // 메뉴 선택 시 해당 메뉴로 스크롤 이동
+  const scrollToSection = (elementId: string) => {
+    document.getElementById(elementId)?.scrollIntoView({
+      behavior: 'smooth',
+    });
+  };
 
   return (
     <div className="myPage-menu">

@@ -1,4 +1,4 @@
-import useMyPageState from '../useMyPageState.ts';
+import { useState } from 'react';
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
 import ArrowUp from '@icon/icon-arrow-up.svg?react';
 import FieldButton from '../../../components/FieldButton.tsx';
@@ -9,12 +9,14 @@ import { IUserDataProps } from '../../../common/types/userTypes.ts';
 import '@styles/pages/MyPage/myProfileView.scss';
 
 const MyProfileView = ({ data }: IUserDataProps) => {
-  const {
-    myProfileVisible,
-    favoriteFieldVisible,
-    onVisibleMyProfileClick,
-    onVisibleFavoriteFieldClick,
-  } = useMyPageState();
+  const [myProfileVisible, setMyProfileVisible] = useState<boolean>(true);
+  const [favoriteFieldVisible, setFavoriteFieldVisible] = useState<boolean>(false);
+  const onVisibleMyProfileClick = () => {
+    setMyProfileVisible(!myProfileVisible);
+  };
+  const onVisibleFavoriteFieldClick = () => {
+    setFavoriteFieldVisible(!favoriteFieldVisible);
+  };
 
   const { changeUserNickService, changeUserEmailService, changeUserInterestService } =
     useUserService();

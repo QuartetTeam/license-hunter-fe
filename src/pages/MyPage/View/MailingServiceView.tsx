@@ -1,5 +1,5 @@
+import { useState } from 'react';
 import CertificateCard from '../../../components/CertificateCard.tsx';
-import useMyPageState from '../useMyPageState.ts';
 import useMailingService from '../../../features/MailingService/useMailingService.ts';
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
 import ArrowUp from '@icon/icon-arrow-up.svg?react';
@@ -10,12 +10,14 @@ import '@styles/pages/MyPage/mailingServiceView.scss';
 import { IMailingContent } from '../../../common/types/mailingTypes.ts';
 
 const MailingServiceView = () => {
-  const {
-    mailingServiceVisible,
-    trashIconSelected,
-    onVisibleMailingServiceClick,
-    onTrashButtonClick,
-  } = useMyPageState();
+  const [mailingServiceVisible, setMailingServiceVisible] = useState(true);
+  const [trashIconSelected, setTashIconSelected] = useState(false);
+  const onVisibleMailingServiceClick = () => {
+    setMailingServiceVisible(!mailingServiceVisible);
+  };
+  const onTrashButtonClick = () => {
+    setTashIconSelected(!trashIconSelected);
+  };
 
   const { getMailingData, deleteMailingsService } = useMailingService();
   const mailingData: IMailingContent[] | undefined = getMailingData?.data?.content;

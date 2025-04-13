@@ -8,20 +8,22 @@ import {
 import CertSchedule from './CertDetailInfo/CertSchedule.tsx';
 import CertQualifications from './CertDetailInfo/CertQualifications.tsx';
 import CertContent from './CertDetailInfo/CertContent.tsx';
-import useCertDetailState from '../useCertDetailState.ts';
 import useCertService from '../../../features/Certification/useCertService.ts';
 import useMailingService from '../../../features/MailingService/useMailingService.ts';
 import useCalendarService from '../../../features/MyCalendar/useCalendarService.ts';
 import { ICertDetailListDataTypes } from '../../../common/types/certTypes.ts';
 import '@styles/pages/CertificateDetail/certDetailView.scss';
+import { useState } from 'react';
 
 const CertDetailView = () => {
-  const {
-    mailingAlertVisible,
-    calenderAlertVisible,
-    onVisibleMailingAlertClick,
-    onVisibleCalenderAlertClick,
-  } = useCertDetailState();
+  const [mailingAlertVisible, setMailingAlertVisible] = useState<boolean>(false);
+  const [calenderAlertVisible, setCalenderAlertVisible] = useState<boolean>(false);
+  const onVisibleMailingAlertClick = () => {
+    setMailingAlertVisible(!mailingAlertVisible);
+  };
+  const onVisibleCalenderAlertClick = () => {
+    setCalenderAlertVisible(!calenderAlertVisible);
+  };
 
   const { getCertDetailData } = useCertService();
   const certDetailData: ICertDetailListDataTypes | undefined = getCertDetailData?.data;

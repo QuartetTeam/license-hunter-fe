@@ -1,14 +1,17 @@
-import ArrowDown from '@icon/icon-arrow-down.svg?react';
+import { useState } from 'react';
 import ArrowUp from '@icon/icon-arrow-up.svg?react';
+import ArrowDown from '@icon/icon-arrow-down.svg?react';
 import ToggleON from '@icon/icon-toggle-on.svg?react';
 import ToggleOFF from '@icon/icon-toggle-off.svg?react';
-import useMyPageState from '../useMyPageState.ts';
 import useUserService from '../../../features/User/useUserService.ts';
 import { IUserDataProps } from '../../../common/types/userTypes.ts';
 import '@styles/pages/MyPage/accountManageView.scss';
 
 const AccountManageView = ({ data }: IUserDataProps) => {
-  const { accountManageVisible, onVisibleAccountManageClick } = useMyPageState();
+  const [accountManageVisible, setAccountManageVisible] = useState(true);
+  const onVisibleAccountManageClick = () => {
+    setAccountManageVisible(!accountManageVisible);
+  };
 
   const { changeUserMailingService, deleteUserDataService } = useUserService();
 
