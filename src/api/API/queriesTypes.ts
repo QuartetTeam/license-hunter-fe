@@ -1,5 +1,5 @@
 interface ICalendarResponseType {
-    data: string[];
+  data: string[];
 }
 
 export default ICalendarResponseType;

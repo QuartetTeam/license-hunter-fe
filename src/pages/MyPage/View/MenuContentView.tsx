@@ -6,17 +6,16 @@ import '@styles/pages/MyPage/menuContentView.scss';
 import { IUserData } from '../../../common/types/userTypes.ts';
 
 const MenuContentView = () => {
+  const { getUserData } = useUserService();
+  const userData: IUserData | undefined = getUserData?.data;
 
-    const { getUserData } = useUserService();
-    const userData: IUserData | undefined = getUserData?.data;
-
-    return (
-        <div className="menu-content">
-            <MyProfileView data={userData}/>
-            <MailingServiceView/>
-            <AccountManageView data={userData}/>
-        </div>
-    );
+  return (
+    <div className="menu-content">
+      <MyProfileView data={userData} />
+      <MailingServiceView />
+      <AccountManageView data={userData} />
+    </div>
+  );
 };
 
 export default MenuContentView;

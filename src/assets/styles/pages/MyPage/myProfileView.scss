@@ -4,7 +4,7 @@
   flex-direction: column;
   gap: 24px;
   padding: 24px;
-  border: 1px solid #E0E0E0;
+  border: 1px solid #e0e0e0;
   border-radius: 8px;
 
   .my-profile-title {
@@ -37,7 +37,7 @@
         width: 120px;
         height: 120px;
         border-radius: 24px;
-        background-color: #E0E0E0;
+        background-color: #e0e0e0;
       }
 
       &__button {
@@ -72,7 +72,7 @@
           height: 40px;
           display: flex;
           align-items: center;
-          border: 1px solid #E2E2E2;
+          border: 1px solid #e2e2e2;
           border-radius: 4px;
 
           &__input {
@@ -114,8 +114,8 @@
 
         .favorite-field-button {
           border-radius: 16px;
-          border: 1px solid #F5F7FA;
-          background-color: #F5F7FA;
+          border: 1px solid #f5f7fa;
+          background-color: #f5f7fa;
         }
       }
 
@@ -129,10 +129,9 @@
           padding: 2.5px 16px;
           font-size: 16px;
           border: none;
-          color: #4F72F3;
+          color: #4f72f3;
           background-color: white;
         }
-
       }
     }
   }

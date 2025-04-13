@@ -3,12 +3,12 @@ import SocialLoginView from './View/SocialLoginView.tsx';
 import '@styles/pages/Login/loginContainer.scss';
 
 const LoginContainer = () => {
-    return (
-        <div className="login-container">
-            <QuartetView/>
-            <SocialLoginView/>
-        </div>
-    );
+  return (
+    <div className="login-container">
+      <QuartetView />
+      <SocialLoginView />
+    </div>
+  );
 };
 
 export default LoginContainer;

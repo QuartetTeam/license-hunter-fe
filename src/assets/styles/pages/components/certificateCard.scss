@@ -4,7 +4,7 @@
   display: flex;
   gap: 15px;
   padding: 17px 11px;
-  border: 1px solid #CAC4D0;
+  border: 1px solid #cac4d0;
   border-radius: 16px;
 
   .certificate-info-checkbox {
@@ -26,7 +26,7 @@
     &__image {
       width: 127px;
       height: 116px;
-      background-color: #E0E0E0;
+      background-color: #e0e0e0;
     }
 
     &__text {
@@ -38,7 +38,7 @@
       &__name {
         margin-bottom: 16px;
         font-size: 20px;
-        color: #5C78E0;
+        color: #5c78e0;
         text-decoration: underline;
       }
     }
@@ -49,7 +49,6 @@
       gap: 1.48px;
       align-items: center;
 
-
       &__icon {
         width: 24px;
         height: 24px;
@@ -59,7 +58,5 @@
         font-size: 14px;
       }
     }
-
   }
-
 }

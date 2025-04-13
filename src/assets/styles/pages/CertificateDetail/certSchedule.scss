@@ -2,19 +2,19 @@
 
 .schedule-table {
   border-collapse: collapse;
-  border: 1px solid #E2E2E2;
+  border: 1px solid #e2e2e2;
   text-align: center;
 
   &-header {
     padding: 8px 16px;
-    border: 1px solid #E2E2E2;
+    border: 1px solid #e2e2e2;
     background-color: $gray-200;
     font-size: 16px;
   }
 
   &-body {
     padding: 8px 16px;
-    border: 1px solid #E2E2E2;
+    border: 1px solid #e2e2e2;
     font-size: 14px;
   }
 }

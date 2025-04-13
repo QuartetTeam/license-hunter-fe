@@ -1,41 +1,41 @@
 export interface IMailingContent {
-    id: number,
-    mainCategory: string,
-    subCategory: string,
-    name: string,
-    applicationDate: string,
-    examDate: string,
-    calendarSubscription: number
+  id: number;
+  mainCategory: string;
+  subCategory: string;
+  name: string;
+  applicationDate: string;
+  examDate: string;
+  calendarSubscription: number;
 }
 
 export interface IMailingData {
-    content: IMailingContent[],
-    page: number,
-    pageSize: number,
-    totalElements: number,
-    totalPages: number,
-    first: boolean,
-    last: boolean,
-    empty: boolean
+  content: IMailingContent[];
+  page: number;
+  pageSize: number;
+  totalElements: number;
+  totalPages: number;
+  first: boolean;
+  last: boolean;
+  empty: boolean;
 }
 
 export interface IMailingList {
-    code: number,
-    message: string,
-    data: IMailingData
+  code: number;
+  message: string;
+  data: IMailingData;
 }
 
 export interface IAddMailing {
-    code: number,
-    message: string
+  code: number;
+  message: string;
 }
 
 export interface IMailingStatusData {
-    status: string;
+  status: string;
 }
 
 export interface IMailingStatus {
-    code: number,
-    message: string,
-    data: IMailingStatusData
+  code: number;
+  message: string;
+  data: IMailingStatusData;
 }

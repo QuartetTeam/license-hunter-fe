@@ -6,16 +6,15 @@ import '@styles/index.scss';
 const queryClient = new QueryClient();
 
 function App() {
-
-    return (
-        <>
-            <CookiesProvider>
-                <QueryClientProvider client={queryClient}>
-                    <AppRouter/>
-                </QueryClientProvider>
-            </CookiesProvider>
-        </>
-    );
+  return (
+    <>
+      <CookiesProvider>
+        <QueryClientProvider client={queryClient}>
+          <AppRouter />
+        </QueryClientProvider>
+      </CookiesProvider>
+    </>
+  );
 }
 
 export default App;

@@ -1,9 +1,7 @@
 import CalendarView from './View/CalendarView.tsx';
 
 const MyCalendarContainer = () => {
-    return (
-        <CalendarView/>
-    );
+  return <CalendarView />;
 };
 
 export default MyCalendarContainer;
