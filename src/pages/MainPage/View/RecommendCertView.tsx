@@ -2,7 +2,7 @@ import CertificateCard from '../../../components/CertificateCard.tsx';
 import useCertService from '../../../features/Certification/useCertService.ts';
 import ArrowLeft from '@icon/icon-arrow-left.svg?react';
 import ArrowRight from '@icon/icon-arrow-right.svg?react';
-import { ICertData } from '../../../common/types/certTypes.ts';
+import { ICertData } from '@type/certTypes.ts';
 import '../style/recommendCertView.scss';
 
 const RecommendCertView = () => {

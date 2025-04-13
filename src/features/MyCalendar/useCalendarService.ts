@@ -1,5 +1,5 @@
 import { useAddCalendar, useDeleteCalendar, useGetCalendar } from '../../api';
-import { ICalendarData, ISchedules } from '../../common/types/calendarTypes.ts';
+import { ICalendarData, ISchedules } from '@type/calendarTypes.ts';
 import { IformatCalendar, IformatCalendarArray } from './calendarTypes.ts';
 
 const useCalendarService = () => {

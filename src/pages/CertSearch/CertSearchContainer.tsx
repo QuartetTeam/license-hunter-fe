@@ -1,4 +1,4 @@
-import SearchBox from '../../components/SearchBox.tsx';
+import SearchBox from '@component/SearchBox.tsx';
 import CertCardListView from './View/CertCardListView.tsx';
 import CertTagView from './View/CertTagView.tsx';
 import './style/certSearchContainer.scss';

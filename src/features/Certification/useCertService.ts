@@ -1,6 +1,6 @@
 import { useGetCert, useGetCertDetail, useGetCertRecommend } from '../../api';
 import { useNavigate } from 'react-router-dom';
-import { useGetSearchCert } from '../../api/queries/useCertQuery.ts';
+import { useGetSearchCert } from '@api/queries/useCertQuery.ts';
 
 const useCertService = () => {
   // 자격증 조회

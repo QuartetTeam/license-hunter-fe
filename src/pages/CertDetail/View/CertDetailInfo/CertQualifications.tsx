@@ -1,5 +1,5 @@
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
-import { IQualification } from '../../../../common/types/certTypes.ts';
+import { IQualification } from '@type/certTypes.ts';
 import '../../style/certQualifications.scss';
 
 const CertQualifications = ({ cert, data }: { cert?: string; data?: IQualification[] }) => {

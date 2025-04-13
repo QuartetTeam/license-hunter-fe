@@ -1,5 +1,5 @@
-import useCategoryService from '../../../features/Category/useCategoryService.ts';
-import { ICategoryDataTypes } from '../../../common/types/categoryTypes.ts';
+import useCategoryService from '@feature/Category/useCategoryService.ts';
+import { ICategoryDataTypes } from '@type/categoryTypes.ts';
 import '../style/certTagView.scss';
 
 const CertTagView = () => {

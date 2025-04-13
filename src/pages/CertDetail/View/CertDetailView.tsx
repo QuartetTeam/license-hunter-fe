@@ -9,10 +9,10 @@ import {
 import CertSchedule from './CertDetailInfo/CertSchedule.tsx';
 import CertQualifications from './CertDetailInfo/CertQualifications.tsx';
 import CertContent from './CertDetailInfo/CertContent.tsx';
-import useCertService from '../../../features/Certification/useCertService.ts';
-import useMailingService from '../../../features/MailingService/useMailingService.ts';
-import useCalendarService from '../../../features/MyCalendar/useCalendarService.ts';
-import { ICertDetailListDataTypes } from '../../../common/types/certTypes.ts';
+import useCertService from '@feature/Certification/useCertService.ts';
+import useMailingService from '@feature/MailingService/useMailingService.ts';
+import useCalendarService from '@feature/MyCalendar/useCalendarService.ts';
+import { ICertDetailListDataTypes } from '@type/certTypes.ts';
 import '../style/certDetailView.scss';
 
 const CertDetailView = () => {

@@ -1,8 +1,8 @@
 import MyProfileView from './MyProfileView.tsx';
 import MailingServiceView from './MailingServiceView.tsx';
 import AccountManageView from './AccountManageView.tsx';
-import useUserService from '../../../features/User/useUserService.ts';
-import { IUserData } from '../../../common/types/userTypes.ts';
+import useUserService from '@feature/User/useUserService.ts';
+import { IUserData } from '@type/userTypes.ts';
 import '../style/menuContentView.scss';
 
 const MenuContentView = () => {

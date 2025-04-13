@@ -1,5 +1,5 @@
 import { useDeleteUser, useGetUser, usePatchUserInterest, usePatchUserNick } from '../../api';
-import { usePatchMailingService } from '../../api/queries/useUserQuery.ts';
+import { usePatchMailingService } from '@api/queries/useUserQuery.ts';
 
 const useUserService = () => {
   const { data: getUserData } = useGetUser();

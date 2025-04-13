@@ -1,7 +1,7 @@
 import { useLogin, useLogout, useMoveToAuth, useRefresh } from '../../api';
 import { useState } from 'react';
-import authStore from '../../common/store/auth/authStore.ts';
-import IAuthType from '../../common/store/auth/authType.ts';
+import authStore from '@store/auth/authStore.ts';
+import IAuthType from '@store/auth/authType.ts';
 import useHandleCookies from '../../common/utils/cookie.ts';
 
 const useAuthService = () => {

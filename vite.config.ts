@@ -7,6 +7,11 @@ export default defineConfig({
   resolve: {
     alias: {
       '@icon': '/src/assets/icons',
+      '@type': '/src/common/types',
+      '@store': '/src/common/store',
+      '@component': '/src/components',
+      '@api': '/src/api',
+      '@feature': '/src/features',
     },
   },
   server: {

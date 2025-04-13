@@ -3,8 +3,8 @@ import ArrowUp from '@icon/icon-arrow-up.svg?react';
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
 import ToggleON from '@icon/icon-toggle-on.svg?react';
 import ToggleOFF from '@icon/icon-toggle-off.svg?react';
-import useUserService from '../../../features/User/useUserService.ts';
-import { IUserDataProps } from '../../../common/types/userTypes.ts';
+import useUserService from '@feature/User/useUserService.ts';
+import { IUserDataProps } from '@type/userTypes.ts';
 import '../style/accountManageView.scss';
 
 const AccountManageView = ({ data }: IUserDataProps) => {

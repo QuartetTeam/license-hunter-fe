@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
 import ArrowUp from '@icon/icon-arrow-up.svg?react';
-import FavoriteFieldButton from '../../../components/FavoriteFieldButton.tsx';
-import CheckFavoriteField from '../../../components/CheckFavoriteField.tsx';
+import FavoriteFieldButton from '@component/FavoriteFieldButton.tsx';
+import CheckFavoriteField from '@component/CheckFavoriteField.tsx';
 import { cancelButtonMessage, confirmButtonMessage } from '../Messages/buttonMessages.ts';
-import useUserService from '../../../features/User/useUserService.ts';
-import { IUserDataProps } from '../../../common/types/userTypes.ts';
+import useUserService from '@feature/User/useUserService.ts';
+import { IUserDataProps } from '@type/userTypes.ts';
 import '../style/myProfileView.scss';
 
 const MyProfileView = ({ data }: IUserDataProps) => {
