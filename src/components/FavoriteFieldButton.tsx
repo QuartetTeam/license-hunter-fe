@@ -1,4 +1,4 @@
-import IconList from './icons/iconList.ts';
+import IconList from './icons/fieldIconsList.ts';
 import './style/favoriteFieldButton.scss';
 
 interface IFavoriteFieldButtonProps {

@@ -9,20 +9,21 @@ import ChemBioIcon from '@icon/Field/icon-chem-bio.svg?react';
 import BusinessSalesIcon from '@icon/Field/icon-business-sales.svg?react';
 import ConstructionIcon from '@icon/Field/icon-construction.svg?react';
 import MachineIcon from '@icon/Field/icon-machine.svg?react';
-import IFieldIcons from '../types/iconTypes.ts';
+import { FieldIconsMap } from '../types/iconTypes.ts';
+import { Field } from '../types/Field.ts';
 
-const iconList: IFieldIcons = {
-  '경영·회계·사무': ManagementIcon,
-  '전기·전자': ElectricityIcon,
-  '금융·보험': CashIcon,
-  '법률·경찰·소방·교도·국방': PoliceIcon,
-  '보건·의료': DoctorIcon,
-  '사회복지·종교': SocialWelfareIcon,
-  '문화·예술·디자인·방송': ArtDesignIcon,
-  '화학·바이오': ChemBioIcon,
-  영업판매: BusinessSalesIcon,
-  건설: ConstructionIcon,
-  기계: MachineIcon,
+export const fieldIconsList: FieldIconsMap = {
+  [Field.Management]: ManagementIcon,
+  [Field.Electricity]: ElectricityIcon,
+  [Field.Cash]: CashIcon,
+  [Field.Police]: PoliceIcon,
+  [Field.Doctor]: DoctorIcon,
+  [Field.SocialWelfare]: SocialWelfareIcon,
+  [Field.ArtDesign]: ArtDesignIcon,
+  [Field.ChemBio]: ChemBioIcon,
+  [Field.BusinessSales]: BusinessSalesIcon,
+  [Field.Construction]: ConstructionIcon,
+  [Field.Machine]: MachineIcon,
 };
 
-export default iconList;
+export default fieldIconsList;
