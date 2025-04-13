@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
 import ArrowUp from '@icon/icon-arrow-up.svg?react';
-import FieldButton from '../../../components/FieldButton.tsx';
+import FavoriteFieldButton from '../../../components/FavoriteFieldButton.tsx';
 import CheckFavoriteField from '../../../components/CheckFavoriteField.tsx';
 import { cancelButtonMessage, confirmButtonMessage } from '../Messages/buttonMessages.ts';
 import useUserService from '../../../features/User/useUserService.ts';
 import { IUserDataProps } from '../../../common/types/userTypes.ts';
-import '@styles/pages/MyPage/myProfileView.scss';
+import '../style/myProfileView.scss';
 
 const MyProfileView = ({ data }: IUserDataProps) => {
   const [myProfileVisible, setMyProfileVisible] = useState<boolean>(true);
@@ -68,9 +68,9 @@ const MyProfileView = ({ data }: IUserDataProps) => {
                   관심 분야 (Max 3 선택해 주세요)
                 </div>
                 <div className="my-profile-interest-field__button-group">
-                  <FieldButton fieldName="보건·의료" />
-                  <FieldButton fieldName="경영·회계·사무" />
-                  <FieldButton fieldName="문화·예술·디자인·방송" />
+                  <FavoriteFieldButton fieldName="보건·의료" />
+                  <FavoriteFieldButton fieldName="경영·회계·사무" />
+                  <FavoriteFieldButton fieldName="문화·예술·디자인·방송" />
                 </div>
               </div>
               <div className="my-profile-interest-save">

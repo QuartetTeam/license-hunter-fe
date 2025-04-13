@@ -1,4 +1,4 @@
-import '@styles/pages/Login/socialLoginView.scss';
+import '../style/socialLoginView.scss';
 
 const SocialLoginView = () => {
   return (

@@ -6,7 +6,7 @@ interface IFavoriteFieldButtonProps {
   fieldName: string;
 }
 
-/** FieldButton Component for Main Page, MyPage, CheckFavoriteField Modal.
+/** FavoriteFieldButton Component for Main Page, MyPage, CheckFavoriteField Modal.
  * Background-color, border-radius will be change where we use this button.*/
 const FieldButton = ({ fieldName }: IFavoriteFieldButtonProps) => {
   const FieldIcon = IconList[fieldName];

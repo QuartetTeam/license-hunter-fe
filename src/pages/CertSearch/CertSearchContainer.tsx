@@ -1,7 +1,7 @@
 import SearchBox from '../../components/SearchBox.tsx';
 import CertCardListView from './View/CertCardListView.tsx';
 import CertTagView from './View/CertTagView.tsx';
-import '@styles/pages/CertificateSearch/certSearchContainer.scss';
+import './style/certSearchContainer.scss';
 
 const CertSearchContainer = () => {
   return (

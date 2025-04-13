@@ -1,4 +1,4 @@
-import '@styles/pages/Login/quartetView.scss';
+import '../style/quartetView.scss';
 
 const QuartetView = () => {
   return (

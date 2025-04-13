@@ -1,6 +1,6 @@
 import useCategoryService from '../../../features/Category/useCategoryService.ts';
 import { ICategoryDataTypes } from '../../../common/types/categoryTypes.ts';
-import '@styles/pages/CertificateSearch/certTagView.scss';
+import '../style/certTagView.scss';
 
 const CertTagView = () => {
   const { getCertChildCategoryData } = useCategoryService();

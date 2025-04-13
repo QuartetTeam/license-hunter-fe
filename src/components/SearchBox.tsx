@@ -1,6 +1,6 @@
 import searchCertStore from '../common/store/cert/certStore.ts';
 import useCertService from '../features/Certification/useCertService.ts';
-import '@styles/pages/components/searchBox.scss';
+import './style/searchBox.scss';
 
 const SearchBox = () => {
   const { onSearchClick, getSearchCert } = useCertService();

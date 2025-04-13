@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Alert from '../../../components/Alert.tsx';
 import {
   calenderAlertMessage,
@@ -12,8 +13,7 @@ import useCertService from '../../../features/Certification/useCertService.ts';
 import useMailingService from '../../../features/MailingService/useMailingService.ts';
 import useCalendarService from '../../../features/MyCalendar/useCalendarService.ts';
 import { ICertDetailListDataTypes } from '../../../common/types/certTypes.ts';
-import '@styles/pages/CertificateDetail/certDetailView.scss';
-import { useState } from 'react';
+import '../style/certDetailView.scss';
 
 const CertDetailView = () => {
   const [mailingAlertVisible, setMailingAlertVisible] = useState<boolean>(false);

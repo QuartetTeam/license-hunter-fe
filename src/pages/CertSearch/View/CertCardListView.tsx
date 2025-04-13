@@ -1,6 +1,6 @@
 import CertificateCard from '../../../components/CertificateCard.tsx';
 import searchCertStore from '../../../common/store/cert/certStore.ts';
-import '@styles/pages/CertificateSearch/certCardListView.scss';
+import '../style/certCardListView.scss';
 
 const CertCardListView = () => {
   const { searchCertData } = searchCertStore();

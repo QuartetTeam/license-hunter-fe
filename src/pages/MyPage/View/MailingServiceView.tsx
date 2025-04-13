@@ -6,8 +6,8 @@ import ArrowUp from '@icon/icon-arrow-up.svg?react';
 // import CheckboxChecked from '@icon/icon-checkbox-check.svg?react';
 import CheckboxEmpty from '@icon/icon-checkbox-empty.svg?react';
 import TrashIcon from '@icon/icon-trash.svg?react';
-import '@styles/pages/MyPage/mailingServiceView.scss';
 import { IMailingContent } from '../../../common/types/mailingTypes.ts';
+import '../style/mailingServiceView.scss';
 
 const MailingServiceView = () => {
   const [mailingServiceVisible, setMailingServiceVisible] = useState(true);

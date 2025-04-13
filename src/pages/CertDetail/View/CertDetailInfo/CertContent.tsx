@@ -1,6 +1,6 @@
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
 import { IExamDetail } from '../../../../common/types/certTypes.ts';
-import '@styles/pages/CertificateDetail/certContent.scss';
+import '../../style/certContent.scss';
 
 const CertContent = ({ cert, data }: { cert?: string; data?: IExamDetail[] }) => {
   return (

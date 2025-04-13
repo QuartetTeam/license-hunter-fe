@@ -1,11 +1,11 @@
 import IconList from './icons/iconList.ts';
-import '@styles/pages/components/favoriteFieldButton.scss';
+import './style/favoriteFieldButton.scss';
 
 interface IFavoriteFieldButtonProps {
   fieldName: string;
 }
 
-const FieldButton = ({ fieldName }: IFavoriteFieldButtonProps) => {
+const FavoriteFieldButton = ({ fieldName }: IFavoriteFieldButtonProps) => {
   const FieldIcon = IconList[fieldName];
 
   return (
@@ -16,4 +16,4 @@ const FieldButton = ({ fieldName }: IFavoriteFieldButtonProps) => {
   );
 };
 
-export default FieldButton;
+export default FavoriteFieldButton;

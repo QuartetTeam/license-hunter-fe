@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import FieldButton from './FieldButton.tsx';
 
 const meta = {
-  title: 'Component/FieldButton',
+  title: 'Component/FavoriteFieldButton',
   component: FieldButton,
   parameters: {
     layout: 'centered',

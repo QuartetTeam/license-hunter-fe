@@ -5,7 +5,7 @@ import ToggleON from '@icon/icon-toggle-on.svg?react';
 import ToggleOFF from '@icon/icon-toggle-off.svg?react';
 import useUserService from '../../../features/User/useUserService.ts';
 import { IUserDataProps } from '../../../common/types/userTypes.ts';
-import '@styles/pages/MyPage/accountManageView.scss';
+import '../style/accountManageView.scss';
 
 const AccountManageView = ({ data }: IUserDataProps) => {
   const [accountManageVisible, setAccountManageVisible] = useState(true);

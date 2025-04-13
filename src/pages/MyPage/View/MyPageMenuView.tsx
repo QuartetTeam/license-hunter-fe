@@ -1,4 +1,4 @@
-import '@styles/pages/MyPage/myPageMenuView.scss';
+import '../style/myPageMenuView.scss';
 
 const MyPageMenuView = () => {
   // 메뉴 선택 시 해당 메뉴로 스크롤 이동

@@ -1,10 +1,10 @@
 import Modal from 'react-modal';
-import FieldButton from './FieldButton.tsx';
+import FavoriteFieldButton from './FavoriteFieldButton.tsx';
 import CancelButton from './CancelButton.tsx';
 import ConfirmButton from './ConfirmButton.tsx';
 import CancelIcon from '@icon/icon-button-cancel.svg?react';
 import ICheckFavoriteFieldProps from './types/checkFavoriteFieldTypes.ts';
-import '@styles/pages/components/checkFavoriteField.scss';
+import './style/checkFavoriteField.scss';
 
 const CheckFavoriteField = ({
   favoriteFieldVisible,
@@ -26,25 +26,25 @@ const CheckFavoriteField = ({
         </div>
         <div className="favorite-field-body">
           <div className="favorite-field-body__group">
-            <FieldButton fieldName="경영·회계·사무" />
-            <FieldButton fieldName="전기·전자" />
+            <FavoriteFieldButton fieldName="경영·회계·사무" />
+            <FavoriteFieldButton fieldName="전기·전자" />
           </div>
           <div className="favorite-field-body__group">
-            <FieldButton fieldName="금융·보험" />
-            <FieldButton fieldName="법률·경찰·소방·교도·국방" />
+            <FavoriteFieldButton fieldName="금융·보험" />
+            <FavoriteFieldButton fieldName="법률·경찰·소방·교도·국방" />
           </div>
           <div className="favorite-field-body__group">
-            <FieldButton fieldName="보건·의료" />
-            <FieldButton fieldName="사회복지·종교" />
+            <FavoriteFieldButton fieldName="보건·의료" />
+            <FavoriteFieldButton fieldName="사회복지·종교" />
           </div>
           <div className="favorite-field-body__group">
-            <FieldButton fieldName="문화·예술·디자인·방송" />
-            <FieldButton fieldName="화학·바이오" />
+            <FavoriteFieldButton fieldName="문화·예술·디자인·방송" />
+            <FavoriteFieldButton fieldName="화학·바이오" />
           </div>
           <div className="favorite-field-body__group">
-            <FieldButton fieldName="영업판매" />
-            <FieldButton fieldName="건설" />
-            <FieldButton fieldName="기계" />
+            <FavoriteFieldButton fieldName="영업판매" />
+            <FavoriteFieldButton fieldName="건설" />
+            <FavoriteFieldButton fieldName="기계" />
           </div>
         </div>
         <div className="favorite-field-footer">

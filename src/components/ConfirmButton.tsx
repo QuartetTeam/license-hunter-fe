@@ -1,4 +1,4 @@
-import '@styles/pages/components/confirmButton.scss';
+import './style/confirmButton.scss';
 
 interface IButtonProps {
   name: string;

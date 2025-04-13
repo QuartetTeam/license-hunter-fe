@@ -3,7 +3,7 @@ import useCertService from '../../../features/Certification/useCertService.ts';
 import ArrowLeft from '@icon/icon-arrow-left.svg?react';
 import ArrowRight from '@icon/icon-arrow-right.svg?react';
 import { ICertData } from '../../../common/types/certTypes.ts';
-import '@styles/pages/MainPage/recommendCertView.scss';
+import '../style/recommendCertView.scss';
 
 const RecommendCertView = () => {
   const { getCertRecommendData } = useCertService();

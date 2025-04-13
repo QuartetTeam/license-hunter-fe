@@ -3,7 +3,7 @@ import CheckboxEmpty from '@icon/icon-checkbox-empty.svg?react';
 import useCertService from '../features/Certification/useCertService.ts';
 import { ICertData } from '../common/types/certTypes.ts';
 import { IMailingContent } from '../common/types/mailingTypes.ts';
-import '@styles/pages/components/certificateCard.scss';
+import './style/certificateCard.scss';
 
 const CertificateCard = ({
   data,

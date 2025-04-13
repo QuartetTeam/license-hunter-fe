@@ -1,4 +1,4 @@
-@use '../../../styles/index.scss' as *;
+@use '../../../index.scss' as style;
 
 .content-table {
   border-collapse: collapse;
@@ -8,7 +8,7 @@
   &-header {
     padding: 8px 16px;
     border: 1px solid #e2e2e2;
-    background-color: $gray-200;
+    background-color: style.$gray-200;
     font-size: 16px;
   }
 

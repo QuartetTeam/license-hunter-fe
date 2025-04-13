@@ -1,4 +1,4 @@
-@use '../../../styles/index.scss' as *;
+@use '../../../index.scss' as style;
 
 .qual-table {
   border-collapse: collapse;
@@ -14,13 +14,13 @@
     padding: 8px 16px;
     border-top: 1px solid #e2e2e2;
     font-size: 14px;
-    color: $gray-800;
+    color: style.$gray-800;
   }
 
   &-body {
     padding: 8px 16px;
     font-size: 14px;
-    color: $gray-800;
+    color: style.$gray-800;
   }
 }
 

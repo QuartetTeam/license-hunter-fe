@@ -1,7 +1,7 @@
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
 import useCertService from '../../../../features/Certification/useCertService.ts';
 import { IExamSchedule } from '../../../../common/types/certTypes.ts';
-import '@styles/pages/CertificateDetail/certSchedule.scss';
+import '../../style/certSchedule.scss';
 
 const CertSchedule = ({ cert, data }: { cert?: string; data?: IExamSchedule[] }) => {
   const { formatDate } = useCertService();

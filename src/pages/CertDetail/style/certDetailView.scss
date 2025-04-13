@@ -1,4 +1,4 @@
-@use '../../../styles/index.scss' as *;
+@use '../../../index.scss' as style;
 
 .cert-detail-view {
   display: flex;
@@ -13,7 +13,7 @@
       justify-content: start;
       margin-bottom: 32px;
       font-size: 32px;
-      color: $primary-blue;
+      color: style.$primary-blue;
     }
 
     &-info {
@@ -37,7 +37,7 @@
             width: 120px;
             height: 120px;
             border-radius: 8px;
-            background-color: $gray-200;
+            background-color: style.$gray-200;
           }
 
           &__description {
@@ -80,6 +80,6 @@
   }
 
   &-subtitle {
-    color: $gray-800;
+    color: style.$gray-800;
   }
 }

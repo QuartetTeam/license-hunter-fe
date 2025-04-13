@@ -1,4 +1,4 @@
-import CalendarView from './View/CalendarView.tsx';
+import CalendarView from './CalendarView.tsx';
 
 const MyCalendarContainer = () => {
   return <CalendarView />;

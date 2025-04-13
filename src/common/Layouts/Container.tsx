@@ -1,5 +1,5 @@
-import '@styles/layout/Container.scss';
 import { Outlet } from 'react-router-dom';
+import './style/Container.scss';
 
 const Container = () => {
   return (

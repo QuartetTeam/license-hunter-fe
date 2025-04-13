@@ -3,7 +3,7 @@ import ConfirmButton from './ConfirmButton.tsx';
 import CancelButton from './CancelButton.tsx';
 import CancelIcon from '@icon/icon-button-cancel.svg?react';
 import IAlertProps from './types/alertTypes.ts';
-import '@styles/pages/components/alert.scss';
+import './style/alert.scss';
 
 const Alert = ({
   alertVisible,

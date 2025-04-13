@@ -6,7 +6,6 @@ export default defineConfig({
   plugins: [react(), svgr()],
   resolve: {
     alias: {
-      '@styles': '/src/assets/styles',
       '@icon': '/src/assets/icons',
     },
   },

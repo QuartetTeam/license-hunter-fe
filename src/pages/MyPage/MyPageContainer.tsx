@@ -1,6 +1,6 @@
 import MyPageMenuView from './View/MyPageMenuView.tsx';
 import MenuContentView from './View/MenuContentView.tsx';
-import '@styles/pages/MyPage/myPageContainer.scss';
+import './style/myPageContainer.scss';
 
 const MyPageContainer = () => {
   return (
