@@ -18,7 +18,9 @@ const { BASE_URL, LOGIN, CALENDAR, MAILINGS, CERTIFICATIONS, MEMBERS, PROFILE } 
 // 소셜 로그인 팝업 이동 (카카오, 네이버, 구글)
 const moveToOAuth2 = (loginType: string) => {
   return async () => {
-    const response = await axios.post(`${BASE_URL}/${LOGIN}/${loginType}`);
+    const response = await axios.post(`${BASE_URL}/${LOGIN}/${loginType}`, {
+      withCredentials: true,
+    });
     return response.data;
   };
 };
