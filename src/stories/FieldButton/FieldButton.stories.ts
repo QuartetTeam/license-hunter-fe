@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
+import { Field } from '@component/types/Field.ts';
 import FieldButton from './FieldButton.tsx';
 
 const meta = {
-  title: 'Component/FavoriteFieldButton',
+  title: 'Component/FieldButton',
   component: FieldButton,
   parameters: {
     layout: 'centered',
@@ -16,66 +16,66 @@ export default meta;
 
 export const ManagementIcon: Story = {
   args: {
-    fieldName: '경영·회계·사무',
+    fieldName: Field.Management,
   },
 };
 
 export const ElectricityIcon: Story = {
   args: {
-    fieldName: '전기·전자',
+    fieldName: Field.Electricity,
   },
 };
 
 export const CashIcon: Story = {
   args: {
-    fieldName: '금융·보험',
+    fieldName: Field.Cash,
   },
 };
 
 export const PoliceIcon: Story = {
   args: {
-    fieldName: '법률·경찰·소방·교도·국방',
+    fieldName: Field.Police,
   },
 };
 
 export const DoctorIcon: Story = {
   args: {
-    fieldName: '보건·의료',
+    fieldName: Field.Doctor,
   },
 };
 
 export const SocialWelfareIcon: Story = {
   args: {
-    fieldName: '사회복지·종교',
+    fieldName: Field.SocialWelfare,
   },
 };
 
 export const ArtDesignIcon: Story = {
   args: {
-    fieldName: '문화·예술·디자인·방송',
+    fieldName: Field.ArtDesign,
   },
 };
 
 export const ChemBioIcon: Story = {
   args: {
-    fieldName: '화학·바이오',
+    fieldName: Field.ChemBio,
   },
 };
 
 export const BusinessSalesIcon: Story = {
   args: {
-    fieldName: '영업판매',
+    fieldName: Field.BusinessSales,
   },
 };
 
 export const ConstructionIcon: Story = {
   args: {
-    fieldName: '건설',
+    fieldName: Field.Construction,
   },
 };
 
 export const MachineIcon: Story = {
   args: {
-    fieldName: '기계',
+    fieldName: Field.Machine,
   },
 };

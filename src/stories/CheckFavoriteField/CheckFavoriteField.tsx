@@ -3,6 +3,7 @@ import ConfirmButton from '../ConfirmButton/ConfirmButton.tsx';
 import CancelButton from '../CancelButton/CancelButton';
 import CancelIcon from '@icon/icon-button-cancel.svg?react';
 import '@styles/pages/components/checkFavoriteField.scss';
+import { Field } from '@component/types/Field.ts';
 
 interface ICheckFavoriteFieldProps {
   favoriteFieldVisible: boolean;
@@ -23,25 +24,25 @@ const CheckFavoriteField = ({
       </div>
       <div className="favorite-field-body">
         <div className="favorite-field-body__group">
-          <FieldButton fieldName="경영·회계·사무" />
-          <FieldButton fieldName="전기·전자" />
+          <FieldButton fieldName={Field.Management} />
+          <FieldButton fieldName={Field.Electricity} />
         </div>
         <div className="favorite-field-body__group">
-          <FieldButton fieldName="금융·보험" />
-          <FieldButton fieldName="법률·경찰·소방·교도·국방" />
+          <FieldButton fieldName={Field.Cash} />
+          <FieldButton fieldName={Field.Police} />
         </div>
         <div className="favorite-field-body__group">
-          <FieldButton fieldName="보건·의료" />
-          <FieldButton fieldName="사회복지·종교" />
+          <FieldButton fieldName={Field.Doctor} />
+          <FieldButton fieldName={Field.SocialWelfare} />
         </div>
         <div className="favorite-field-body__group">
-          <FieldButton fieldName="문화·예술·디자인·방송" />
-          <FieldButton fieldName="화학·바이오" />
+          <FieldButton fieldName={Field.ArtDesign} />
+          <FieldButton fieldName={Field.ChemBio} />
         </div>
         <div className="favorite-field-body__group">
-          <FieldButton fieldName="영업판매" />
-          <FieldButton fieldName="건설" />
-          <FieldButton fieldName="기계" />
+          <FieldButton fieldName={Field.BusinessSales} />
+          <FieldButton fieldName={Field.Construction} />
+          <FieldButton fieldName={Field.Machine} />
         </div>
       </div>
       <div className="favorite-field-footer">

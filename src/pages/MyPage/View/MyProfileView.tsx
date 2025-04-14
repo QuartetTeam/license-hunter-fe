@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
 import ArrowUp from '@icon/icon-arrow-up.svg?react';
-import FavoriteFieldButton from '@component/FavoriteFieldButton.tsx';
+import FieldButton from '@component/FieldButton.tsx';
 import CheckFavoriteField from '@component/CheckFavoriteField.tsx';
 import { cancelButtonMessage, confirmButtonMessage } from '../Messages/buttonMessages.ts';
 import useUserService from '@feature/User/useUserService.ts';
 import { IUserDataProps } from '@type/user.ts';
+import { Field } from '@component/types/Field.ts';
 import '../style/myProfileView.scss';
 
 const MyProfileView = ({ data }: IUserDataProps) => {
@@ -68,9 +69,9 @@ const MyProfileView = ({ data }: IUserDataProps) => {
                   관심 분야 (Max 3 선택해 주세요)
                 </div>
                 <div className="my-profile-interest-field__button-group">
-                  <FavoriteFieldButton fieldName="보건·의료" />
-                  <FavoriteFieldButton fieldName="경영·회계·사무" />
-                  <FavoriteFieldButton fieldName="문화·예술·디자인·방송" />
+                  <FieldButton fieldName={Field.Doctor} />
+                  <FieldButton fieldName={Field.Management} />
+                  <FieldButton fieldName={Field.ArtDesign} />
                 </div>
               </div>
               <div className="my-profile-interest-save">

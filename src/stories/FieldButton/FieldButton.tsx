@@ -1,12 +1,13 @@
 import IconList from '@component/icons/fieldIconsList.ts';
-import '@styles/pages/components/favoriteFieldButton.scss';
+import { Field } from '@component/types/Field.ts';
+import '@component/favoriteFieldButton.scss';
 
 interface IFavoriteFieldButtonProps {
   /** Insert Field Name you want */
-  fieldName: string;
+  fieldName: Field;
 }
 
-/** FavoriteFieldButton Component for Main Page, MyPage, CheckFavoriteField Modal.
+/** FieldButton Component for Main Page, MyPage, CheckFavoriteField Modal.
  * Background-color, border-radius will be change where we use this button.*/
 const FieldButton = ({ fieldName }: IFavoriteFieldButtonProps) => {
   const FieldIcon = IconList[fieldName];
