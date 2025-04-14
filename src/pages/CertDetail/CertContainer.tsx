@@ -1,10 +1,7 @@
 import CertDetailView from './View/CertDetailView.tsx';
 
 const CertContainer = () => {
-
-    return (
-        <CertDetailView/>
-    );
+  return <CertDetailView />;
 };
 
 export default CertContainer;

@@ -2,14 +2,13 @@
 import { useGetCategory, useGetChildCategory } from '../../api';
 
 const useCategoryService = () => {
+  const { data: getCertCategoryData } = useGetCategory(false);
+  const { data: getCertChildCategoryData } = useGetChildCategory('1');
 
-    const { data: getCertCategoryData } = useGetCategory(false);
-    const { data: getCertChildCategoryData } = useGetChildCategory('1');
-
-    return {
-        getCertCategoryData,
-        getCertChildCategoryData
-    };
+  return {
+    getCertCategoryData,
+    getCertChildCategoryData,
+  };
 };
 
 export default useCategoryService;

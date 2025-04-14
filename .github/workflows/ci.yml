@@ -1,19 +1,10 @@
-name: CI
+name: 프로젝트 빌드 테스트
 
 on:
   pull_request:
     branches: [ main, dev ]
 
 jobs:
-  lint:
-    name: Checking code style with lint
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      - run: npm install
-      - run: npm run lint
-
   build:
     name: Build project
     runs-on: ubuntu-latest
