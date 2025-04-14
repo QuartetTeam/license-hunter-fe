@@ -1,0 +1,17 @@
+.login-card {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  padding: 300px 50px;
+  border: 1px solid black;
+  border-radius: 92px;
+  background: linear-gradient(135deg, #4596e2 0%, #3c78b0 50%, #26527c 100%);
+
+  .login-card-message {
+    height: 100%;
+    text-align: center;
+    margin: auto;
+    font-size: 50px;
+    color: white;
+  }
+}

@@ -1,0 +1,20 @@
+@use '../../../index.scss' as style;
+
+.schedule-table {
+  border-collapse: collapse;
+  border: 1px solid #e2e2e2;
+  text-align: center;
+
+  &-header {
+    padding: 8px 16px;
+    border: 1px solid #e2e2e2;
+    background-color: style.$gray-200;
+    font-size: 16px;
+  }
+
+  &-body {
+    padding: 8px 16px;
+    border: 1px solid #e2e2e2;
+    font-size: 14px;
+  }
+}

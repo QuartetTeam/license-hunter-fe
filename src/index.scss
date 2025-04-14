@@ -1,0 +1,23 @@
+@import url('https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'SUIT', sans-serif;
+}
+
+$white: #ffffff;
+$gray-200: #f5f7fa;
+$gray-300: #e5e8ec;
+$gray-400: #cad0d9;
+$gray-500: #9ba7b6;
+$gray-800: #384250;
+$gray-900: #1a1e24;
+$black: #000000;
+
+$blue-50: #e6ebfd;
+$blue-100: #c4d0fa;
+$blue-800: #1a3099;
+$hover-blue: #3751aa;
+$primary-blue: #4f72f3;

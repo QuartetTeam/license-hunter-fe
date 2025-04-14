@@ -10,7 +10,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "preview": "vite preview",
-    "prepare": "husky install",
+    "prepare": "husky install && npm run husky:build",
+    "husky:build": "esbuild .husky/prepare-commit-msg.ts --bundle --platform=node --outfile=.husky/build/prepare-commit-msg.cjs && esbuild .husky/commit-msg.ts --bundle --platform=node --outfile=.husky/build/commit-msg.cjs",
+    "postinstall": "chmod +x .husky/commit-msg .husky/prepare-commit-msg || true",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "cypress": "npx cypress open"
@@ -52,8 +54,9 @@
     "eslint-plugin-storybook": "^0.11.3",
     "globals": "^15.14.0",
     "husky": "^9.1.7",
+    "lint-staged": "^15.5.1",
     "msw": "^2.7.3",
-    "playwright": "^1.50.1",
+    "prettier": "^3.5.3",
     "storybook": "^8.6.3",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
@@ -74,6 +77,15 @@
   "msw": {
     "workerDirectory": [
       "public"
+    ]
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "**/*.{scss,css,json,md}": [
+      "prettier --write"
     ]
   }
 }

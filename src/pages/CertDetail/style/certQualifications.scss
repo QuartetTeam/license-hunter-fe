@@ -1,0 +1,30 @@
+@use '../../../index.scss' as style;
+
+.qual-table {
+  border-collapse: collapse;
+  border: 1px solid #e2e2e2;
+
+  &-header {
+    width: 200px;
+    padding: 8px 0 8px 16px;
+    border-bottom: 1px solid #e2e2e2;
+  }
+
+  &-body-first {
+    padding: 8px 16px;
+    border-top: 1px solid #e2e2e2;
+    font-size: 14px;
+    color: style.$gray-800;
+  }
+
+  &-body {
+    padding: 8px 16px;
+    font-size: 14px;
+    color: style.$gray-800;
+  }
+}
+
+td {
+  margin: 8px 8px 0 20px;
+  border-right: 1px solid #e2e2e2;
+}
