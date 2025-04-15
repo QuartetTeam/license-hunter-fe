@@ -1,31 +1,49 @@
+import { useState } from 'react';
 import FieldButton from '@component/FieldButton.tsx';
-import { Field } from '@component/types/Field.ts';
+import useCategoryService from '@feature/Category/useCategoryService.ts';
+import { ICategoryDataTypes } from '@type/category.ts';
 import '../style/menuBarView.scss';
 
 const MenuBarView = () => {
-  // const { getCertCategoryData } = useCertService();
+  const [isDefault, setIsDefault] = useState(true);
+  const handleIsDefault = () => {
+    setIsDefault(!isDefault);
+  };
+  const { category } = useCategoryService(isDefault);
+  const categoryData: ICategoryDataTypes[] | undefined = category?.data;
 
   return (
     <div className="menuBar-view">
       <div className="menuBar">
         <div className="menu-button">
-          <div className="menu-button__first">
-            <FieldButton fieldName={Field.Management} />
-            <FieldButton fieldName={Field.Electricity} />
-            <FieldButton fieldName={Field.Cash} />
-            <FieldButton fieldName={Field.Police} />
-            <FieldButton fieldName={Field.Doctor} />
+          <div className="menu-button-box">
+            {categoryData
+              ?.slice(0, 5)
+              .map((item, index) => <FieldButton key={index} fieldName={item.name} />)}
           </div>
-          <div className="menu-button__second">
-            <FieldButton fieldName={Field.SocialWelfare} />
-            <FieldButton fieldName={Field.ArtDesign} />
-            <FieldButton fieldName={Field.ChemBio} />
-            <FieldButton fieldName={Field.BusinessSales} />
-            <FieldButton fieldName={Field.Construction} />
-            <FieldButton fieldName={Field.Machine} />
+          <div className="menu-button-box">
+            {categoryData
+              ?.slice(5, categoryData?.length)
+              .map((item, index) => <FieldButton key={index} fieldName={item.name} />)}
           </div>
         </div>
-        <div className="more-menu-button">더보기</div>
+        {!isDefault && (
+          <div className="menu-button">
+            <div className="menu-button-box">
+              {categoryData
+                ?.slice(0, 5)
+                .map((item, index) => <FieldButton key={index} fieldName={item.name} />)}
+            </div>
+            <div className="menu-button-box">
+              {categoryData
+                ?.slice(5, categoryData?.length)
+                .map((item, index) => <FieldButton key={index} fieldName={item.name} />)}
+            </div>
+          </div>
+        )}
+        <div className="more-menu-button" onClick={handleIsDefault}>
+          더보기
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import { SVGProps } from 'react';
-import { Field } from './Field';
+import { Field } from './field.ts';
 
 export type FieldIconsType = React.FunctionComponent<
   SVGProps<SVGSVGElement> & {

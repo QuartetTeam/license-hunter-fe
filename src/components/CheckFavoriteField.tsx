@@ -4,7 +4,7 @@ import CancelButton from './CancelButton.tsx';
 import ConfirmButton from './ConfirmButton.tsx';
 import CancelIcon from '@icon/icon-button-cancel.svg?react';
 import ICheckFavoriteFieldProps from './types/checkFavoriteField.ts';
-import { Field } from '@component/types/Field.ts';
+import { Field } from '@component/types/field.ts';
 import './style/checkFavoriteField.scss';
 
 const CheckFavoriteField = ({

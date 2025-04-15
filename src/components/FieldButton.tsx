@@ -1,17 +1,14 @@
-import IconList from './icons/fieldIconsList.ts';
-import { Field } from './types/Field.ts';
+import { fieldIconsMap } from './icons/fieldIconsList.ts';
+import { fieldNameToEnumMap } from './types/fieldNameToEnumMap.ts';
 import './style/fieldButton.scss';
 
-interface IFavoriteFieldButtonProps {
-  fieldName: Field;
-}
-
-const FieldButton = ({ fieldName }: IFavoriteFieldButtonProps) => {
-  const FieldIcon = IconList[fieldName];
+const FieldButton = ({ fieldName }: { fieldName: string }) => {
+  const fieldEnum = fieldNameToEnumMap[fieldName];
+  const FieldIcon = fieldIconsMap[fieldEnum];
 
   return (
     <button className="favorite-field-button">
-      <FieldIcon />
+      {FieldIcon && <FieldIcon />}
       {fieldName}
     </button>
   );
