@@ -9,34 +9,35 @@ const MenuBarView = () => {
   const handleIsDefault = () => {
     setIsDefault(!isDefault);
   };
-  const { category } = useCategoryService(isDefault);
-  const categoryData: ICategoryDataTypes[] | undefined = category?.data;
+  const { defaultCategory, moreCategory } = useCategoryService();
+  const defaultCategoryData: ICategoryDataTypes[] | undefined = defaultCategory?.data;
+  const moreCategoryData: ICategoryDataTypes[] | undefined = moreCategory?.data;
 
   return (
     <div className="menuBar-view">
       <div className="menuBar">
         <div className="menu-button">
           <div className="menu-button-box">
-            {categoryData
+            {defaultCategoryData
               ?.slice(0, 5)
               .map((item, index) => <FieldButton key={index} fieldName={item.name} />)}
           </div>
           <div className="menu-button-box">
-            {categoryData
-              ?.slice(5, categoryData?.length)
+            {defaultCategoryData
+              ?.slice(5, defaultCategoryData?.length)
               .map((item, index) => <FieldButton key={index} fieldName={item.name} />)}
           </div>
         </div>
         {!isDefault && (
           <div className="menu-button">
             <div className="menu-button-box">
-              {categoryData
-                ?.slice(0, 5)
+              {moreCategoryData
+                ?.slice(0, 7)
                 .map((item, index) => <FieldButton key={index} fieldName={item.name} />)}
             </div>
             <div className="menu-button-box">
-              {categoryData
-                ?.slice(5, categoryData?.length)
+              {moreCategoryData
+                ?.slice(7, moreCategoryData?.length)
                 .map((item, index) => <FieldButton key={index} fieldName={item.name} />)}
             </div>
           </div>

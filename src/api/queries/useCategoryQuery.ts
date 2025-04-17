@@ -4,7 +4,7 @@ import { getCertCategoryData, getCertChildCategoryData } from '../API/API.ts';
 
 const useGetCategory = (isDefault: boolean) => {
   return useQuery({
-    queryKey: [categoryQueryKey.getCategory],
+    queryKey: [categoryQueryKey.getCategory, isDefault],
     queryFn: getCertCategoryData(isDefault),
   });
 };
