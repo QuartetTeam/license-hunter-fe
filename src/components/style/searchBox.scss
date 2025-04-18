@@ -1,41 +1,56 @@
+@use '../../index.scss' as style;
+
 .searchBox {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
-  .searchBox-group {
-    width: 1051px;
-    height: 47px;
+  &-title {
     display: flex;
-    gap: 16px;
-    position: relative;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 150px;
+    font-size: 2rem;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 1.2s ease-out forwards;
+    animation-delay: 0.3s;
+  }
 
-    .searchBox-icon {
-      width: 16px;
-      height: 16px;
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &-group {
+    width: 1051px;
+    height: 60px;
+    position: relative;
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+
+    &__icon {
+      width: 32px;
+      height: 32px;
       position: absolute;
-      left: 24px;
+      left: 20px;
       top: 16px;
     }
 
-    .searchBox-input {
+    &__input {
       width: 100%;
-      padding: 16px 0 16px 64px;
+      padding: 8px 0 8px 64px;
       border: 1px solid #e0e0e0;
-      border-radius: 8px;
+      border-radius: 30px;
       outline: none;
       background-color: #f8f8f8;
-    }
-
-    .searchBox-submit {
-      width: 75px;
-      height: 45px;
-      border: none;
-      border-radius: 8px;
-      color: white;
-      background-color: #5c78e0;
-      font-size: 16px;
+      font-size: 1rem;
     }
   }
 }

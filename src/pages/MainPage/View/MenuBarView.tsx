@@ -43,7 +43,7 @@ const MenuBarView = () => {
           </div>
         )}
         <div className="more-menu-button" onClick={handleIsDefault}>
-          더보기
+          {isDefault ? '더보기' : '닫기'}
         </div>
       </div>
     </div>

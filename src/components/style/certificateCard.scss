@@ -1,11 +1,25 @@
+@use '../../index.scss' as style;
+
 .certificate-info {
   width: 486px;
   height: 150px;
   display: flex;
   gap: 15px;
   padding: 17px 11px;
-  border: 1px solid #cac4d0;
+  border: 1px solid #e2e8f0;
   border-radius: 16px;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    0 4px 6px rgba(0, 0, 0, 0.05);
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+  &:hover {
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.08),
+      0 8px 16px rgba(0, 0, 0, 0.08);
+    transform: translateY(-0.5px);
+  }
 
   .certificate-info-checkbox {
     padding: 4px;
@@ -38,7 +52,7 @@
       &__name {
         margin-bottom: 16px;
         font-size: 20px;
-        color: #5c78e0;
+        color: style.$primary-blue;
         text-decoration: underline;
       }
     }
