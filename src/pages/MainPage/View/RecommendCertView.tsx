@@ -1,10 +1,10 @@
-import CertificateCard from '../../../components/CertificateCard.tsx';
-import useCertService from '../../../features/Certification/useCertService.ts';
+import CertificateCard from '@component/CertificateCard.tsx';
+import { useCertRecommend } from '@feature/Certification/useCertService.ts';
 import { ICertData } from '@type/cert.ts';
 import '../style/recommendCertView.scss';
 
 const RecommendCertView = () => {
-  const { certRecommend } = useCertService();
+  const certRecommend = useCertRecommend();
   const recommendData: ICertData[] | undefined = certRecommend?.data;
 
   return (

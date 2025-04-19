@@ -25,7 +25,8 @@
       "@store/*": ["./src/common/store/*"],
       "@component/*": ["./src/components/*"],
       "@api/*": ["./src/api/*"],
-      "@feature/*": ["./src/features/*"]
+      "@feature/*": ["./src/features/*"],
+      "@hook/*": ["./src/hooks/*"]
     }
   },
   "include": ["src"]

@@ -5,7 +5,7 @@ import SearchBox from '../../components/SearchBox.tsx';
 const MainPageContainer = () => {
   return (
     <>
-      <SearchBox />
+      <SearchBox isTitle={true} />
       <MenuBarView />
       <RecommendCertView />
     </>

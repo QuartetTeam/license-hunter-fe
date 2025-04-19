@@ -13,14 +13,15 @@ import {
   IUserList,
 } from '@type/user.ts';
 
-const { BASE_URL, LOGIN, CALENDAR, MAILINGS, CERTIFICATIONS, MEMBERS, PROFILE } = endpoints;
+const { BASE_URL, CALENDAR, MAILINGS, CERTIFICATIONS, MEMBERS, PROFILE } = endpoints;
 
 // 소셜 로그인 팝업 이동 (카카오, 네이버, 구글)
 const moveToOAuth2 = (loginType: string) => {
   return async () => {
-    const response = await axios.post(`${BASE_URL}/${LOGIN}/${loginType}`, {
-      withCredentials: true,
-    });
+    // const response = await axios.post(`${BASE_URL}/${LOGIN}/${loginType}`);
+    const response = await axios.post(
+      `https://api.sudomenda.site/oauth2/authorization/${loginType}`
+    );
     return response.data;
   };
 };
@@ -120,7 +121,7 @@ const getCertData = (categoryId: number, page: number, pageSize: number) => {
 };
 
 // 자격증 검색
-const getSearchCertData = (name: string) => {
+const getSearchCertData = (name?: string) => {
   return async (): Promise<ICertSearchList> => {
     const params = {
       name: name,

@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import Alert from '../../../components/Alert.tsx';
+import { useSearchParams } from 'react-router-dom';
+import Alert from '@component/Alert.tsx';
 import {
   calenderAlertMessage,
   cancelButtonMessage,
@@ -9,7 +10,7 @@ import {
 import CertSchedule from './CertDetailInfo/CertSchedule.tsx';
 import CertQualifications from './CertDetailInfo/CertQualifications.tsx';
 import CertContent from './CertDetailInfo/CertContent.tsx';
-import useCertService from '@feature/Certification/useCertService.ts';
+import { useCertDetail } from '@feature/Certification/useCertService.ts';
 import useMailingService from '@feature/MailingService/useMailingService.ts';
 import useCalendarService from '@feature/MyCalendar/useCalendarService.ts';
 import { ICertDetailListDataTypes } from '@type/cert.ts';
@@ -25,8 +26,10 @@ const CertDetailView = () => {
     setCalenderAlertVisible(!calenderAlertVisible);
   };
 
-  const { getCertDetailData } = useCertService();
-  const certDetailData: ICertDetailListDataTypes | undefined = getCertDetailData?.data;
+  const [searchParams] = useSearchParams();
+  const id = Number(searchParams.get('id'));
+  const certDetail = useCertDetail(id);
+  const certDetailData: ICertDetailListDataTypes | undefined = certDetail?.data;
   const { addMailingsService } = useMailingService();
   const { addCalendarService } = useCalendarService();
 

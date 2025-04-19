@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import FieldButton from '@component/FieldButton.tsx';
-import useCategoryService from '@feature/Category/useCategoryService.ts';
+import { useDefaultCategory, useMoreCategory } from '@feature/Category/useCategoryService.ts';
 import { ICategoryDataTypes } from '@type/category.ts';
 import '../style/menuBarView.scss';
 
@@ -9,7 +9,8 @@ const MenuBarView = () => {
   const handleIsDefault = () => {
     setIsDefault(!isDefault);
   };
-  const { defaultCategory, moreCategory } = useCategoryService();
+  const defaultCategory = useDefaultCategory();
+  const moreCategory = useMoreCategory();
   const defaultCategoryData: ICategoryDataTypes[] | undefined = defaultCategory?.data;
   const moreCategoryData: ICategoryDataTypes[] | undefined = moreCategory?.data;
 
@@ -20,12 +21,16 @@ const MenuBarView = () => {
           <div className="menu-button-box">
             {defaultCategoryData
               ?.slice(0, 5)
-              .map((item, index) => <FieldButton key={index} fieldName={item.name} />)}
+              .map((item, index) => (
+                <FieldButton key={index} fieldName={item.name} id={item.id} name={item.name} />
+              ))}
           </div>
           <div className="menu-button-box">
             {defaultCategoryData
               ?.slice(5, defaultCategoryData?.length)
-              .map((item, index) => <FieldButton key={index} fieldName={item.name} />)}
+              .map((item, index) => (
+                <FieldButton key={index} fieldName={item.name} id={item.id} name={item.name} />
+              ))}
           </div>
         </div>
         {!isDefault && (
@@ -33,12 +38,16 @@ const MenuBarView = () => {
             <div className="menu-button-box">
               {moreCategoryData
                 ?.slice(0, 7)
-                .map((item, index) => <FieldButton key={index} fieldName={item.name} />)}
+                .map((item, index) => (
+                  <FieldButton key={index} fieldName={item.name} id={item.id} name={item.name} />
+                ))}
             </div>
             <div className="menu-button-box">
               {moreCategoryData
                 ?.slice(7, moreCategoryData?.length)
-                .map((item, index) => <FieldButton key={index} fieldName={item.name} />)}
+                .map((item, index) => (
+                  <FieldButton key={index} fieldName={item.name} id={item.id} name={item.name} />
+                ))}
             </div>
           </div>
         )}

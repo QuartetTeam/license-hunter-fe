@@ -1,6 +1,6 @@
 // import CheckboxChecked from '@icon/icon-checkbox-check.svg?react';
 import CheckboxEmpty from '@icon/icon-checkbox-empty.svg?react';
-import useCertService from '../features/Certification/useCertService.ts';
+import { useCertService } from '../features/Certification/useCertService.ts';
 import { ICertData } from '@type/cert.ts';
 import { IMailingContent } from '@type/mailing.ts';
 import './style/certificateCard.scss';
@@ -13,7 +13,7 @@ const CertificateCard = ({
   data?: ICertData[] | IMailingContent[];
   trashIconSelected?: boolean;
 }) => {
-  const { onCertCardClick, formatDate } = useCertService();
+  const { formatDate, moveToCertDetailById } = useCertService();
 
   return (
     <>
@@ -25,7 +25,7 @@ const CertificateCard = ({
               {/*<CheckboxChecked/>*/}
             </div>
           )}
-          <div className="certificate-info-box" onClick={onCertCardClick}>
+          <div className="certificate-info-box" onClick={() => moveToCertDetailById(item?.id)}>
             <div className="certificate-info-box__image"></div>
             <div className="certificate-info-box__text">
               <div className="certificate-info-box__text__name">{item?.name}</div>

@@ -1,17 +1,28 @@
-import useCategoryService from '@feature/Category/useCategoryService.ts';
+import { useSearchParams } from 'react-router-dom';
+import { useCertService } from '@feature/Certification/useCertService.ts';
+import { useChildCategory } from '@feature/Category/useCategoryService.ts';
 import { ICategoryDataTypes } from '@type/category.ts';
 import '../style/certTagView.scss';
 
 const CertTagView = () => {
-  const { getCertChildCategoryData } = useCategoryService();
-  const certChildCategoryData: ICategoryDataTypes[] | undefined = getCertChildCategoryData?.data;
+  const { moveToCertById } = useCertService();
+  const [searchParams] = useSearchParams();
+  const categoryId = searchParams.get('categoryId') || '';
+  const name = searchParams.get('categoryName') || '';
+  const childCategory = useChildCategory(categoryId);
+  const childCategoryData: ICategoryDataTypes[] | undefined = childCategory?.data;
 
   return (
     <div className="cert-tag-view">
       <div className="cert-tag-group">
-        {certChildCategoryData?.map((item, index) => (
-          <div key={index} className="cert-tag">
-            <div className="cert-tag-icon"></div>
+        {childCategoryData?.map((item, index) => (
+          <div
+            key={index}
+            className="cert-tag"
+            onClick={() => {
+              moveToCertById(categoryId, item.id, name);
+            }}
+          >
             {item.name}
           </div>
         ))}

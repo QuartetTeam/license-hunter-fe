@@ -1,5 +1,5 @@
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
-import useCertService from '@feature/Certification/useCertService.ts';
+import { useCertService } from '@feature/Certification/useCertService.ts';
 import { IExamSchedule } from '@type/cert.ts';
 import '../../style/certSchedule.scss';
 

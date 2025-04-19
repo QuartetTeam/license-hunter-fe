@@ -11,8 +11,9 @@ const useGetCategory = (isDefault: boolean) => {
 
 const useGetChildCategory = (mainCategoryId: string) => {
   return useQuery({
-    queryKey: [categoryQueryKey.getChildCategory],
+    queryKey: [categoryQueryKey.getChildCategory, mainCategoryId],
     queryFn: getCertChildCategoryData(mainCategoryId),
+    enabled: !!mainCategoryId,
   });
 };
 
