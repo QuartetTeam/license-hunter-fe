@@ -6,7 +6,7 @@ import CheckFavoriteField from '@component/CheckFavoriteField.tsx';
 import { cancelButtonMessage, confirmButtonMessage } from '../Messages/buttonMessages.ts';
 import useUserService from '@feature/User/useUserService.ts';
 import { IUserDataProps } from '@type/user.ts';
-import { Field } from '@component/types/Field.ts';
+import { Field } from '@component/types/field.ts';
 import '../style/myProfileView.scss';
 
 const MyProfileView = ({ data }: IUserDataProps) => {
@@ -65,8 +65,16 @@ const MyProfileView = ({ data }: IUserDataProps) => {
                 </div>
               </div>
               <div className="my-profile-interest-field">
-                <div className="my-profile-interest-field__title">
-                  관심 분야 (Max 3 선택해 주세요)
+                <div className="my-profile-interest-field__group">
+                  <div className="my-profile-interest-field__group-title">
+                    관심 분야 (Max 3 선택해 주세요)
+                  </div>
+                  <button
+                    className="my-profile-interest-field__group-button"
+                    onClick={onVisibleFavoriteFieldClick}
+                  >
+                    수정
+                  </button>
                 </div>
                 <div className="my-profile-interest-field__button-group">
                   <FieldButton fieldName={Field.Doctor} />
@@ -74,14 +82,7 @@ const MyProfileView = ({ data }: IUserDataProps) => {
                   <FieldButton fieldName={Field.ArtDesign} />
                 </div>
               </div>
-              <div className="my-profile-interest-save">
-                <button
-                  className="my-profile-interest-save__button"
-                  onClick={onVisibleFavoriteFieldClick}
-                >
-                  수정
-                </button>
-              </div>
+              <div className="my-profile-interest-save"></div>
             </div>
           </div>
         )}
