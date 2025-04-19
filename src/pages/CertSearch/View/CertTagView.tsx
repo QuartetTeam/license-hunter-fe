@@ -20,7 +20,7 @@ const CertTagView = () => {
             key={index}
             className="cert-tag"
             onClick={() => {
-              moveToCertById(categoryId, item.id, name);
+              moveToCertById(categoryId, name, item.id);
             }}
           >
             {item.name}

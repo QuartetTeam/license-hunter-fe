@@ -20,7 +20,7 @@ const FieldButton = ({
     <button
       className="favorite-field-button"
       onClick={() => {
-        if (id && name) moveToCertById(id, undefined, name);
+        if (id && name) moveToCertById(id, name, undefined);
       }}
     >
       {FieldIcon && <FieldIcon />}

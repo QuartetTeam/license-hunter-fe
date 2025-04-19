@@ -43,7 +43,7 @@ const useCertService = () => {
     navigate(`/certificateSearch?search=${name}`);
   };
 
-  const moveToCertById = (id: string, subId?: string, name: string) => {
+  const moveToCertById = (id: string, name: string, subId?: string) => {
     window.scrollTo(0, 0);
     const query = new URLSearchParams();
     query.set('categoryId', id);
