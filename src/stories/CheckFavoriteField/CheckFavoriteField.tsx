@@ -3,7 +3,7 @@ import ConfirmButton from '../ConfirmButton/ConfirmButton.tsx';
 import CancelButton from '../CancelButton/CancelButton';
 import CancelIcon from '@icon/icon-button-cancel.svg?react';
 import '@styles/pages/components/checkFavoriteField.scss';
-import { Field } from '@component/types/Field.ts';
+import { Field } from '@component/types/field.ts';
 
 interface ICheckFavoriteFieldProps {
   favoriteFieldVisible: boolean;
