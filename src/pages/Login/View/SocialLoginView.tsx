@@ -1,12 +1,16 @@
+import Naver from '@icon/SNS/icon-naver.svg?react';
+import Kakao from '@icon/SNS/icon-kakao.svg?react';
+import Google from '@icon/SNS/icon-google.svg?react';
 import '../style/socialLoginView.scss';
-import useAuthService from '@feature/Auth/useAuthService.ts';
 
 const SocialLoginView = () => {
-  const { setLoginType, moveToAuthService } = useAuthService();
+  // const { setLoginType, moveToAuthService } = useAuthService();
 
-  const login = (snsType: string) => {
-    setLoginType(snsType);
-    moveToAuthService();
+  const login = (loginType: string) => {
+    // setLoginType(snsType);
+    // moveToAuthService();
+    window.location.href = `https://api.sudomenda.site/oauth2/authorization/${loginType}`;
+    // router.push()
   };
 
   return (
@@ -16,18 +20,21 @@ const SocialLoginView = () => {
         <div className="socialLogin-title2">로그인을 하면 자격증을 추천해드릴게요!</div>
       </div>
       <div className="socialLogin-button-group">
-        <div className="socialLogin-button">
-          <div className="socialLogin-text" onClick={() => login('naver')}>
+        <div className="socialLogin-button" onClick={() => login('naver')}>
+          <div className="socialLogin-text">
+            <Naver />
             네이버 로그인
           </div>
         </div>
-        <div className="socialLogin-button">
-          <div className="socialLogin-text" onClick={() => login('kakao')}>
+        <div className="socialLogin-button" onClick={() => login('kakao')}>
+          <div className="socialLogin-text">
+            <Kakao />
             카카오 로그인
           </div>
         </div>
         <div className="socialLogin-button">
           <div className="socialLogin-text" onClick={() => login('google')}>
+            <Google />
             구글 로그인
           </div>
         </div>
