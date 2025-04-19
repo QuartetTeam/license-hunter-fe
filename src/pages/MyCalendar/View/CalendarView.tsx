@@ -17,7 +17,7 @@ const CalendarView = () => {
 
   return (
     <>
-      <div className="my-calender">
+      <div className="my-calendar">
         <FullCalendar
           plugins={[dayGridPlugin]}
           initialView="dayGridMonth"
