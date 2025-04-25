@@ -163,4 +163,8 @@ npm run lint
 
 ## 자격저격 웹사이트 접속
 
-https://quartet-sigma.vercel.app/
+⚡ 알림
+현재 소셜 로그인 기능은 이슈 해결 중에 있어 정상적으로 동작하지 않습니다.
+로그인을 제외한 UI 및 기타 기능은 정상적으로 확인할 수 있으니 참고 부탁드립니다.
+
+https://license-hunter.vercel.app/
