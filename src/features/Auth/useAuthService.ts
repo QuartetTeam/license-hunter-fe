@@ -1,8 +1,10 @@
-import { useLogin, useLogout, useMoveToAuth, useRefresh } from '../../api';
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { useLogin, useLogout, useMoveToAuth, useRefresh } from '../../api';
 import authStore from '@store/auth/authStore.ts';
 import IAuthType from '@store/auth/authType.ts';
 import useHandleCookies from '../../common/utils/cookie.ts';
+import { useMoveToPage } from '@hook/page.ts';
 
 const useAuthService = () => {
   const [loginType, setLoginType] = useState<string>('');
@@ -18,19 +20,25 @@ const useAuthService = () => {
   };
 
   // 로그인
+  // 기존 cookie로 토큰을 넣어주는 방식이 동작하지 않아,
+  // 현재 임시방편으로 쿼리 파라미터로 accessToken, refreshToken을 넘김 (04/22 정윤님과 협의)
+  const [searchParams] = useSearchParams();
+  const moveToPage = useMoveToPage();
   const setAccessToken = authStore((state: IAuthType) => state.setAccessToken);
   const clearAccessToken = authStore((state: IAuthType) => state.clearAccessToken);
   const login = useLogin();
   const loginService = async () => {
     try {
-      const response = await login.mutateAsync();
-      const {
-        data: { code, accessToken },
-      } = response;
-      if (code === '204') {
+      await login.mutateAsync();
+      const accessToken = searchParams.get('accessToken');
+      console.log('accessToken', accessToken);
+      // const refreshToken = searchParams.get('refreshToken');
+      if (accessToken) {
         setAccessToken(accessToken);
+        moveToPage('/');
       } else {
         clearAccessToken();
+        moveToPage('/login');
       }
     } catch (error) {
       clearAccessToken();

@@ -7,10 +7,7 @@ const SocialLoginView = () => {
   // const { setLoginType, moveToAuthService } = useAuthService();
 
   const login = (loginType: string) => {
-    // setLoginType(snsType);
-    // moveToAuthService();
     window.location.href = `https://api.sudomenda.site/oauth2/authorization/${loginType}`;
-    // router.push()
   };
 
   return (
