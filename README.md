@@ -168,3 +168,5 @@ npm run lint
 로그인을 제외한 UI 및 기타 기능은 정상적으로 확인할 수 있으니 참고 부탁드립니다.
 
 https://license-hunter.vercel.app/
+
+macbook commit test
