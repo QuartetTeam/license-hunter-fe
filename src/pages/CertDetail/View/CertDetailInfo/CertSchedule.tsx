@@ -16,21 +16,29 @@ const CertSchedule = ({ cert, data }: { cert?: string; data?: IExamSchedule[] })
       <table className="schedule-table">
         <thead>
           <tr>
-            {data?.map((item, index) => (
-              <th key={index} className="schedule-table-header">
-                {item?.scheduleType}
-              </th>
-            ))}
+            <th>구분</th>
+            <th>접수일(필기)</th>
+            <th>시험일(필기)</th>
+            <th>합격일(필기)</th>
+            <th>접수일(실기)</th>
+            <th>시험일(실기)</th>
+            <th>합격일(실기)</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            {data?.map((item, index) => (
-              <td key={index} className="schedule-table-body">
-                {formatDate(item?.date)}
-              </td>
-            ))}
-          </tr>
+          {data?.map((item, index) => (
+            <tr key={index}>
+              <td className="schedule-table-body">{item?.examRound}</td>
+              {item?.scheduleDetails?.map((detailItem, detailIndex) => (
+                <td key={detailIndex} className="schedule-table-body">
+                  {formatDate(detailItem?.dates)}
+                </td>
+              ))}
+              {Array.from({ length: 6 - (item?.scheduleDetails?.length ?? 0) }).map(() => (
+                <td className="schedule-table-body">-</td>
+              ))}
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
