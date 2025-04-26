@@ -23,7 +23,7 @@ const CertCardListView = () => {
   const searchedCertData = searchedCert?.data ?? [];
 
   useEffect(() => {
-    if (certTotalPage) {
+    if (certTotalPage === 0 || certTotalPage > 0) {
       setPage(0);
     }
   }, [categoryId]);
