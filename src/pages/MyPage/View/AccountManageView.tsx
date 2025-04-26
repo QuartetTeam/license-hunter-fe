@@ -3,7 +3,7 @@ import ArrowUp from '@icon/icon-arrow-up.svg?react';
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
 import ToggleON from '@icon/icon-toggle-on.svg?react';
 import ToggleOFF from '@icon/icon-toggle-off.svg?react';
-import useUserService from '@feature/User/useUserService.ts';
+import { useChangeMailingStatus, useDeleteUserData } from '@feature/User/useUserService.ts';
 import { IUserDataProps } from '@type/user.ts';
 import '../style/accountManageView.scss';
 
@@ -13,7 +13,8 @@ const AccountManageView = ({ data }: IUserDataProps) => {
     setAccountManageVisible(!accountManageVisible);
   };
 
-  const { changeUserMailingService, deleteUserDataService } = useUserService();
+  const { mutate: changeMailingStatus } = useChangeMailingStatus();
+  const { mutate: deleteUserData } = useDeleteUserData();
 
   return (
     <div id="account-manage" className="account-manage">
@@ -33,12 +34,12 @@ const AccountManageView = ({ data }: IUserDataProps) => {
               {data?.status === 'ACTIVE' ? (
                 <div className="mailing-service-interruption__toggle">
                   ON
-                  <ToggleON onClick={changeUserMailingService} />
+                  <ToggleON onClick={() => changeMailingStatus()} />
                 </div>
               ) : (
                 <div className="mailing-service-interruption__toggle">
                   OFF
-                  <ToggleOFF onClick={changeUserMailingService} />
+                  <ToggleOFF onClick={() => changeMailingStatus()} />
                 </div>
               )}
             </div>
@@ -50,7 +51,7 @@ const AccountManageView = ({ data }: IUserDataProps) => {
                 귀하의 데이터와 귀하의 계정과 관련된 모든 것을 영구적으로 삭제합니다.
               </div>
             </div>
-            <button className="delete-account__button" onClick={deleteUserDataService}>
+            <button className="delete-account__button" onClick={() => deleteUserData()}>
               계정 삭제
             </button>
           </div>
