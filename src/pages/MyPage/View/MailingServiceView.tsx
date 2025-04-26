@@ -77,17 +77,21 @@ const MailingServiceView = () => {
               />
             </div>
             <div className="mailing-serviceList-group">
-              <ArrowLeft
-                className="mailing-serviceList-group__icon"
-                onClick={() => prevPage(page)}
-              />
+              {mailingData && mailingData.length > 0 && (
+                <ArrowLeft
+                  className="mailing-serviceList-group__icon"
+                  onClick={() => prevPage(page)}
+                />
+              )}
               <div className="mailing-serviceList-group__card">
                 <CertificateCard data={mailingData} trashIconSelected={trashIconSelected} />
               </div>
-              <ArrowRight
-                className="mailing-serviceList-group__icon"
-                onClick={() => nextPage(page)}
-              />
+              {mailingData && mailingData.length > 0 && (
+                <ArrowRight
+                  className="mailing-serviceList-group__icon"
+                  onClick={() => nextPage(page)}
+                />
+              )}
             </div>
           </div>
         </>
