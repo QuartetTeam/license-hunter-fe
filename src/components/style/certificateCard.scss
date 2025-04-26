@@ -1,8 +1,9 @@
 @use '../../index.scss' as style;
 
 .certificate-info {
-  width: 486px;
-  height: 150px;
+  min-width: 300px;
+  max-width: 450px;
+  max-height: 150px;
   display: flex;
   gap: 15px;
   padding: 17px 11px;

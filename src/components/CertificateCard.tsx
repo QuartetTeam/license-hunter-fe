@@ -1,6 +1,7 @@
-// import CheckboxChecked from '@icon/icon-checkbox-check.svg?react';
+import CheckboxChecked from '@icon/icon-checkbox-check.svg?react';
 import CheckboxEmpty from '@icon/icon-checkbox-empty.svg?react';
 import { useCertService } from '../features/Certification/useCertService.ts';
+import mailingStore from '@store/mailing/mailingStore';
 import { ICertData } from '@type/cert.ts';
 import { IMailingContent } from '@type/mailing.ts';
 import './style/certificateCard.scss';
@@ -13,16 +14,27 @@ const CertificateCard = ({
   data?: ICertData[] | IMailingContent[];
   trashIconSelected?: boolean;
 }) => {
+  const { checkArr, setCheckArr } = mailingStore();
   const { formatDate, moveToCertDetailById } = useCertService();
 
+  const handleCheckArr = (mailingsId: number) => {
+    if (checkArr.includes(mailingsId)) {
+      setCheckArr(checkArr.filter((item) => item !== mailingsId));
+    } else {
+      setCheckArr([...checkArr, mailingsId]);
+    }
+  };
   return (
     <>
       {data?.map((item, index) => (
         <div key={index} className="certificate-info">
           {trashIconSelected && (
             <div className="certificate-info-checkbox">
-              <CheckboxEmpty />
-              {/*<CheckboxChecked/>*/}
+              {checkArr.includes(item.id) ? (
+                <CheckboxChecked onClick={() => handleCheckArr(item.id)} />
+              ) : (
+                <CheckboxEmpty onClick={() => handleCheckArr(item.id)} />
+              )}
             </div>
           )}
           <div className="certificate-info-box" onClick={() => moveToCertDetailById(item?.id)}>

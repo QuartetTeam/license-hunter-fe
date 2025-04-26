@@ -1,26 +1,18 @@
 import { useAddMailing, useDeleteMailing, useGetMailing } from '../../api';
 
-const useMailingService = () => {
-  // 메일링 서비스 조회
-  const { data: getMailingData } = useGetMailing(0, 4);
-
-  // 메일링 서비스 추가
-  const addMailings = useAddMailing(1);
-  const addMailingsService = () => {
-    addMailings.mutate();
-  };
-
-  // 메일링 서비스 삭제
-  const deleteMailings = useDeleteMailing(1);
-  const deleteMailingsService = () => {
-    deleteMailings.mutate();
-  };
-
-  return {
-    getMailingData,
-    addMailingsService,
-    deleteMailingsService,
-  };
+const useMailingList = (page: number) => {
+  const { data: mailing } = useGetMailing(page, 4);
+  return mailing;
 };
 
-export default useMailingService;
+const useAddUserMailing = (certificationId: number) => {
+  const addMailings = useAddMailing(certificationId);
+  return addMailings;
+};
+
+const useDeleteUserMailing = (mailingsId: number[]) => {
+  const deleteMailings = useDeleteMailing(mailingsId);
+  return deleteMailings;
+};
+
+export { useMailingList, useAddUserMailing, useDeleteUserMailing };

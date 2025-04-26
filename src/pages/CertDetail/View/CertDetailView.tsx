@@ -11,7 +11,7 @@ import CertSchedule from './CertDetailInfo/CertSchedule.tsx';
 import CertQualifications from './CertDetailInfo/CertQualifications.tsx';
 import CertContent from './CertDetailInfo/CertContent.tsx';
 import { useCertDetail } from '@feature/Certification/useCertService.ts';
-import useMailingService from '@feature/MailingService/useMailingService.ts';
+import { useAddUserMailing } from '@feature/MailingService/useMailingService.ts';
 import useCalendarService from '@feature/MyCalendar/useCalendarService.ts';
 import { ICertDetailListDataTypes } from '@type/cert.ts';
 import '../style/certDetailView.scss';
@@ -30,7 +30,8 @@ const CertDetailView = () => {
   const id = Number(searchParams.get('id'));
   const certDetail = useCertDetail(id);
   const certDetailData: ICertDetailListDataTypes | undefined = certDetail?.data;
-  const { addMailingsService } = useMailingService();
+
+  const { mutate: addUserMailing } = useAddUserMailing(certDetailData?.id ?? 0);
   const { addCalendarService } = useCalendarService();
 
   return (
@@ -65,7 +66,7 @@ const CertDetailView = () => {
             onVisibleAlertClick={onVisibleMailingAlertClick}
             alertConfirmMessage={confirmButtonMessage.subscribe}
             alertCancelMessage={cancelButtonMessage.think}
-            event={addMailingsService}
+            event={() => addUserMailing()}
           />
           <Alert
             alertTitle={calenderAlertMessage.title}

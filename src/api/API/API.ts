@@ -69,7 +69,7 @@ const addMailingsData = (certificationId: number) => {
 };
 
 // 메일링 서비스 삭제
-const deleteMailingsData = (mailingIds: number) => {
+const deleteMailingsData = (mailingIds: number[]) => {
   return async () => {
     const params = {
       mailingIds: mailingIds,
