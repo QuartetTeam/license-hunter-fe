@@ -190,7 +190,7 @@ const patchUserEmail = (email: string) => {
 };
 
 // 사용자 관심분야 변경
-const patchUserInterest = (categoryIds: string[]) => {
+const patchUserInterest = (categoryIds: number[]) => {
   return async (): Promise<IChangeInterest> => {
     const params = { categoryIds: categoryIds };
     const response = await axios.patch(`${BASE_URL}/${MEMBERS}/${PROFILE}/interests`, { params });

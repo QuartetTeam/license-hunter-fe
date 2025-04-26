@@ -30,9 +30,9 @@ const usePatchUserEmail = (email: string) => {
   });
 };
 
-const usePatchUserInterest = (categoryIds: string[]) => {
+const usePatchUserInterest = (categoryIds: number[]) => {
   return useMutation({
-    mutationKey: [userQueryKey.patchInterest],
+    mutationKey: [userQueryKey.patchInterest, categoryIds],
     mutationFn: patchUserInterest(categoryIds),
   });
 };

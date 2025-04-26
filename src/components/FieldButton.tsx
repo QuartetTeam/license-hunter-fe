@@ -1,28 +1,23 @@
-import { useCertService } from '@feature/Certification/useCertService.ts';
 import { fieldIconsMap } from './icons/fieldIconsList.ts';
 import { fieldNameToEnumMap } from './types/fieldNameToEnumMap.ts';
 import './style/fieldButton.scss';
 
 const FieldButton = ({
   fieldName,
-  id,
-  name,
+  clickEvent,
+  isChecked,
 }: {
   fieldName: string;
-  id?: string;
-  name?: string;
+  clickEvent?: () => void;
+  isChecked?: boolean;
 }) => {
-  const { moveToCertById } = useCertService();
   const fieldEnum = fieldNameToEnumMap[fieldName];
   const FieldIcon = fieldIconsMap[fieldEnum];
 
+  console.log(isChecked);
+
   return (
-    <button
-      className="favorite-field-button"
-      onClick={() => {
-        if (id && name) moveToCertById(id, name, undefined);
-      }}
-    >
+    <button className={`favorite-field-button ${isChecked ? 'checked' : ''}`} onClick={clickEvent}>
       {FieldIcon && <FieldIcon />}
       {fieldName}
     </button>

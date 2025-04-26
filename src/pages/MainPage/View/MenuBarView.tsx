@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import FieldButton from '@component/FieldButton.tsx';
+import { useCertService } from '@feature/Certification/useCertService';
 import { useDefaultCategory, useMoreCategory } from '@feature/Category/useCategoryService.ts';
 import { ICategoryDataTypes } from '@type/category.ts';
 import '../style/menuBarView.scss';
@@ -11,8 +12,13 @@ const MenuBarView = () => {
   };
   const defaultCategory = useDefaultCategory();
   const moreCategory = useMoreCategory();
+  const { moveToCertById } = useCertService();
   const defaultCategoryData: ICategoryDataTypes[] | undefined = defaultCategory?.data;
   const moreCategoryData: ICategoryDataTypes[] | undefined = moreCategory?.data;
+
+  const handleMoveToCertById = (id: number, fieldName: string) => {
+    if (id && fieldName) moveToCertById(id, fieldName, undefined);
+  };
 
   return (
     <div className="menuBar-view">
@@ -22,14 +28,22 @@ const MenuBarView = () => {
             {defaultCategoryData
               ?.slice(0, 5)
               .map((item, index) => (
-                <FieldButton key={index} fieldName={item.name} id={item.id} name={item.name} />
+                <FieldButton
+                  key={index}
+                  clickEvent={() => handleMoveToCertById(item.id, item.name)}
+                  fieldName={item.name}
+                />
               ))}
           </div>
           <div className="menu-button-box">
             {defaultCategoryData
               ?.slice(5, defaultCategoryData?.length)
               .map((item, index) => (
-                <FieldButton key={index} fieldName={item.name} id={item.id} name={item.name} />
+                <FieldButton
+                  key={index}
+                  fieldName={item.name}
+                  clickEvent={() => handleMoveToCertById(item.id, item.name)}
+                />
               ))}
           </div>
         </div>
@@ -39,14 +53,22 @@ const MenuBarView = () => {
               {moreCategoryData
                 ?.slice(0, 7)
                 .map((item, index) => (
-                  <FieldButton key={index} fieldName={item.name} id={item.id} name={item.name} />
+                  <FieldButton
+                    key={index}
+                    fieldName={item.name}
+                    clickEvent={() => handleMoveToCertById(item.id, item.name)}
+                  />
                 ))}
             </div>
             <div className="menu-button-box">
               {moreCategoryData
                 ?.slice(7, moreCategoryData?.length)
                 .map((item, index) => (
-                  <FieldButton key={index} fieldName={item.name} id={item.id} name={item.name} />
+                  <FieldButton
+                    key={index}
+                    fieldName={item.name}
+                    clickEvent={() => handleMoveToCertById(item.id, item.name)}
+                  />
                 ))}
             </div>
           </div>
