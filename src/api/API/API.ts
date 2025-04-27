@@ -15,17 +15,6 @@ import {
 
 const { BASE_URL, CALENDAR, MAILINGS, CERTIFICATIONS, MEMBERS, PROFILE } = endpoints;
 
-// 소셜 로그인 팝업 이동 (카카오, 네이버, 구글)
-const moveToOAuth2 = (loginType: string) => {
-  return async () => {
-    // const response = await axios.post(`${BASE_URL}/${LOGIN}/${loginType}`);
-    const response = await axios.post(
-      `https://api.sudomenda.site/oauth2/authorization/${loginType}`
-    );
-    return response.data;
-  };
-};
-
 // 소셜 로그인 (카카오, 네이버, 구글)
 const login = async () => {
   const response = await axios.post(`${BASE_URL}/oauth2-jwt-header`);
@@ -211,7 +200,6 @@ const deleteUserData = async () => {
 };
 
 export {
-  moveToOAuth2,
   login,
   refresh,
   logout,

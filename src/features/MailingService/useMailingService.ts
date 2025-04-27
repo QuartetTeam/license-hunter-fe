@@ -1,4 +1,6 @@
+import { toast } from 'react-toastify';
 import { useAddMailing, useDeleteMailing, useGetMailing } from '../../api';
+import { TOAST_MESSAGE } from '@constant/toastMessages.ts';
 
 const useMailingList = (page: number) => {
   const { data: mailing } = useGetMailing(page, 4);
@@ -6,13 +8,25 @@ const useMailingList = (page: number) => {
 };
 
 const useAddUserMailing = (certificationId: number) => {
-  const addMailings = useAddMailing(certificationId);
-  return addMailings;
+  return useAddMailing(certificationId, {
+    onSuccess: () => {
+      toast.success(TOAST_MESSAGE.SUCCESS.ADD_MAILING);
+    },
+    onError: () => {
+      toast.error(TOAST_MESSAGE.ERROR.ADD_MAILING);
+    },
+  });
 };
 
 const useDeleteUserMailing = (mailingsId: number[]) => {
-  const deleteMailings = useDeleteMailing(mailingsId);
-  return deleteMailings;
+  return useDeleteMailing(mailingsId, {
+    onSuccess: () => {
+      toast.success(TOAST_MESSAGE.SUCCESS.DELETE_MAILING);
+    },
+    onError: () => {
+      toast.error(TOAST_MESSAGE.ERROR.DELETE_MAILING);
+    },
+  });
 };
 
 export { useMailingList, useAddUserMailing, useDeleteUserMailing };

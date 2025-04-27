@@ -1,48 +1,34 @@
-import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { useLogin, useLogout, useMoveToAuth, useRefresh } from '../../api';
+import { toast } from 'react-toastify';
+import { useLogin, useLogout, useRefresh } from '../../api';
 import authStore from '@store/auth/authStore.ts';
 import IAuthType from '@store/auth/authType.ts';
 import useHandleCookies from '../../common/utils/cookie.ts';
 import { useMoveToPage } from '@hook/page.ts';
+import { TOAST_MESSAGE } from '@constant/toastMessages.ts';
 
 const useAuthService = () => {
-  const [loginType, setLoginType] = useState<string>('');
-
-  // 소셜 로그인 팝업 이동
-  const moveToAuth = useMoveToAuth(loginType);
-  const moveToAuthService = () => {
-    try {
-      moveToAuth.mutate();
-    } catch (error) {
-      console.error('소셜 로그인 화면 이동 실패 => ', error);
-    }
-  };
-
-  // 로그인
-  // 기존 cookie로 토큰을 넣어주는 방식이 동작하지 않아,
-  // 현재 임시방편으로 쿼리 파라미터로 accessToken, refreshToken을 넘김 (04/22 정윤님과 협의)
-  const [searchParams] = useSearchParams();
   const moveToPage = useMoveToPage();
+
+  // 로그인 (04/27 정윤님)
+  // 현재 소셜 로그인 기능은 백엔드 이슈 해결 중에 있어 정상적으로 동작하지 않음.
+  // 백엔드 API 명세서를 참고하여 추후 테스트할 수 있도록 작업함.
   const setAccessToken = authStore((state: IAuthType) => state.setAccessToken);
   const clearAccessToken = authStore((state: IAuthType) => state.clearAccessToken);
   const login = useLogin();
   const loginService = async () => {
     try {
-      await login.mutateAsync();
-      const accessToken = searchParams.get('accessToken');
-      console.log('accessToken', accessToken);
-      // const refreshToken = searchParams.get('refreshToken');
+      const accessToken = await login.mutateAsync();
       if (accessToken) {
         setAccessToken(accessToken);
         moveToPage('/');
       } else {
         clearAccessToken();
         moveToPage('/login');
+        toast.error(TOAST_MESSAGE.ERROR.LOGIN);
       }
-    } catch (error) {
+    } catch {
       clearAccessToken();
-      console.error('로그인 실패 => ', error);
+      toast.error(TOAST_MESSAGE.ERROR.LOGIN);
     }
   };
 
@@ -61,17 +47,20 @@ const useAuthService = () => {
       const {
         data: { code, accessToken },
       } = response;
-      if (code === '204') {
+      if (code === 204) {
         setAccessToken(accessToken);
         saveCookie('accessToken', accessToken);
       } else {
         clearAccessToken();
         deleteCookie('refreshToken');
+        moveToPage('/login');
+        toast.error(TOAST_MESSAGE.ERROR.REFRESH);
       }
-    } catch (error) {
+    } catch {
       clearAccessToken();
       deleteCookie('refreshToken');
-      console.error('Refresh Token 재발급 실패 => ', error);
+      moveToPage('/login');
+      toast.error(TOAST_MESSAGE.ERROR.REFRESH);
     }
   };
 
@@ -82,23 +71,22 @@ const useAuthService = () => {
       const {
         data: { code },
       } = response;
-      if (code === '204') {
+      if (code === 204) {
         clearAccessToken();
         deleteCookie('refreshToken');
       } else {
         clearAccessToken();
         deleteCookie('refreshToken');
+        toast.error(TOAST_MESSAGE.ERROR.LOGOUT);
       }
-    } catch (error) {
+    } catch {
       clearAccessToken();
       deleteCookie('refreshToken');
-      console.error('로그아웃 실패 => ', error);
+      toast.error(TOAST_MESSAGE.ERROR.LOGOUT);
     }
   };
 
   return {
-    setLoginType,
-    moveToAuthService,
     loginService,
     refreshService,
     logoutService,

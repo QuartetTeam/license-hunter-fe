@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, UseMutationOptions } from '@tanstack/react-query';
 import { calendarQueryKey } from '../API/queryKeys.ts';
 import { addCalendarData, deleteCalendarData, getCalendarData } from '../API/API.ts';
 
@@ -9,17 +9,19 @@ const useGetCalendar = () => {
   });
 };
 
-const useAddCalendar = (certificationId: number) => {
+const useAddCalendar = (certificationId: number, option: UseMutationOptions) => {
   return useMutation({
     mutationKey: [calendarQueryKey.post],
     mutationFn: addCalendarData(certificationId),
+    ...option,
   });
 };
 
-const useDeleteCalendar = (certificationId: number) => {
+const useDeleteCalendar = (certificationId: number, option: UseMutationOptions) => {
   return useMutation({
     mutationKey: [calendarQueryKey.delete],
     mutationFn: deleteCalendarData(certificationId),
+    ...option,
   });
 };
 

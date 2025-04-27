@@ -1,5 +1,7 @@
+import { toast } from 'react-toastify';
 import { useDeleteUser, useGetUser, usePatchUserInterest, usePatchUserNick } from '../../api';
 import { usePatchMailingService } from '@api/queries/useUserQuery.ts';
+import { TOAST_MESSAGE } from '@constant/toastMessages.ts';
 
 const useUserData = () => {
   const { data: user } = useGetUser();
@@ -7,28 +9,55 @@ const useUserData = () => {
 };
 
 const useChangeUserNick = (nickname: string) => {
-  const changeUserNick = usePatchUserNick(nickname);
-  return changeUserNick;
+  return usePatchUserNick(nickname, {
+    onSuccess: () => {
+      toast.success(TOAST_MESSAGE.SUCCESS.CHANGE_NICKNAME);
+    },
+    onError: () => {
+      toast.error(TOAST_MESSAGE.ERROR.CHANGE_NICKNAME);
+    },
+  });
 };
 
 const useChangeUserEmail = (email: string) => {
-  const changeUserEmail = usePatchUserNick(email);
-  return changeUserEmail;
+  return usePatchUserNick(email, {
+    onSuccess: () => {
+      toast.success(TOAST_MESSAGE.SUCCESS.CHANGE_EMAIL);
+    },
+    onError: () => {
+      toast.error(TOAST_MESSAGE.ERROR.CHANGE_EMAIL);
+    },
+  });
 };
 
 const useChangeUserInterest = (categoryIds: number[]) => {
-  const changeUserInterest = usePatchUserInterest(categoryIds);
-  return changeUserInterest;
+  return usePatchUserInterest(categoryIds, {
+    onSuccess: () => {
+      toast.success(TOAST_MESSAGE.SUCCESS.CHANGE_INTEREST);
+    },
+    onError: () => {
+      toast.error(TOAST_MESSAGE.ERROR.CHANGE_INTEREST);
+    },
+  });
 };
 
 const useChangeMailingStatus = () => {
-  const changeMailingStatus = usePatchMailingService();
-  return changeMailingStatus;
+  return usePatchMailingService({
+    onError: () => {
+      toast.error(TOAST_MESSAGE.ERROR.CHANGE_MAILING);
+    },
+  });
 };
 
 const useDeleteUserData = () => {
-  const deleteUserData = useDeleteUser();
-  return deleteUserData;
+  return useDeleteUser({
+    onSuccess: () => {
+      toast.success(TOAST_MESSAGE.SUCCESS.DELETE_USER);
+    },
+    onError: () => {
+      toast.error(TOAST_MESSAGE.ERROR.DELETE_USER);
+    },
+  });
 };
 
 export {

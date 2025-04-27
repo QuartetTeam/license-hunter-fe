@@ -1,6 +1,8 @@
+import { toast } from 'react-toastify';
 import { useAddCalendar, useDeleteCalendar, useGetCalendar } from '../../api';
 import { ICalendarData, ISchedules } from '@type/calendar.ts';
 import { IformatCalendar, IformatCalendarArray } from './calendarTypes.ts';
+import { TOAST_MESSAGE } from '@constant/toastMessages.ts';
 
 const useCalenderList = () => {
   const { data: calendar } = useGetCalendar();
@@ -8,13 +10,25 @@ const useCalenderList = () => {
 };
 
 const useAddUserCalendar = (certificationId: number) => {
-  const addCalendar = useAddCalendar(certificationId);
-  return addCalendar;
+  return useAddCalendar(certificationId, {
+    onSuccess: () => {
+      toast.success(TOAST_MESSAGE.SUCCESS.ADD_CALENDAR);
+    },
+    onError: () => {
+      toast.error(TOAST_MESSAGE.ERROR.ADD_CALENDAR);
+    },
+  });
 };
 
 const useDeleteUserCalendar = (certificationId: number) => {
-  const deleteCalendar = useDeleteCalendar(certificationId);
-  return deleteCalendar;
+  return useDeleteCalendar(certificationId, {
+    onSuccess: () => {
+      toast.success(TOAST_MESSAGE.SUCCESS.DELETE_CALENDAR);
+    },
+    onError: () => {
+      toast.error(TOAST_MESSAGE.ERROR.DELETE_CALENDAR);
+    },
+  });
 };
 
 const useCalendarService = () => {

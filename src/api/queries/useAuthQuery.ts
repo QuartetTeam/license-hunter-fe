@@ -1,33 +1,26 @@
 import { useMutation } from '@tanstack/react-query';
 import { authQueryKey } from '../API/queryKeys.ts';
-import { login, logout, moveToOAuth2, refresh } from '../API/API.ts';
-
-const useMoveToAuth = (loginType: string) => {
-  return useMutation({
-    mutationKey: [authQueryKey.postMvToAuth],
-    mutationFn: moveToOAuth2(loginType),
-  });
-};
+import { login, logout, refresh } from '../API/API.ts';
 
 const useLogin = () => {
   return useMutation({
-    mutationKey: [],
+    mutationKey: [authQueryKey.postLogin],
     mutationFn: login,
   });
 };
 
 const useRefresh = (refreshToken: object) => {
   return useMutation({
-    mutationKey: [],
+    mutationKey: [authQueryKey.postRefresh],
     mutationFn: refresh(refreshToken),
   });
 };
 
 const useLogout = () => {
   return useMutation({
-    mutationKey: [],
+    mutationKey: [authQueryKey.postLogout],
     mutationFn: logout,
   });
 };
 
-export { useMoveToAuth, useLogin, useRefresh, useLogout };
+export { useLogin, useRefresh, useLogout };

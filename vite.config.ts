@@ -13,6 +13,7 @@ export default defineConfig({
       '@api': '/src/api',
       '@feature': '/src/features',
       '@hook': '/src/hooks',
+      '@constant': '/src/constants',
     },
   },
   server: {
