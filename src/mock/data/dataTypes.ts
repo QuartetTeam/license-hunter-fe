@@ -9,7 +9,7 @@ interface ISchedules {
 interface ICalendarData {
   certificationId: number;
   calendarId: number;
-  certificationName: string;
+  name: string;
   schedules: ISchedules[];
 }
 

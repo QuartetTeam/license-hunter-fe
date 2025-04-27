@@ -19,8 +19,19 @@ const useDeleteUserCalendar = (certificationId: number) => {
 
 const useCalendarService = () => {
   // 날짜 데이터 가공
-  // "2025-03-08T00:00:00Z" -> "2025-03-08"
+  // ["2025-03-08T00:00:00Z"] -> "2025-03-08"
+  // ["2025-03-08T00:00:00Z", "2025-03-18T00:00:00Z"] -> "2025-03-08 ~ 2025-03-18"
   const formatDate = (date: string[]) => {
+    if (date.length === 1) {
+      return date[0].split('T')[0];
+    } else {
+      const dateArray = date.map((item) => item.split('T')[0]);
+      return dateArray.join(' ~ ');
+    }
+  };
+  // 날짜 데이터 가공
+  // "2025-03-08T00:00:00Z" -> "2025-03-08"
+  const formatFirstDate = (date: string[]) => {
     return date.map((item) => item.split('T')[0]);
   };
 
@@ -36,20 +47,20 @@ const useCalendarService = () => {
   const formatCalendarData = (calendarData: ICalendarData[]): ICalendar[] => {
     const calendarEvents: ICalendar[] = [];
     for (let i = 0; i < calendarData?.length; i++) {
-      const name: string = calendarData[i].certificationName;
+      const name: string = calendarData[i].name;
       const schedules: ISchedules[] = calendarData[i].schedules;
       for (let j = 0; j < schedules.length; j++) {
         const date: string[] = calendarData[i].schedules[j].date;
         if (date.length === 1) {
           calendarEvents.push({
             title: `${name} - ${schedules[j].scheduleType} ${schedules[j].examType} ${schedules[j].examRound}`,
-            date: formatDate(date)[0],
+            date: formatFirstDate(date)[0],
           });
         } else {
           calendarEvents.push({
             title: `${name} - ${schedules[j].scheduleType} ${schedules[j].examType} ${schedules[j].examRound}`,
-            start: formatDate(date)[0],
-            end: formatEndDate(formatDate(date)[1]),
+            start: formatFirstDate(date)[0],
+            end: formatEndDate(formatFirstDate(date)[1]),
           });
         }
       }
@@ -57,7 +68,7 @@ const useCalendarService = () => {
     return calendarEvents;
   };
 
-  return formatCalendarData;
+  return { formatDate, formatCalendarData };
 };
 
 export { useCalenderList, useAddUserCalendar, useDeleteUserCalendar, useCalendarService };
