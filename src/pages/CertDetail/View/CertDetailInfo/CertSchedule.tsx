@@ -16,13 +16,13 @@ const CertSchedule = ({ cert, data }: { cert?: string; data?: IExamSchedule[] })
       <table className="schedule-table">
         <thead>
           <tr>
-            <th>구분</th>
-            <th>접수일(필기)</th>
-            <th>시험일(필기)</th>
-            <th>합격일(필기)</th>
-            <th>접수일(실기)</th>
-            <th>시험일(실기)</th>
-            <th>합격일(실기)</th>
+            <th className="schedule-table-header">구분</th>
+            <th className="schedule-table-header">접수일(필기)</th>
+            <th className="schedule-table-header">시험일(필기)</th>
+            <th className="schedule-table-header">합격일(필기)</th>
+            <th className="schedule-table-header">접수일(실기)</th>
+            <th className="schedule-table-header">시험일(실기)</th>
+            <th className="schedule-table-header">합격일(실기)</th>
           </tr>
         </thead>
         <tbody>
@@ -30,13 +30,17 @@ const CertSchedule = ({ cert, data }: { cert?: string; data?: IExamSchedule[] })
             <tr key={index}>
               <td className="schedule-table-body">{item?.examRound}</td>
               {item?.scheduleDetails?.map((detailItem, detailIndex) => (
-                <td key={detailIndex} className="schedule-table-body">
+                <td key={`detail-${index}-${detailIndex}`} className="schedule-table-body">
                   {formatDate(detailItem?.dates)}
                 </td>
               ))}
-              {Array.from({ length: 6 - (item?.scheduleDetails?.length ?? 0) }).map(() => (
-                <td className="schedule-table-body">-</td>
-              ))}
+              {Array.from({ length: 6 - (item?.scheduleDetails?.length ?? 0) }).map(
+                (_, emptyIndex) => (
+                  <td key={`empty-${index}-${emptyIndex}`} className="schedule-table-body">
+                    -
+                  </td>
+                )
+              )}
             </tr>
           ))}
         </tbody>
