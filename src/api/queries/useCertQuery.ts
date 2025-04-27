@@ -9,15 +9,17 @@ import {
 
 const useGetCert = (categoryId: number, page: number, pageSize: number) => {
   return useQuery({
-    queryKey: [certQueryKey.get],
+    queryKey: [certQueryKey.get, categoryId, page],
     queryFn: getCertData(categoryId, page, pageSize),
+    enabled: !!categoryId,
   });
 };
 
-const useGetSearchCert = (name: string) => {
+const useGetSearchCert = (name?: string) => {
   return useQuery({
     queryKey: [certQueryKey.search],
     queryFn: getSearchCertData(name),
+    enabled: !!name,
   });
 };
 

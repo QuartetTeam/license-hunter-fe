@@ -1,42 +1,70 @@
+import { toast } from 'react-toastify';
 import { useDeleteUser, useGetUser, usePatchUserInterest, usePatchUserNick } from '../../api';
 import { usePatchMailingService } from '@api/queries/useUserQuery.ts';
+import { TOAST_MESSAGE } from '@constant/toastMessages.ts';
 
-const useUserService = () => {
-  const { data: getUserData } = useGetUser();
-
-  const changeUserNick = usePatchUserNick('euni00');
-  const changeUserNickService = () => {
-    changeUserNick.mutate();
-  };
-
-  const changeUserEmail = usePatchUserNick('amy000809@gmail.com');
-  const changeUserEmailService = () => {
-    changeUserEmail.mutate();
-  };
-
-  const changeUserInterest = usePatchUserInterest([]);
-  const changeUserInterestService = () => {
-    changeUserInterest.mutate();
-  };
-
-  const changeUserMailing = usePatchMailingService();
-  const changeUserMailingService = () => {
-    changeUserMailing.mutate();
-  };
-
-  const deleteUserData = useDeleteUser();
-  const deleteUserDataService = () => {
-    deleteUserData.mutate();
-  };
-
-  return {
-    getUserData,
-    changeUserNickService,
-    changeUserEmailService,
-    changeUserInterestService,
-    changeUserMailingService,
-    deleteUserDataService,
-  };
+const useUserData = () => {
+  const { data: user } = useGetUser();
+  return user;
 };
 
-export default useUserService;
+const useChangeUserNick = (nickname: string) => {
+  return usePatchUserNick(nickname, {
+    onSuccess: () => {
+      toast.success(TOAST_MESSAGE.SUCCESS.CHANGE_NICKNAME);
+    },
+    onError: () => {
+      toast.error(TOAST_MESSAGE.ERROR.CHANGE_NICKNAME);
+    },
+  });
+};
+
+const useChangeUserEmail = (email: string) => {
+  return usePatchUserNick(email, {
+    onSuccess: () => {
+      toast.success(TOAST_MESSAGE.SUCCESS.CHANGE_EMAIL);
+    },
+    onError: () => {
+      toast.error(TOAST_MESSAGE.ERROR.CHANGE_EMAIL);
+    },
+  });
+};
+
+const useChangeUserInterest = (categoryIds: number[]) => {
+  return usePatchUserInterest(categoryIds, {
+    onSuccess: () => {
+      toast.success(TOAST_MESSAGE.SUCCESS.CHANGE_INTEREST);
+    },
+    onError: () => {
+      toast.error(TOAST_MESSAGE.ERROR.CHANGE_INTEREST);
+    },
+  });
+};
+
+const useChangeMailingStatus = () => {
+  return usePatchMailingService({
+    onError: () => {
+      toast.error(TOAST_MESSAGE.ERROR.CHANGE_MAILING);
+    },
+  });
+};
+
+const useDeleteUserData = () => {
+  return useDeleteUser({
+    onSuccess: () => {
+      toast.success(TOAST_MESSAGE.SUCCESS.DELETE_USER);
+    },
+    onError: () => {
+      toast.error(TOAST_MESSAGE.ERROR.DELETE_USER);
+    },
+  });
+};
+
+export {
+  useUserData,
+  useChangeUserNick,
+  useChangeUserEmail,
+  useChangeUserInterest,
+  useChangeMailingStatus,
+  useDeleteUserData,
+};

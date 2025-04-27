@@ -1,14 +1,18 @@
-// 자격증 카테고리 조회
 import { useGetCategory, useGetChildCategory } from '../../api';
 
-const useCategoryService = () => {
-  const { data: getCertCategoryData } = useGetCategory(false);
-  const { data: getCertChildCategoryData } = useGetChildCategory('1');
-
-  return {
-    getCertCategoryData,
-    getCertChildCategoryData,
-  };
+const useDefaultCategory = () => {
+  const { data: defaultCategory } = useGetCategory(true);
+  return defaultCategory;
 };
 
-export default useCategoryService;
+const useMoreCategory = () => {
+  const { data: moreCategory } = useGetCategory(false);
+  return moreCategory;
+};
+
+const useChildCategory = (id: number) => {
+  const { data: childCategory } = useGetChildCategory(id);
+  return childCategory;
+};
+
+export { useDefaultCategory, useMoreCategory, useChildCategory };

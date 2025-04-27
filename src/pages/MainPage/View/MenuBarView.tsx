@@ -1,31 +1,81 @@
+import { useState } from 'react';
 import FieldButton from '@component/FieldButton.tsx';
-import { Field } from '@component/types/Field.ts';
+import { useCertService } from '@feature/Certification/useCertService';
+import { useDefaultCategory, useMoreCategory } from '@feature/Category/useCategoryService.ts';
+import { ICategoryDataTypes } from '@type/category.ts';
 import '../style/menuBarView.scss';
 
 const MenuBarView = () => {
-  // const { getCertCategoryData } = useCertService();
+  const [isDefault, setIsDefault] = useState(true);
+  const handleIsDefault = () => {
+    setIsDefault(!isDefault);
+  };
+  const defaultCategory = useDefaultCategory();
+  const moreCategory = useMoreCategory();
+  const { moveToCertById } = useCertService();
+  const defaultCategoryData: ICategoryDataTypes[] | undefined = defaultCategory?.data;
+  const moreCategoryData: ICategoryDataTypes[] | undefined = moreCategory?.data;
+
+  const handleMoveToCertById = (id: number, fieldName: string) => {
+    if (id && fieldName) moveToCertById(id, fieldName, undefined);
+  };
 
   return (
     <div className="menuBar-view">
       <div className="menuBar">
         <div className="menu-button">
-          <div className="menu-button__first">
-            <FieldButton fieldName={Field.Management} />
-            <FieldButton fieldName={Field.Electricity} />
-            <FieldButton fieldName={Field.Cash} />
-            <FieldButton fieldName={Field.Police} />
-            <FieldButton fieldName={Field.Doctor} />
+          <div className="menu-button-box">
+            {defaultCategoryData
+              ?.slice(0, 5)
+              .map((item, index) => (
+                <FieldButton
+                  key={index}
+                  clickEvent={() => handleMoveToCertById(item.id, item.name)}
+                  fieldName={item.name}
+                />
+              ))}
           </div>
-          <div className="menu-button__second">
-            <FieldButton fieldName={Field.SocialWelfare} />
-            <FieldButton fieldName={Field.ArtDesign} />
-            <FieldButton fieldName={Field.ChemBio} />
-            <FieldButton fieldName={Field.BusinessSales} />
-            <FieldButton fieldName={Field.Construction} />
-            <FieldButton fieldName={Field.Machine} />
+          <div className="menu-button-box">
+            {defaultCategoryData
+              ?.slice(5, defaultCategoryData?.length)
+              .map((item, index) => (
+                <FieldButton
+                  key={index}
+                  fieldName={item.name}
+                  clickEvent={() => handleMoveToCertById(item.id, item.name)}
+                />
+              ))}
           </div>
         </div>
-        <div className="more-menu-button">더보기</div>
+        {!isDefault && (
+          <div className="menu-button">
+            <div className="menu-button-box">
+              {moreCategoryData
+                ?.slice(0, 7)
+                .map((item, index) => (
+                  <FieldButton
+                    key={index}
+                    fieldName={item.name}
+                    clickEvent={() => handleMoveToCertById(item.id, item.name)}
+                  />
+                ))}
+            </div>
+            <div className="menu-button-box">
+              {moreCategoryData
+                ?.slice(7, moreCategoryData?.length)
+                .map((item, index) => (
+                  <FieldButton
+                    key={index}
+                    fieldName={item.name}
+                    clickEvent={() => handleMoveToCertById(item.id, item.name)}
+                  />
+                ))}
+            </div>
+          </div>
+        )}
+        <div className="more-menu-button" onClick={handleIsDefault}>
+          {isDefault ? '더보기' : '닫기'}
+        </div>
       </div>
     </div>
   );

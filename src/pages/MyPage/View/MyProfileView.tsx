@@ -2,16 +2,17 @@ import { useState } from 'react';
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
 import ArrowUp from '@icon/icon-arrow-up.svg?react';
 import FieldButton from '@component/FieldButton.tsx';
-import CheckFavoriteField from '@component/CheckFavoriteField.tsx';
-import { cancelButtonMessage, confirmButtonMessage } from '../Messages/buttonMessages.ts';
-import useUserService from '@feature/User/useUserService.ts';
+import CheckFavoriteField from './CheckFavoriteField.tsx';
+import { cancelInterestMessage, confirmInterestMessage } from '../Messages/buttonMessages.ts';
+import { useChangeUserNick, useChangeUserEmail } from '@feature/User/useUserService.ts';
 import { IUserDataProps } from '@type/user.ts';
-import { Field } from '@component/types/Field.ts';
 import '../style/myProfileView.scss';
 
 const MyProfileView = ({ data }: IUserDataProps) => {
   const [myProfileVisible, setMyProfileVisible] = useState(true);
   const [favoriteFieldVisible, setFavoriteFieldVisible] = useState(false);
+  const [nickname, setNickname] = useState('');
+  const [email, setEmail] = useState('');
   const onVisibleMyProfileClick = () => {
     setMyProfileVisible(!myProfileVisible);
   };
@@ -19,8 +20,8 @@ const MyProfileView = ({ data }: IUserDataProps) => {
     setFavoriteFieldVisible(!favoriteFieldVisible);
   };
 
-  const { changeUserNickService, changeUserEmailService, changeUserInterestService } =
-    useUserService();
+  const { mutate: changeUserNick } = useChangeUserNick(nickname);
+  const { mutate: changeUserEmail } = useChangeUserEmail(email);
 
   return (
     <>
@@ -43,10 +44,14 @@ const MyProfileView = ({ data }: IUserDataProps) => {
               <div className="my-profile-info-box">
                 <div className="my-profile-info-box__title">사용자 이름</div>
                 <div className="my-profile-info-box__group">
-                  <input className="my-profile-info-box__group__input" value={data?.nickname} />
+                  <input
+                    className="my-profile-info-box__group__input"
+                    value={data?.nickname}
+                    onChange={(e) => setNickname(e.target.value)}
+                  />
                   <button
                     className="my-profile-info-box__group__button"
-                    onClick={changeUserNickService}
+                    onClick={() => changeUserNick()}
                   >
                     저장
                   </button>
@@ -55,33 +60,40 @@ const MyProfileView = ({ data }: IUserDataProps) => {
               <div className="my-profile-info-box">
                 <div className="my-profile-info-box__title">이메일</div>
                 <div className="my-profile-info-box__group">
-                  <input className="my-profile-info-box__group__input" value={data?.email} />
+                  <input
+                    className="my-profile-info-box__group__input"
+                    value={data?.email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
                   <button
                     className="my-profile-info-box__group__button"
-                    onClick={changeUserEmailService}
+                    onClick={() => changeUserEmail()}
                   >
                     저장
                   </button>
                 </div>
               </div>
               <div className="my-profile-interest-field">
-                <div className="my-profile-interest-field__title">
-                  관심 분야 (Max 3 선택해 주세요)
+                <div className="my-profile-interest-field__group">
+                  <div className="my-profile-interest-field__group-title">
+                    관심 분야 (Max 3 선택해 주세요)
+                  </div>
+                  <button
+                    className="my-profile-interest-field__group-button"
+                    onClick={() => {
+                      onVisibleFavoriteFieldClick();
+                    }}
+                  >
+                    수정
+                  </button>
                 </div>
                 <div className="my-profile-interest-field__button-group">
-                  <FieldButton fieldName={Field.Doctor} />
-                  <FieldButton fieldName={Field.Management} />
-                  <FieldButton fieldName={Field.ArtDesign} />
+                  {data?.interests.map((item, index) => (
+                    <FieldButton key={index} fieldName={item} />
+                  ))}
                 </div>
               </div>
-              <div className="my-profile-interest-save">
-                <button
-                  className="my-profile-interest-save__button"
-                  onClick={onVisibleFavoriteFieldClick}
-                >
-                  수정
-                </button>
-              </div>
+              <div className="my-profile-interest-save"></div>
             </div>
           </div>
         )}
@@ -89,9 +101,8 @@ const MyProfileView = ({ data }: IUserDataProps) => {
       <CheckFavoriteField
         favoriteFieldVisible={favoriteFieldVisible}
         onVisibleFavoriteFieldClick={onVisibleFavoriteFieldClick}
-        alertConfirmMessage={confirmButtonMessage.complete}
-        alertCancelMessage={cancelButtonMessage.cancel}
-        events={changeUserInterestService}
+        alertConfirmMessage={confirmInterestMessage.complete}
+        alertCancelMessage={cancelInterestMessage.cancel}
       />
     </>
   );

@@ -1,5 +1,5 @@
 export interface ICategoryDataTypes {
-  id: string;
+  id: number;
   name: string;
 }
 

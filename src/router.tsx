@@ -7,6 +7,7 @@ import {
   MainPageContainer,
   MyCalendarContainer,
   MyPageContainer,
+  OAuthRedirectContainer,
 } from './pages';
 
 const AppRouter = () => {
@@ -15,12 +16,13 @@ const AppRouter = () => {
       <Routes>
         <Route path="/" element={<Home />}>
           <Route index element={<MainPageContainer />} />
-          <Route path="/certificateDetail" element={<CertContainer />} />
-          <Route path="/login" element={<LoginContainer />} />
-          <Route path="/myCalender" element={<MyCalendarContainer />} />
-          <Route path="/certificateSearch" element={<CertSearchContainer />} />
-          <Route path="/myPage" element={<MyPageContainer />} />
+          <Route path="certificateDetail" element={<CertContainer />} />
+          <Route path="login" element={<LoginContainer />} />
+          <Route path="myCalender" element={<MyCalendarContainer />} />
+          <Route path="certificateSearch" element={<CertSearchContainer />} />
+          <Route path="myPage" element={<MyPageContainer />} />
         </Route>
+        <Route path="/api/v1/token" element={<OAuthRedirectContainer />} />
       </Routes>
     </BrowserRouter>
   );

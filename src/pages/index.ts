@@ -7,6 +7,7 @@ import LoginContainer from './Login';
 import MyCalendarContainer from './MyCalendar';
 import CertSearchContainer from './CertSearch';
 import MyPageContainer from './MyPage';
+import OAuthRedirectContainer from './OAuthRedirect';
 
 export {
   Header,
@@ -18,4 +19,5 @@ export {
   MyCalendarContainer,
   CertSearchContainer,
   MyPageContainer,
+  OAuthRedirectContainer,
 };

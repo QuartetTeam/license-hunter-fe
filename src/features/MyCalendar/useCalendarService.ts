@@ -1,23 +1,51 @@
+import { toast } from 'react-toastify';
 import { useAddCalendar, useDeleteCalendar, useGetCalendar } from '../../api';
 import { ICalendarData, ISchedules } from '@type/calendar.ts';
 import { IformatCalendar, IformatCalendarArray } from './calendarTypes.ts';
+import { TOAST_MESSAGE } from '@constant/toastMessages.ts';
+
+const useCalenderList = () => {
+  const { data: calendar } = useGetCalendar();
+  return calendar;
+};
+
+const useAddUserCalendar = (certificationId: number) => {
+  return useAddCalendar(certificationId, {
+    onSuccess: () => {
+      toast.success(TOAST_MESSAGE.SUCCESS.ADD_CALENDAR);
+    },
+    onError: () => {
+      toast.error(TOAST_MESSAGE.ERROR.ADD_CALENDAR);
+    },
+  });
+};
+
+const useDeleteUserCalendar = (certificationId: number) => {
+  return useDeleteCalendar(certificationId, {
+    onSuccess: () => {
+      toast.success(TOAST_MESSAGE.SUCCESS.DELETE_CALENDAR);
+    },
+    onError: () => {
+      toast.error(TOAST_MESSAGE.ERROR.DELETE_CALENDAR);
+    },
+  });
+};
 
 const useCalendarService = () => {
-  const { data: getCalendarData } = useGetCalendar();
-
-  const addCalendar = useAddCalendar(1);
-  const addCalendarService = () => {
-    addCalendar.mutate();
+  // 날짜 데이터 가공
+  // ["2025-03-08T00:00:00Z"] -> "2025-03-08"
+  // ["2025-03-08T00:00:00Z", "2025-03-18T00:00:00Z"] -> "2025-03-08 ~ 2025-03-18"
+  const formatDate = (date: string[]) => {
+    if (date.length === 1) {
+      return date[0].split('T')[0];
+    } else {
+      const dateArray = date.map((item) => item.split('T')[0]);
+      return dateArray.join(' ~ ');
+    }
   };
-
-  const deleteCalendar = useDeleteCalendar(1);
-  const deleteCalendarService = () => {
-    deleteCalendar.mutate();
-  };
-
   // 날짜 데이터 가공
   // "2025-03-08T00:00:00Z" -> "2025-03-08"
-  const formatDate = (date: string[]) => {
+  const formatFirstDate = (date: string[]) => {
     return date.map((item) => item.split('T')[0]);
   };
 
@@ -33,20 +61,20 @@ const useCalendarService = () => {
   const formatCalendarData = (calendarData: ICalendarData[]): ICalendar[] => {
     const calendarEvents: ICalendar[] = [];
     for (let i = 0; i < calendarData?.length; i++) {
-      const name: string = calendarData[i].certificationName;
+      const name: string = calendarData[i].name;
       const schedules: ISchedules[] = calendarData[i].schedules;
       for (let j = 0; j < schedules.length; j++) {
         const date: string[] = calendarData[i].schedules[j].date;
         if (date.length === 1) {
           calendarEvents.push({
             title: `${name} - ${schedules[j].scheduleType} ${schedules[j].examType} ${schedules[j].examRound}`,
-            date: formatDate(date)[0],
+            date: formatFirstDate(date)[0],
           });
         } else {
           calendarEvents.push({
             title: `${name} - ${schedules[j].scheduleType} ${schedules[j].examType} ${schedules[j].examRound}`,
-            start: formatDate(date)[0],
-            end: formatEndDate(formatDate(date)[1]),
+            start: formatFirstDate(date)[0],
+            end: formatEndDate(formatFirstDate(date)[1]),
           });
         }
       }
@@ -54,12 +82,7 @@ const useCalendarService = () => {
     return calendarEvents;
   };
 
-  return {
-    getCalendarData,
-    addCalendarService,
-    deleteCalendarService,
-    formatCalendarData,
-  };
+  return { formatDate, formatCalendarData };
 };
 
-export default useCalendarService;
+export { useCalenderList, useAddUserCalendar, useDeleteUserCalendar, useCalendarService };

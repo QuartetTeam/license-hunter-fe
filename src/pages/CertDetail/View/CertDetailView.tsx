@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import Alert from '../../../components/Alert.tsx';
+import { useSearchParams } from 'react-router-dom';
+import Alert from '@component/Alert.tsx';
 import {
   calenderAlertMessage,
   cancelButtonMessage,
@@ -9,9 +10,9 @@ import {
 import CertSchedule from './CertDetailInfo/CertSchedule.tsx';
 import CertQualifications from './CertDetailInfo/CertQualifications.tsx';
 import CertContent from './CertDetailInfo/CertContent.tsx';
-import useCertService from '@feature/Certification/useCertService.ts';
-import useMailingService from '@feature/MailingService/useMailingService.ts';
-import useCalendarService from '@feature/MyCalendar/useCalendarService.ts';
+import { useCertDetail } from '@feature/Certification/useCertService.ts';
+import { useAddUserMailing } from '@feature/MailingService/useMailingService.ts';
+import { useAddUserCalendar } from '@feature/MyCalendar/useCalendarService.ts';
 import { ICertDetailListDataTypes } from '@type/cert.ts';
 import '../style/certDetailView.scss';
 
@@ -25,10 +26,13 @@ const CertDetailView = () => {
     setCalenderAlertVisible(!calenderAlertVisible);
   };
 
-  const { getCertDetailData } = useCertService();
-  const certDetailData: ICertDetailListDataTypes | undefined = getCertDetailData?.data;
-  const { addMailingsService } = useMailingService();
-  const { addCalendarService } = useCalendarService();
+  const [searchParams] = useSearchParams();
+  const id = Number(searchParams.get('id'));
+  const certDetail = useCertDetail(id);
+  const certDetailData: ICertDetailListDataTypes | undefined = certDetail?.data;
+
+  const { mutate: addUserMailing } = useAddUserMailing(certDetailData?.id ?? 0);
+  const { mutate: addUserCalendar } = useAddUserCalendar(certDetailData?.id ?? 0);
 
   return (
     <>
@@ -42,12 +46,14 @@ const CertDetailView = () => {
                 <div className="cert-preview-info__description">{certDetailData?.description}</div>
               </div>
               <div className="cert-btn-group">
-                <button className="cert-btn">접수 바로가기</button>
+                <a className="cert-btn" href={certDetailData?.websiteUrl}>
+                  접수 바로가기
+                </a>
                 <button className="cert-btn" onClick={onVisibleMailingAlertClick}>
-                  메일링 서비스
+                  메일링 서비스 구독
                 </button>
                 <button className="cert-btn" onClick={onVisibleCalenderAlertClick}>
-                  캘린더 추가하기
+                  캘린더 추가
                 </button>
               </div>
             </div>
@@ -62,7 +68,7 @@ const CertDetailView = () => {
             onVisibleAlertClick={onVisibleMailingAlertClick}
             alertConfirmMessage={confirmButtonMessage.subscribe}
             alertCancelMessage={cancelButtonMessage.think}
-            event={addMailingsService}
+            clickEvent={() => addUserMailing()}
           />
           <Alert
             alertTitle={calenderAlertMessage.title}
@@ -71,7 +77,7 @@ const CertDetailView = () => {
             onVisibleAlertClick={onVisibleCalenderAlertClick}
             alertConfirmMessage={confirmButtonMessage.add}
             alertCancelMessage={cancelButtonMessage.think}
-            event={addCalendarService}
+            clickEvent={() => addUserCalendar()}
           />
         </div>
       </div>

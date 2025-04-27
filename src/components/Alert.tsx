@@ -12,7 +12,7 @@ const Alert = ({
   alertContent,
   alertConfirmMessage,
   alertCancelMessage,
-  event,
+  clickEvent,
 }: IAlertProps) => {
   return (
     <Modal
@@ -34,8 +34,8 @@ const Alert = ({
           <ConfirmButton
             name={alertConfirmMessage}
             clickEvent={() => {
+              clickEvent();
               onVisibleAlertClick();
-              event();
             }}
           />
         </div>

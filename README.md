@@ -31,6 +31,8 @@
 │ │ └── pages // 페이지별 스타일 코드
 ├── common
 │ ├── store // Recoil store, 전역 상태 관리
+├── constants // 프로젝트에서 사용할 상수 모음
+│ ├── toastMessages.ts // toast 알림 문구
 ├── pages
 │ ├── common // 공통 컴포넌트
 │ ├── CertDetail // 자격증 상세 페이지
@@ -161,6 +163,16 @@ npm run lint:fix
 npm run lint
 ```
 
+## Toast 알림 문구 관리
+
+API 호출에 대한 성공/실패 알림은 react-toastify 라이브러리를 사용하여 표시합니다. 모든 알림 문구는 /src/constants/toastMessages.ts 파일에서 상수로 통합 관리하고 있습니다.
+
 ## 자격저격 웹사이트 접속
 
-https://quartet-sigma.vercel.app/
+⚡ 알림
+현재 소셜 로그인 기능은 백엔드 이슈 해결 중에 있어 정상적으로 동작하지 않습니다.
+현재 기본 UI 및 기타 기능은 정상적으로 확인할 수 있으니 참고 부탁드립니다.
+
+https://license-hunter.vercel.app/
+
+macbook commit test2

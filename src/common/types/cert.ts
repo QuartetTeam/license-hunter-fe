@@ -67,11 +67,15 @@ export interface IExamDetail {
   examProcess: IExamProcess;
 }
 
-export interface IExamSchedule {
+interface IExamScheduleDetails {
   scheduleType: string;
   examType: string;
+  dates: string[];
+}
+
+export interface IExamSchedule {
   examRound: string;
-  date: string[];
+  scheduleDetails: IExamScheduleDetails[];
 }
 
 export interface ICertDetailListDataTypes {
@@ -79,6 +83,7 @@ export interface ICertDetailListDataTypes {
   name: string;
   authorityName: string;
   authorityIconImageUrl: string | null;
+  websiteUrl: string;
   applicationUrl: string | null;
   description: string;
   viewCount: number;

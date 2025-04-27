@@ -14,47 +14,20 @@ type Story = StoryObj<typeof meta>;
 
 export default meta;
 
-export const RecommendCertificate: Story = {
+export const Certificate: Story = {
   args: {
-    mockData: [
+    data: [
       {
-        certificateName: '정보처리기사',
-        receiptDate: '2025-08-12',
-        testDate: '2025-09-15',
-        calenderCount: 342,
+        id: 575,
+        mainCategory: '경매·중개',
+        subCategory: '유통·물류',
+        name: '경매사(수산)',
+        applicationDate: '2025-05-19T09:00:00Z',
+        examDate: '2025-06-21T09:00:00Z',
+        calendarSubscription: 0,
       },
     ],
     trashIconSelected: false,
-    requiredCalender: false,
-  },
-};
-
-export const CertificateSearch: Story = {
-  args: {
-    mockData: [
-      {
-        certificateName: '정보처리기사',
-        receiptDate: '2025-08-12',
-        testDate: '2025-09-15',
-        calenderCount: 342,
-      },
-    ],
-    trashIconSelected: false,
-    requiredCalender: true,
-  },
-};
-
-export const MyPage: Story = {
-  args: {
-    mockData: [
-      {
-        certificateName: '정보처리기사',
-        receiptDate: '2025-08-12',
-        testDate: '2025-09-15',
-        calenderCount: 342,
-      },
-    ],
-    trashIconSelected: true,
-    requiredCalender: false,
+    // requiredCalender: true,
   },
 };

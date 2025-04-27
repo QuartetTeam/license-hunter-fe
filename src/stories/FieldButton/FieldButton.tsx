@@ -1,20 +1,24 @@
-import IconList from '@component/icons/fieldIconsList.ts';
-import { Field } from '@component/types/Field.ts';
-import '@component/favoriteFieldButton.scss';
-
-interface IFavoriteFieldButtonProps {
-  /** Insert Field Name you want */
-  fieldName: Field;
-}
+import { fieldIconsMap } from '@component/icons/fieldIconsList.ts';
+import { fieldNameToEnumMap } from '@component/types/fieldNameToEnumMap.ts';
+import './fieldButton.scss';
 
 /** FieldButton Component for Main Page, MyPage, CheckFavoriteField Modal.
  * Background-color, border-radius will be change where we use this button.*/
-const FieldButton = ({ fieldName }: IFavoriteFieldButtonProps) => {
-  const FieldIcon = IconList[fieldName];
+const FieldButton = ({
+  fieldName,
+  clickEvent,
+  isChecked,
+}: {
+  fieldName: string;
+  clickEvent?: () => void;
+  isChecked?: boolean;
+}) => {
+  const fieldEnum = fieldNameToEnumMap[fieldName];
+  const FieldIcon = fieldIconsMap[fieldEnum];
 
   return (
-    <button className="favorite-field-button">
-      <FieldIcon />
+    <button className={`favorite-field-button ${isChecked ? 'checked' : ''}`} onClick={clickEvent}>
+      {FieldIcon && <FieldIcon />}
       {fieldName}
     </button>
   );
