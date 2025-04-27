@@ -5,7 +5,7 @@ interface IAlertProps {
   alertContent: string;
   alertConfirmMessage: string;
   alertCancelMessage: string;
-  event: () => void;
+  clickEvent: () => void;
 }
 
 export default IAlertProps;

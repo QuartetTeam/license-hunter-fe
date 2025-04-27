@@ -83,6 +83,7 @@ export interface ICertDetailListDataTypes {
   name: string;
   authorityName: string;
   authorityIconImageUrl: string | null;
+  websiteUrl: string;
   applicationUrl: string | null;
   description: string;
   viewCount: number;

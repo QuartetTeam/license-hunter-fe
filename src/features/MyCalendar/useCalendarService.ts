@@ -2,19 +2,22 @@ import { useAddCalendar, useDeleteCalendar, useGetCalendar } from '../../api';
 import { ICalendarData, ISchedules } from '@type/calendar.ts';
 import { IformatCalendar, IformatCalendarArray } from './calendarTypes.ts';
 
+const useCalenderList = () => {
+  const { data: calendar } = useGetCalendar();
+  return calendar;
+};
+
+const useAddUserCalendar = (certificationId: number) => {
+  const addCalendar = useAddCalendar(certificationId);
+  return addCalendar;
+};
+
+const useDeleteUserCalendar = (certificationId: number) => {
+  const deleteCalendar = useDeleteCalendar(certificationId);
+  return deleteCalendar;
+};
+
 const useCalendarService = () => {
-  const { data: getCalendarData } = useGetCalendar();
-
-  const addCalendar = useAddCalendar(1);
-  const addCalendarService = () => {
-    addCalendar.mutate();
-  };
-
-  const deleteCalendar = useDeleteCalendar(1);
-  const deleteCalendarService = () => {
-    deleteCalendar.mutate();
-  };
-
   // 날짜 데이터 가공
   // "2025-03-08T00:00:00Z" -> "2025-03-08"
   const formatDate = (date: string[]) => {
@@ -54,12 +57,7 @@ const useCalendarService = () => {
     return calendarEvents;
   };
 
-  return {
-    getCalendarData,
-    addCalendarService,
-    deleteCalendarService,
-    formatCalendarData,
-  };
+  return formatCalendarData;
 };
 
-export default useCalendarService;
+export { useCalenderList, useAddUserCalendar, useDeleteUserCalendar, useCalendarService };
