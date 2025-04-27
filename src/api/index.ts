@@ -1,4 +1,4 @@
-import { useLogin, useLogout, useMoveToAuth, useRefresh } from './queries/useAuthQuery.ts';
+import { useLogin, useLogout, useRefresh } from './queries/useAuthQuery.ts';
 
 import { useAddCalendar, useDeleteCalendar, useGetCalendar } from './queries/useCalendarQuery.ts';
 import { useGetCert, useGetCertDetail, useGetCertRecommend } from './queries/useCertQuery.ts';
@@ -13,7 +13,7 @@ import {
 } from './queries/useUserQuery.ts';
 import endpoints from './API/endpoints.ts';
 
-export { useMoveToAuth, useLogin, useRefresh, useLogout };
+export { useLogin, useRefresh, useLogout };
 export { useGetCalendar, useAddCalendar, useDeleteCalendar };
 export { useGetCert, useGetCertDetail, useGetCertRecommend };
 export { useGetCategory, useGetChildCategory };

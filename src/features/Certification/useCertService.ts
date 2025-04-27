@@ -1,33 +1,28 @@
-import { useGetCert, useGetCertDetail, useGetCertRecommend } from '../../api';
 import { useNavigate } from 'react-router-dom';
+import { useGetCert, useGetCertDetail, useGetCertRecommend } from '../../api';
 import { useGetSearchCert } from '@api/queries/useCertQuery.ts';
 
+const useCertList = (id: number, page: number) => {
+  const { data: cert } = useGetCert(id, page, 10);
+  return cert;
+};
+
+const useCertDetail = (id: number) => {
+  const { data: certDetail } = useGetCertDetail(id);
+  return certDetail;
+};
+
+const useCertSearch = (name?: string) => {
+  const { data: searchedCert } = useGetSearchCert(name);
+  return searchedCert;
+};
+
+const useCertRecommend = () => {
+  const { data: certRecommend } = useGetCertRecommend();
+  return certRecommend;
+};
+
 const useCertService = () => {
-  // 자격증 조회
-  const { data: getCertData } = useGetCert(1, 0, 15);
-
-  // 자격증 검색
-  const { data: getSearchCert } = useGetSearchCert('정보처리기사');
-
-  // 자격증 상세 조회
-  const { data: getCertDetailData } = useGetCertDetail(1);
-
-  // 자격증 추천 조회
-  const { data: getCertRecommendData } = useGetCertRecommend();
-
-  // 자격증 검색 페이지 이동
-  const navigate = useNavigate();
-  const onSearchClick = () => {
-    window.scrollTo(0, 0);
-    navigate('/certificateSearch');
-  };
-
-  // 자격증 상세 정보 페이지 이동
-  const onCertCardClick = () => {
-    window.scrollTo(0, 0);
-    navigate('/certificateDetail');
-  };
-
   // 날짜 데이터 가공
   // "2025-03-08T00:00:00Z" -> "2025-03-08"
   const formatDate = (date: string | string[]) => {
@@ -42,15 +37,32 @@ const useCertService = () => {
     }
   };
 
+  const navigate = useNavigate();
+  const moveToCertByName = (name: string) => {
+    window.scrollTo(0, 0);
+    navigate(`/certificateSearch?search=${name}`);
+  };
+
+  const moveToCertById = (id: number, name: string, subId?: number) => {
+    window.scrollTo(0, 0);
+    const query = new URLSearchParams();
+    query.set('categoryId', String(id));
+    if (subId) query.set('subCategoryId', String(subId));
+    query.set('categoryName', name);
+    navigate(`/certificateSearch?${query.toString()}`);
+  };
+
+  const moveToCertDetailById = (id: number) => {
+    window.scrollTo(0, 0);
+    navigate(`/certificateDetail?id=${id}`);
+  };
+
   return {
-    onSearchClick,
-    getCertData,
-    getSearchCert,
-    getCertDetailData,
-    getCertRecommendData,
-    onCertCardClick,
     formatDate,
+    moveToCertByName,
+    moveToCertById,
+    moveToCertDetailById,
   };
 };
 
-export default useCertService;
+export { useCertList, useCertDetail, useCertSearch, useCertRecommend, useCertService };

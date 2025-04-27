@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, UseMutationOptions } from '@tanstack/react-query';
 import { userQueryKey } from '../API/queryKeys.ts';
 import {
   deleteUserData,
@@ -16,38 +16,43 @@ const useGetUser = () => {
   });
 };
 
-const usePatchUserNick = (nickname: string) => {
+const usePatchUserNick = (nickname: string, option: UseMutationOptions) => {
   return useMutation({
     mutationKey: [userQueryKey.patchNick],
     mutationFn: patchUserNick(nickname),
+    ...option,
   });
 };
 
-const usePatchUserEmail = (email: string) => {
+const usePatchUserEmail = (email: string, option: UseMutationOptions) => {
   return useMutation({
     mutationKey: [userQueryKey.patchEmail],
     mutationFn: patchUserEmail(email),
+    ...option,
   });
 };
 
-const usePatchUserInterest = (categoryIds: string[]) => {
+const usePatchUserInterest = (categoryIds: number[], option: UseMutationOptions) => {
   return useMutation({
-    mutationKey: [userQueryKey.patchInterest],
+    mutationKey: [userQueryKey.patchInterest, categoryIds],
     mutationFn: patchUserInterest(categoryIds),
+    ...option,
   });
 };
 
-const usePatchMailingService = () => {
+const usePatchMailingService = (option: UseMutationOptions) => {
   return useMutation({
     mutationKey: [userQueryKey.patchMailing],
     mutationFn: patchMailingService,
+    ...option,
   });
 };
 
-const useDeleteUser = () => {
+const useDeleteUser = (option: UseMutationOptions) => {
   return useMutation({
     mutationKey: [userQueryKey.delete],
     mutationFn: deleteUserData,
+    ...option,
   });
 };
 

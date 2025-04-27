@@ -1,3 +1,5 @@
+@use '../../../index.scss' as style;
+
 .favorite-field {
   &-overlay {
     position: fixed;
@@ -19,6 +21,16 @@
     border-radius: 23px;
     padding: 40px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+    .more-menu-button {
+      display: flex;
+      justify-content: center;
+
+      &:hover {
+        color: style.$hover-blue;
+        cursor: pointer;
+      }
+    }
   }
 
   &-header {
@@ -38,17 +50,22 @@
   }
 
   &-body {
+    min-height: 400px;
     display: flex;
-    flex-direction: column;
-    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 10px;
-    padding: 24px;
+    gap: 16px;
+    padding: 10px 40px;
 
     .favorite-field-button {
       border-radius: 16px;
       border: 1px solid #f5f7fa;
       background-color: #f5f7fa;
+
+      &.checked {
+        background-color: style.$primary-blue;
+      }
     }
 
     &__group {
@@ -62,5 +79,6 @@
     display: flex;
     justify-content: center;
     gap: 10px;
+    margin-top: 30px;
   }
 }

@@ -7,7 +7,7 @@ const calendarList: ICalendarList = {
     {
       certificationId: 1,
       calendarId: 1,
-      certificationName: '정보처리기사',
+      name: '정보처리기사',
       schedules: [
         {
           scheduleType: '접수일',
@@ -26,6 +26,31 @@ const calendarList: ICalendarList = {
           examType: '실기',
           examRound: '3회 3차',
           date: ['2025-04-09T14:00:00Z'],
+        },
+      ],
+    },
+    {
+      certificationId: 2,
+      calendarId: 2,
+      name: '화학분석기사',
+      schedules: [
+        {
+          scheduleType: '접수일',
+          examType: '필기',
+          examRound: '1회 1차',
+          date: ['2025-04-19T09:00:00Z', '2025-04-28T09:00:00Z'],
+        },
+        {
+          scheduleType: '시험일',
+          examType: '필기',
+          examRound: '2회 2차',
+          date: ['2025-06-01T09:00:00Z'],
+        },
+        {
+          scheduleType: '합격자 발표일',
+          examType: '실기',
+          examRound: '3회 3차',
+          date: ['2025-08-09T14:00:00Z'],
         },
       ],
     },

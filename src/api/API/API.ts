@@ -13,15 +13,7 @@ import {
   IUserList,
 } from '@type/user.ts';
 
-const { BASE_URL, LOGIN, CALENDAR, MAILINGS, CERTIFICATIONS, MEMBERS, PROFILE } = endpoints;
-
-// 소셜 로그인 팝업 이동 (카카오, 네이버, 구글)
-const moveToOAuth2 = (loginType: string) => {
-  return async () => {
-    const response = await axios.post(`${BASE_URL}/${LOGIN}/${loginType}`);
-    return response.data;
-  };
-};
+const { BASE_URL, CALENDAR, MAILINGS, CERTIFICATIONS, MEMBERS, PROFILE } = endpoints;
 
 // 소셜 로그인 (카카오, 네이버, 구글)
 const login = async () => {
@@ -66,7 +58,7 @@ const addMailingsData = (certificationId: number) => {
 };
 
 // 메일링 서비스 삭제
-const deleteMailingsData = (mailingIds: number) => {
+const deleteMailingsData = (mailingIds: number[]) => {
   return async () => {
     const params = {
       mailingIds: mailingIds,
@@ -118,7 +110,7 @@ const getCertData = (categoryId: number, page: number, pageSize: number) => {
 };
 
 // 자격증 검색
-const getSearchCertData = (name: string) => {
+const getSearchCertData = (name?: string) => {
   return async (): Promise<ICertSearchList> => {
     const params = {
       name: name,
@@ -154,7 +146,7 @@ const getCertCategoryData = (isDefault: boolean) => {
 };
 
 // 자격증 카테고리 조회 (소분류)
-const getCertChildCategoryData = (mainCategoryId: string) => {
+const getCertChildCategoryData = (mainCategoryId: number) => {
   return async (): Promise<ICategoryTypes> => {
     const params = { mainCategoryId: mainCategoryId };
     const response = await axios.get(`${BASE_URL}/${CERTIFICATIONS}/category`, { params });
@@ -187,7 +179,7 @@ const patchUserEmail = (email: string) => {
 };
 
 // 사용자 관심분야 변경
-const patchUserInterest = (categoryIds: string[]) => {
+const patchUserInterest = (categoryIds: number[]) => {
   return async (): Promise<IChangeInterest> => {
     const params = { categoryIds: categoryIds };
     const response = await axios.patch(`${BASE_URL}/${MEMBERS}/${PROFILE}/interests`, { params });
@@ -208,7 +200,6 @@ const deleteUserData = async () => {
 };
 
 export {
-  moveToOAuth2,
   login,
   refresh,
   logout,

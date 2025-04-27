@@ -1,12 +1,8 @@
-import { useNavigate } from 'react-router-dom';
+import { useMoveToPage } from '@hook/page.ts';
 import './style/Header.scss';
 
 const Header = () => {
-  const navigate = useNavigate();
-  const moveToPage = (page: string) => {
-    window.scrollTo(0, 0);
-    navigate(page);
-  };
+  const moveToPage = useMoveToPage();
 
   return (
     <div className="header">

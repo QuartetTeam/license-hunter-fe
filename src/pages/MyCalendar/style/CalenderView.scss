@@ -1,0 +1,33 @@
+.my-calendar {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  .fc {
+    max-width: 1000px;
+    width: calc(100% - 400px);
+    height: 100%;
+    padding: 100px 0;
+  }
+  .fc-bellButton-button {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      stroke: #333;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+  }
+}

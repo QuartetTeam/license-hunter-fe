@@ -1,25 +1,27 @@
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, UseMutationOptions } from '@tanstack/react-query';
 import { mailingQueryKey } from '../API/queryKeys.ts';
 import { addMailingsData, deleteMailingsData, getMailingsData } from '../API/API.ts';
 
-const useGetMailing = (page: number, pageNum: number) => {
+const useGetMailing = (page: number, pageSize: number) => {
   return useQuery({
     queryKey: [mailingQueryKey.get],
-    queryFn: getMailingsData(page, pageNum),
+    queryFn: getMailingsData(page, pageSize),
   });
 };
 
-const useAddMailing = (certificationId: number) => {
+const useAddMailing = (certificationId: number, option: UseMutationOptions) => {
   return useMutation({
     mutationKey: [mailingQueryKey.post],
     mutationFn: addMailingsData(certificationId),
+    ...option,
   });
 };
 
-const useDeleteMailing = (mailingsId: number) => {
+const useDeleteMailing = (mailingsId: number[], option: UseMutationOptions) => {
   return useMutation({
     mutationKey: [mailingQueryKey.delete],
     mutationFn: deleteMailingsData(mailingsId),
+    ...option,
   });
 };
 

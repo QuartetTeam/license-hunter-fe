@@ -1,0 +1,36 @@
+@use '../../index.scss' as style;
+
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+
+  &-arrow-button {
+    cursor: pointer;
+  }
+
+  &-number {
+    width: 24px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #f0f0f0;
+      box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.05),
+        0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    &.active {
+      color: style.$primary-blue;
+      background-color: rgba(79, 114, 243, 0.1);
+      box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.05),
+        0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+  }
+}

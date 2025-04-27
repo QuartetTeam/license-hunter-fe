@@ -1,5 +1,4 @@
 const authQueryKey = {
-  postMvToAuth: 'postMvToAuth',
   postLogin: 'postLogin',
   postRefresh: 'postRefresh',
   postLogout: 'postLogout',
