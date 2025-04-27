@@ -14,8 +14,6 @@ const FieldButton = ({
   const fieldEnum = fieldNameToEnumMap[fieldName];
   const FieldIcon = fieldIconsMap[fieldEnum];
 
-  console.log(isChecked);
-
   return (
     <button className={`favorite-field-button ${isChecked ? 'checked' : ''}`} onClick={clickEvent}>
       {FieldIcon && <FieldIcon />}
