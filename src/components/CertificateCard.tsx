@@ -1,6 +1,6 @@
 import CheckboxChecked from '@icon/icon-checkbox-check.svg?react';
 import CheckboxEmpty from '@icon/icon-checkbox-empty.svg?react';
-import { useCertService } from '../features/Certification/useCertService.ts';
+import { useCertService } from '@feature/Certification/useCertService.ts';
 import mailingStore from '@store/mailing/mailingStore';
 import { ICertData } from '@type/cert.ts';
 import { IMailingContent } from '@type/mailing.ts';

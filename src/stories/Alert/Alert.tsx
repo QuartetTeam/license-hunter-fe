@@ -1,7 +1,7 @@
 import ConfirmButton from '../ConfirmButton/ConfirmButton.tsx';
 import CancelButton from '../CancelButton/CancelButton.tsx';
 import CancelIcon from '@icon/icon-button-cancel.svg?react';
-import '@styles/pages/components/alert.scss';
+import './alert.scss';
 
 interface IAlertProps {
   alertVisible: boolean;
@@ -10,6 +10,7 @@ interface IAlertProps {
   alertContent: string;
   alertConfirmMessage: string;
   alertCancelMessage: string;
+  clickEvent: () => void;
 }
 
 const Alert = ({
@@ -18,6 +19,7 @@ const Alert = ({
   alertContent,
   alertConfirmMessage,
   alertCancelMessage,
+  clickEvent,
 }: IAlertProps) => {
   return (
     <div className="alert-container">
@@ -30,7 +32,13 @@ const Alert = ({
       </div>
       <div className="alert-footer">
         <CancelButton name={alertCancelMessage} clickEvent={onVisibleAlertClick} />
-        <ConfirmButton name={alertConfirmMessage} clickEvent={onVisibleAlertClick} />
+        <ConfirmButton
+          name={alertConfirmMessage}
+          clickEvent={() => {
+            clickEvent();
+            onVisibleAlertClick();
+          }}
+        />
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import '@styles/pages/components/cancelButton.scss';
+import './cancelButton.scss';
 
 interface IButtonProps {
   /** Button Name */
