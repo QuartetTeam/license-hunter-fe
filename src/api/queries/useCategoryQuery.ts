@@ -9,7 +9,7 @@ const useGetCategory = (isDefault: boolean) => {
   });
 };
 
-const useGetChildCategory = (mainCategoryId: string) => {
+const useGetChildCategory = (mainCategoryId: number) => {
   return useQuery({
     queryKey: [categoryQueryKey.getChildCategory, mainCategoryId],
     queryFn: getCertChildCategoryData(mainCategoryId),

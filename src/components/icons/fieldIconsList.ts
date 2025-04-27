@@ -11,7 +11,7 @@ import SocialWelfareIcon from '@icon/Field/icon-social-welfare.svg?react';
 import BusinessSalesIcon from '@icon/Field/icon-business-sales.svg?react';
 
 import { FieldIconsMap } from '../types/fieldIcon.ts';
-import { Field } from '../types/field.ts';
+import { Field } from '../types/Field.ts';
 
 export const fieldIconsMap: FieldIconsMap = {
   [Field.Construction]: ConstructionIcon,

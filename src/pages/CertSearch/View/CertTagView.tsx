@@ -7,7 +7,7 @@ import '../style/certTagView.scss';
 const CertTagView = () => {
   const { moveToCertById } = useCertService();
   const [searchParams] = useSearchParams();
-  const categoryId = searchParams.get('categoryId') || '';
+  const categoryId = Number(searchParams.get('categoryId')) || 0;
   const name = searchParams.get('categoryName') || '';
   const childCategory = useChildCategory(categoryId);
   const childCategoryData: ICategoryDataTypes[] | undefined = childCategory?.data;

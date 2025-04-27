@@ -146,7 +146,7 @@ const getCertCategoryData = (isDefault: boolean) => {
 };
 
 // 자격증 카테고리 조회 (소분류)
-const getCertChildCategoryData = (mainCategoryId: string) => {
+const getCertChildCategoryData = (mainCategoryId: number) => {
   return async (): Promise<ICategoryTypes> => {
     const params = { mainCategoryId: mainCategoryId };
     const response = await axios.get(`${BASE_URL}/${CERTIFICATIONS}/category`, { params });

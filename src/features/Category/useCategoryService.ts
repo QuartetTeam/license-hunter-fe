@@ -10,7 +10,7 @@ const useMoreCategory = () => {
   return moreCategory;
 };
 
-const useChildCategory = (id: string) => {
+const useChildCategory = (id: number) => {
   const { data: childCategory } = useGetChildCategory(id);
   return childCategory;
 };

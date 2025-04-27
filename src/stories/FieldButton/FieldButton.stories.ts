@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Field } from '@component/types/field.ts';
+import { Field } from '@component/types/Field.ts';
 import FieldButton from './FieldButton.tsx';
 
 const meta = {

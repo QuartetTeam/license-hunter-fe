@@ -1,4 +1,4 @@
-import { Field } from '@component/types/field.ts';
+import { Field } from './Field.ts';
 
 export const fieldNameToEnumMap: Record<string, Field> = {
   건설: Field.Construction,
