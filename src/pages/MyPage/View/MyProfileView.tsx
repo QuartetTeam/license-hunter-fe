@@ -3,7 +3,7 @@ import ArrowDown from '@icon/icon-arrow-down.svg?react';
 import ArrowUp from '@icon/icon-arrow-up.svg?react';
 import FieldButton from '@component/FieldButton.tsx';
 import CheckFavoriteField from './CheckFavoriteField.tsx';
-import { cancelButtonMessage, confirmButtonMessage } from '../Messages/buttonMessages.ts';
+import { cancelInterestMessage, confirmInterestMessage } from '../Messages/buttonMessages.ts';
 import { useChangeUserNick, useChangeUserEmail } from '@feature/User/useUserService.ts';
 import { IUserDataProps } from '@type/user.ts';
 import '../style/myProfileView.scss';
@@ -101,8 +101,8 @@ const MyProfileView = ({ data }: IUserDataProps) => {
       <CheckFavoriteField
         favoriteFieldVisible={favoriteFieldVisible}
         onVisibleFavoriteFieldClick={onVisibleFavoriteFieldClick}
-        alertConfirmMessage={confirmButtonMessage.complete}
-        alertCancelMessage={cancelButtonMessage.cancel}
+        alertConfirmMessage={confirmInterestMessage.complete}
+        alertCancelMessage={cancelInterestMessage.cancel}
       />
     </>
   );
