@@ -28,6 +28,6 @@ export const Certificate: Story = {
       },
     ],
     trashIconSelected: false,
-    // requiredCalender: true,
+    // requiredCalendar: true,
   },
 };
