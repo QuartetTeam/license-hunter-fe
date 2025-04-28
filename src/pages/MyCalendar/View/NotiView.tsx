@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ArrowLeft from '@icon/icon-arrow-left.svg?react';
 import TrashIcon from '@icon/icon-trash.svg?react';
 import {
-  useCalenderList,
+  useCalendarList,
   useDeleteUserCalendar,
   useCalendarService,
 } from '@feature/MyCalendar/useCalendarService';
@@ -10,7 +10,7 @@ import '../style/NotiView.scss';
 
 const NotiView = ({ handleSetIsOpen }: { handleSetIsOpen: () => void }) => {
   const [certId, setCertId] = useState(0);
-  const calendar = useCalenderList();
+  const calendar = useCalendarList();
   const calendarData = calendar?.data;
   const { mutate: deleteUserCalendar } = useDeleteUserCalendar(certId);
   const { formatDate } = useCalendarService();

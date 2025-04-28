@@ -4,7 +4,7 @@ import { ICalendarData, ISchedules } from '@type/calendar.ts';
 import { IformatCalendar, IformatCalendarArray } from './calendarTypes.ts';
 import { TOAST_MESSAGE } from '@constant/toastMessages.ts';
 
-const useCalenderList = () => {
+const useCalendarList = () => {
   const { data: calendar } = useGetCalendar();
   return calendar;
 };
@@ -85,4 +85,4 @@ const useCalendarService = () => {
   return { formatDate, formatCalendarData };
 };
 
-export { useCalenderList, useAddUserCalendar, useDeleteUserCalendar, useCalendarService };
+export { useCalendarList, useAddUserCalendar, useDeleteUserCalendar, useCalendarService };

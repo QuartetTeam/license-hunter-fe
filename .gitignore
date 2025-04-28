@@ -28,3 +28,6 @@ dist-ssr
 
 # Husky
 .husky/build/*
+
+.env
+.env.production

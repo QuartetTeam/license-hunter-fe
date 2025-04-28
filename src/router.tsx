@@ -18,7 +18,7 @@ const AppRouter = () => {
           <Route index element={<MainPageContainer />} />
           <Route path="certificateDetail" element={<CertContainer />} />
           <Route path="login" element={<LoginContainer />} />
-          <Route path="myCalender" element={<MyCalendarContainer />} />
+          <Route path="myCalendar" element={<MyCalendarContainer />} />
           <Route path="certificateSearch" element={<CertSearchContainer />} />
           <Route path="myPage" element={<MyPageContainer />} />
         </Route>

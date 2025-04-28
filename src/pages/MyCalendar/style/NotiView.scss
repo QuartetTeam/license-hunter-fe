@@ -1,6 +1,7 @@
 .notif {
   &-container {
     position: absolute;
+    min-width: 300px;
     max-width: 500px;
     min-height: 950px;
     max-height: calc(100vh - 200px);

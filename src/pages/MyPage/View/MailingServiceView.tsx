@@ -64,12 +64,13 @@ const MailingServiceView = () => {
         <>
           <div className="mailing-serviceList">
             <div className="mailing-service-tools">
-              {checkArr.length === mailingData?.length ? (
+              {(checkArr.length !== 0 ? checkArr.length === mailingData?.length : false) ? (
                 <CheckboxChecked onClick={handleUncheckedAll} />
               ) : (
                 <CheckboxEmpty onClick={handleCheckedAll} />
               )}
               <TrashIcon
+                data-cy="deleteUserMailing"
                 onClick={() => {
                   onTrashButtonClick();
                   deleteUserMailing();
