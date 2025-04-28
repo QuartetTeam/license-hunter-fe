@@ -11,14 +11,14 @@ const Header = () => {
           자격저격
         </div>
         <div className="header-button-group">
-          <button className="my-calender-button" onClick={() => moveToPage('/myCalender')}>
+          <button className="my-calendar-button" onClick={() => moveToPage('/myCalendar')}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="my-calender-button-icon"
+              className="my-calendar-button-icon"
             >
               <path
                 strokeLinecap="round"

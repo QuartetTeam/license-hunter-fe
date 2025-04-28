@@ -50,6 +50,7 @@ const MyProfileView = ({ data }: IUserDataProps) => {
                     onChange={(e) => setNickname(e.target.value)}
                   />
                   <button
+                    data-cy="changeUserNick"
                     className="my-profile-info-box__group__button"
                     onClick={() => changeUserNick()}
                   >
@@ -66,6 +67,7 @@ const MyProfileView = ({ data }: IUserDataProps) => {
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   <button
+                    data-cy="changeUserEmail"
                     className="my-profile-info-box__group__button"
                     onClick={() => changeUserEmail()}
                   >

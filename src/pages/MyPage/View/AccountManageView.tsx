@@ -44,12 +44,12 @@ const AccountManageView = ({ data }: IUserDataProps) => {
               {data?.status === 'ACTIVE' ? (
                 <div className="mailing-service-interruption__toggle">
                   ON
-                  <ToggleON onClick={() => changeMailingStatus()} />
+                  <ToggleON data-cy="changeMailingStatus" onClick={() => changeMailingStatus()} />
                 </div>
               ) : (
                 <div className="mailing-service-interruption__toggle">
                   OFF
-                  <ToggleOFF onClick={() => changeMailingStatus()} />
+                  <ToggleOFF data-cy="changeMailingStatus" onClick={() => changeMailingStatus()} />
                 </div>
               )}
             </div>

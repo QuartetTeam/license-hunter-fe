@@ -11,7 +11,7 @@ const cancelDeleteUserMessage = {
 };
 
 const confirmDeleteUserMessage = {
-  complete: '계정삭제',
+  complete: '계정 삭제',
 };
 
 export {

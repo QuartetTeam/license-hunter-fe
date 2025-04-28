@@ -1,5 +1,11 @@
 import { toast } from 'react-toastify';
-import { useDeleteUser, useGetUser, usePatchUserInterest, usePatchUserNick } from '../../api';
+import {
+  useDeleteUser,
+  useGetUser,
+  usePatchUserInterest,
+  usePatchUserNick,
+  usePatchUserEmail,
+} from '../../api';
 import { usePatchMailingService } from '@api/queries/useUserQuery.ts';
 import { TOAST_MESSAGE } from '@constant/toastMessages.ts';
 
@@ -20,7 +26,7 @@ const useChangeUserNick = (nickname: string) => {
 };
 
 const useChangeUserEmail = (email: string) => {
-  return usePatchUserNick(email, {
+  return usePatchUserEmail(email, {
     onSuccess: () => {
       toast.success(TOAST_MESSAGE.SUCCESS.CHANGE_EMAIL);
     },
