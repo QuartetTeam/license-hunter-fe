@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Alert from '@component/Alert.tsx';
 import {
-  calenderAlertMessage,
+  calendarAlertMessage,
   cancelButtonMessage,
   confirmButtonMessage,
   mailingAlertMessage,
@@ -18,12 +18,12 @@ import '../style/certDetailView.scss';
 
 const CertDetailView = () => {
   const [mailingAlertVisible, setMailingAlertVisible] = useState(false);
-  const [calenderAlertVisible, setCalenderAlertVisible] = useState(false);
+  const [calendarAlertVisible, setCalendarAlertVisible] = useState(false);
   const onVisibleMailingAlertClick = () => {
     setMailingAlertVisible(!mailingAlertVisible);
   };
-  const onVisibleCalenderAlertClick = () => {
-    setCalenderAlertVisible(!calenderAlertVisible);
+  const onVisibleCalendarAlertClick = () => {
+    setCalendarAlertVisible(!calendarAlertVisible);
   };
 
   const [searchParams] = useSearchParams();
@@ -52,7 +52,7 @@ const CertDetailView = () => {
                 <button className="cert-btn" onClick={onVisibleMailingAlertClick}>
                   메일링 서비스 구독
                 </button>
-                <button className="cert-btn" onClick={onVisibleCalenderAlertClick}>
+                <button className="cert-btn" onClick={onVisibleCalendarAlertClick}>
                   캘린더 추가
                 </button>
               </div>
@@ -71,10 +71,10 @@ const CertDetailView = () => {
             clickEvent={() => addUserMailing()}
           />
           <Alert
-            alertTitle={calenderAlertMessage.title}
-            alertContent={calenderAlertMessage.content}
-            alertVisible={calenderAlertVisible}
-            onVisibleAlertClick={onVisibleCalenderAlertClick}
+            alertTitle={calendarAlertMessage.title}
+            alertContent={calendarAlertMessage.content}
+            alertVisible={calendarAlertVisible}
+            onVisibleAlertClick={onVisibleCalendarAlertClick}
             alertConfirmMessage={confirmButtonMessage.add}
             alertCancelMessage={cancelButtonMessage.think}
             clickEvent={() => addUserCalendar()}

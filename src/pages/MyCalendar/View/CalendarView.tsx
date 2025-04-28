@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import NotiView from './NotiView.tsx';
-import { useCalenderList, useCalendarService } from '@feature/MyCalendar/useCalendarService.ts';
+import { useCalendarList, useCalendarService } from '@feature/MyCalendar/useCalendarService.ts';
 import { ICalendarData } from '@type/calendar.ts';
-import '../style/CalenderView.scss';
+import '../style/CalendarView.scss';
 
 const CalendarView = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +12,7 @@ const CalendarView = () => {
     setIsOpen(!isOpen);
   };
 
-  const calendar = useCalenderList();
+  const calendar = useCalendarList();
   const calendarData: ICalendarData[] | undefined = calendar?.data;
   const { formatCalendarData } = useCalendarService();
 
