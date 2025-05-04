@@ -22,7 +22,7 @@ const AppRouter = () => {
           <Route path="certificateSearch" element={<CertSearchContainer />} />
           <Route path="myPage" element={<MyPageContainer />} />
         </Route>
-        <Route path="/api/v1/token" element={<OAuthRedirectContainer />} />
+        <Route path="/token" element={<OAuthRedirectContainer />} />
       </Routes>
     </BrowserRouter>
   );

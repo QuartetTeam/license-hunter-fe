@@ -1,14 +1,16 @@
 import axios from 'axios';
-import authStore from '../store/auth/authStore.ts';
+import authStore from '../store/auth/authStore';
 
-const useIncludeAccessTokenAPI = () => {
-  const accessToken = authStore((state) => state.accessToken);
+const accessTokenInterceptor = () => {
+  const { accessToken } = authStore();
+  console.log(accessToken);
 
   axios.interceptors.request.use(
     (config) => {
-      if (config.url?.includes('/path/api/v2')) {
-        config.headers['Authorization'] = `Bearer ${accessToken}`;
-        config.headers['accept'] = 'application/json';
+      if (config.url?.includes('/api/v1')) {
+        const { accessToken } = authStore.getState();
+        config.headers.Authorization = `Bearer ${accessToken}`;
+        config.headers.accept = 'application/json';
       }
       return config;
     },
@@ -18,4 +20,4 @@ const useIncludeAccessTokenAPI = () => {
   );
 };
 
-export default useIncludeAccessTokenAPI;
+export default accessTokenInterceptor;
