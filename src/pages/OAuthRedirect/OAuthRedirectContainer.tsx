@@ -1,27 +1,28 @@
 import { useEffect } from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import IAuthType from '@store/auth/authType.ts';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import authStore from '@store/auth/authStore';
 import useAuthService from '@feature/Auth/useAuthService.ts';
 
 const OAuthRedirectContainer = () => {
   const { loginService } = useAuthService();
 
-  // const navigate = useNavigate();
-  // const moveToMainPage = () => {
-  //   window.scrollTo(0, 0);
-  //   navigate(`/`);
-  // };
-  // const searchParams = new URLSearchParams(location.search);
-  // const accessTokenByURL = searchParams.get('accessToken');
-  // console.log(accessTokenByURL);
-  // const { accessToken, setAccessToken } = authStore();
+  const navigate = useNavigate();
+  const moveToMainPage = () => {
+    window.scrollTo(0, 0);
+    navigate(`/`);
+  };
+  const [searchParams] = useSearchParams();
+  const accessTokenByURL = searchParams.get('accessToken');
+  console.log(accessTokenByURL);
+  const { accessToken, setAccessToken } = authStore();
 
   useEffect(() => {
-    // setAccessToken(accessTokenByURL || '');
-    // console.log(accessToken);
-    // setAccessToken(accessToken || '');
-    loginService();
-    // moveToMainPage();
+    if (accessTokenByURL) {
+      setAccessToken(accessTokenByURL || '');
+      console.log(accessToken);
+      loginService();
+      moveToMainPage();
+    }
   }, []);
 
   return (
