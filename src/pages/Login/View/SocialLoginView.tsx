@@ -4,8 +4,6 @@ import Google from '@icon/SNS/icon-google.svg?react';
 import '../style/socialLoginView.scss';
 
 const SocialLoginView = () => {
-  // const { setLoginType, moveToAuthService } = useAuthService();
-
   const login = (loginType: string) => {
     window.location.href = `https://api.sudomenda.site/oauth2/authorization/${loginType}`;
   };
