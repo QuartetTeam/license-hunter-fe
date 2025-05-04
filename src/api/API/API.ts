@@ -17,7 +17,7 @@ const { BASE_URL, CALENDAR, MAILINGS, CERTIFICATIONS, MEMBERS, PROFILE } = endpo
 
 // 소셜 로그인 (카카오, 네이버, 구글)
 const login = async () => {
-  const response = await axios.post(`${BASE_URL}/oauth2-jwt-header`);
+  const response = await axios.post(`${BASE_URL}/oauth2-jwt-header`, {}, { withCredentials: true });
   return response.data;
 };
 

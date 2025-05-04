@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 import { useLogin, useLogout, useRefresh } from '../../api';
 import authStore from '@store/auth/authStore.ts';
-import IAuthType from '@store/auth/authType.ts';
+// import IAuthType from '@store/auth/authType.ts';
 import useHandleCookies from '../../common/utils/cookie.ts';
 import { useMoveToPage } from '@hook/page.ts';
 import { TOAST_MESSAGE } from '@constant/toastMessages.ts';
@@ -12,14 +12,15 @@ const useAuthService = () => {
   // 로그인 (04/27 정윤님)
   // 현재 소셜 로그인 기능은 백엔드 이슈 해결 중에 있어 정상적으로 동작하지 않음.
   // 백엔드 API 명세서를 참고하여 추후 테스트할 수 있도록 작업함.
-  const setAccessToken = authStore((state: IAuthType) => state.setAccessToken);
-  const clearAccessToken = authStore((state: IAuthType) => state.clearAccessToken);
+  const { setAccessToken, clearAccessToken } = authStore();
   const login = useLogin();
   const loginService = async () => {
     try {
-      const accessToken = await login.mutateAsync();
-      if (accessToken) {
-        setAccessToken(accessToken);
+      const response = await login.mutateAsync();
+      const { code } = response;
+      if (code === 200) {
+        // const accessToken = response.headers['accesstoken'];
+        // setAccessToken(accessToken);
         moveToPage('/');
       } else {
         clearAccessToken();
