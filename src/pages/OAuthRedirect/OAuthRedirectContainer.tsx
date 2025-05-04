@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import authStore from '@store/auth/authStore';
-import useAuthService from '@feature/Auth/useAuthService.ts';
+// import useAuthService from '@feature/Auth/useAuthService.ts';
 
 const OAuthRedirectContainer = () => {
-  const { loginService } = useAuthService();
+  // const { loginService } = useAuthService();
 
   const navigate = useNavigate();
   const moveToMainPage = () => {
@@ -20,7 +20,7 @@ const OAuthRedirectContainer = () => {
     if (accessTokenByURL) {
       setAccessToken(accessTokenByURL || '');
       console.log(accessToken);
-      loginService();
+      // loginService();
       moveToMainPage();
     }
   }, []);
