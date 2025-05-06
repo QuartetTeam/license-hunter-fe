@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import CertificateCard from '@component/CertificateCard.tsx';
 import { useCertList, useCertSearch } from '@feature/Certification/useCertService.ts';
@@ -9,12 +9,16 @@ import Pagination from '@component/Pagination';
 const CertCardListView = () => {
   const { page, setPage } = pageStore();
   const [searchParams] = useSearchParams();
+  const [search, setSearch] = useState('');
   const categoryId = Number(
     searchParams.get('subCategoryId')
       ? searchParams.get('subCategoryId')
       : searchParams.get('categoryId')
   );
-  const search = searchParams.get('search') ?? '';
+
+  useEffect(() => {
+    setSearch(searchParams.get('search') ?? '');
+  }, [searchParams]);
 
   const cert = useCertList(categoryId, page);
   const certData = cert?.data?.content ?? [];
