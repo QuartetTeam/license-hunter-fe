@@ -4,6 +4,7 @@ import { useCertService } from '@feature/Certification/useCertService.ts';
 import mailingStore from '@store/mailing/mailingStore';
 import { ICertData } from '@type/cert.ts';
 import { IMailingContent } from '@type/mailing.ts';
+import QNetImage from '../assets/images/QNet.png';
 import './style/certificateCard.scss';
 
 const CertificateCard = ({
@@ -38,15 +39,17 @@ const CertificateCard = ({
             </div>
           )}
           <div className="certificate-info-box" onClick={() => moveToCertDetailById(item?.id)}>
-            <div className="certificate-info-box__image"></div>
+            <div className="certificate-info-box__image">
+              <img src={QNetImage} alt="자격증 이미지" />
+            </div>
             <div className="certificate-info-box__text">
               <div className="certificate-info-box__text__name">{item?.name}</div>
               <div className="certificate-info-box__text__date">
                 <div className="certificate-info-box__text__date-receipt">
-                  접수일 | {formatDate(item?.applicationDate)}
+                  접수일 | {formatDate(item?.applicationDate) || '-'}
                 </div>
                 <div className="certificate-info-box__text__date-test">
-                  시험일 | {formatDate(item?.examDate)}
+                  시험일 | {formatDate(item?.examDate) || '-'}
                 </div>
               </div>
             </div>
