@@ -4,7 +4,7 @@ import { useCertService } from '@feature/Certification/useCertService.ts';
 import mailingStore from '@store/mailing/mailingStore';
 import { ICertData } from '@type/cert.ts';
 import { IMailingContent } from '@type/mailing.ts';
-import QNetImage from '../assets/images/QNet.png';
+import QNetImage from '@image/QNet.png';
 import './style/certificateCard.scss';
 
 const CertificateCard = ({
