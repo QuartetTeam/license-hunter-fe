@@ -6,7 +6,7 @@ import SafetyIcon from '@icon/Field/icon-safety.svg?react';
 import ArtDesignIcon from '@icon/Field/icon-art-design.svg?react';
 import ElectricityIcon from '@icon/Field/icon-electricity.svg?react';
 import ChemBioIcon from '@icon/Field/icon-chem-bio.svg?react';
-import ITIcon from '@icon/Field/icon-it.svg?react';
+import ITIcon from '@icon/Field/icon-IT.svg?react';
 import CashIcon from '@icon/Field/icon-cash.svg?react';
 
 import { FieldIconsMap } from '../types/fieldIcon.ts';
