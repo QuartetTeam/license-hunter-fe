@@ -11,6 +11,7 @@
     .title {
       margin: 20px 0 20px 20px;
       font-size: 24px;
+      cursor: pointer;
     }
 
     .header-button-group {
@@ -25,6 +26,7 @@
         align-items: center;
         background: none;
         border: none;
+        cursor: pointer;
 
         .my-calendar-button-icon {
           width: 24px;
@@ -36,11 +38,13 @@
       .login-button {
         background: none;
         border: none;
+        cursor: pointer;
       }
 
       .myPage-button {
         background: none;
         border: none;
+        cursor: pointer;
       }
     }
   }
