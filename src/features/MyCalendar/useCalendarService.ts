@@ -3,6 +3,7 @@ import { useAddCalendar, useDeleteCalendar, useGetCalendar } from '../../api';
 import { ICalendarData, ISchedules } from '@type/calendar.ts';
 import { IformatCalendar, IformatCalendarArray } from './calendarTypes.ts';
 import { TOAST_MESSAGE } from '@constant/toastMessages.ts';
+import { AxiosError } from 'axios';
 
 const useCalendarList = () => {
   const { data: calendar } = useGetCalendar();
@@ -14,8 +15,11 @@ const useAddUserCalendar = (certificationId: number) => {
     onSuccess: () => {
       toast.success(TOAST_MESSAGE.SUCCESS.ADD_CALENDAR);
     },
-    onError: () => {
-      toast.error(TOAST_MESSAGE.ERROR.ADD_CALENDAR);
+    onError: (error: unknown) => {
+      const errorMessage =
+        (error as AxiosError<{ message: string }>)?.response?.data?.message ||
+        TOAST_MESSAGE.ERROR.ADD_CALENDAR;
+      toast.error(errorMessage);
     },
   });
 };
@@ -25,8 +29,11 @@ const useDeleteUserCalendar = (certificationId: number) => {
     onSuccess: () => {
       toast.success(TOAST_MESSAGE.SUCCESS.DELETE_CALENDAR);
     },
-    onError: () => {
-      toast.error(TOAST_MESSAGE.ERROR.DELETE_CALENDAR);
+    onError: (error: unknown) => {
+      const errorMessage =
+        (error as AxiosError<{ message: string }>)?.response?.data?.message ||
+        TOAST_MESSAGE.ERROR.DELETE_CALENDAR;
+      toast.error(errorMessage);
     },
   });
 };
