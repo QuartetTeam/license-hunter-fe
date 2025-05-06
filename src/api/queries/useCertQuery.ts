@@ -17,7 +17,7 @@ const useGetCert = (categoryId: number, page: number, pageSize: number) => {
 
 const useGetSearchCert = (name?: string) => {
   return useQuery({
-    queryKey: [certQueryKey.search],
+    queryKey: [certQueryKey.search, name],
     queryFn: getSearchCertData(name),
     enabled: !!name,
   });
