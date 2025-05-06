@@ -28,7 +28,7 @@ const CertificateCard = ({
   return (
     <>
       {data?.map((item, index) => (
-        <div key={index} className="certificate-info">
+        <div key={index} className={`certificate-info ${trashIconSelected && 'checked'} `}>
           {trashIconSelected && (
             <div className="certificate-info-checkbox">
               {checkArr.includes(item.id) ? (

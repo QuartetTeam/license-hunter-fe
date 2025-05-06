@@ -4,7 +4,7 @@ import { TOAST_MESSAGE } from '@constant/toastMessages.ts';
 import { AxiosError } from 'axios';
 
 const useMailingList = (page: number) => {
-  const { data: mailing } = useGetMailing(page, 4);
+  const { data: mailing } = useGetMailing(page, 2);
   return mailing;
 };
 

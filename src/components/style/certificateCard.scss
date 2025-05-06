@@ -5,7 +5,6 @@
   max-width: 450px;
   max-height: 150px;
   display: flex;
-  gap: 15px;
   padding: 17px 11px;
   border: 1px solid #e2e8f0;
   border-radius: 16px;
@@ -23,9 +22,11 @@
   }
   cursor: pointer;
 
-  .certificate-info-checkbox {
-    padding: 4px;
+  &.checked {
+    padding: 17px 11px 17px 8px;
+  }
 
+  .certificate-info-checkbox {
     &__icon {
       width: 16px;
       height: 16px;
