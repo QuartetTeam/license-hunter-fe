@@ -62,7 +62,7 @@ const AccountManageView = ({ data }: IUserDataProps) => {
               </div>
             </div>
             <button className="delete-account__button" onClick={onVisibleDeleteUserAlertClick}>
-              계정 삭제
+              계정 탈퇴
             </button>
             <Alert
               alertTitle={deleteUserAlertMessage.title}

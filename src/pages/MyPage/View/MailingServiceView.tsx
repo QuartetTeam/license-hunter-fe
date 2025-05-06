@@ -73,7 +73,9 @@ const MailingServiceView = () => {
                 data-cy="deleteUserMailing"
                 onClick={() => {
                   onTrashButtonClick();
-                  deleteUserMailing();
+                  if (checkArr.length !== 0) {
+                    deleteUserMailing();
+                  }
                 }}
               />
             </div>

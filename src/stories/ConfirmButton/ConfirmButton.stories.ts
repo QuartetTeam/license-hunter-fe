@@ -44,7 +44,7 @@ export const Add: Story = {
 
 export const deleteUser: Story = {
   args: {
-    name: '계정 삭제',
+    name: '계정 탈퇴',
     clickEvent: () => {
       console.log('Button clicked!');
     },

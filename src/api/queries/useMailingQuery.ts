@@ -4,7 +4,7 @@ import { addMailingsData, deleteMailingsData, getMailingsData } from '../API/API
 
 const useGetMailing = (page: number, pageSize: number) => {
   return useQuery({
-    queryKey: [mailingQueryKey.get],
+    queryKey: [mailingQueryKey.get, page],
     queryFn: getMailingsData(page, pageSize),
   });
 };

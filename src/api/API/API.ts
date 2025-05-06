@@ -163,8 +163,8 @@ const getUserData = async (): Promise<IUserList> => {
 // 사용자 닉네임 변경
 const patchUserNick = (nickname: string) => {
   return async (): Promise<IChangeNick> => {
-    const params = { nickname: nickname };
-    const response = await axios.patch(`${BASE_URL}/${MEMBERS}/${PROFILE}/nickname`, { params });
+    const data = { nickname: nickname };
+    const response = await axios.patch(`${BASE_URL}/${MEMBERS}/${PROFILE}/nickname`, data);
     return response.data;
   };
 };
@@ -172,8 +172,8 @@ const patchUserNick = (nickname: string) => {
 // 사용자 이메일 변경
 const patchUserEmail = (email: string) => {
   return async (): Promise<IChangeEmail> => {
-    const params = { email: email };
-    const response = await axios.patch(`${BASE_URL}/${MEMBERS}/${PROFILE}/email`, { params });
+    const data = { email: email };
+    const response = await axios.patch(`${BASE_URL}/${MEMBERS}/${PROFILE}/email`, data);
     return response.data;
   };
 };
@@ -181,8 +181,8 @@ const patchUserEmail = (email: string) => {
 // 사용자 관심분야 변경
 const patchUserInterest = (categoryIds: number[]) => {
   return async (): Promise<IChangeInterest> => {
-    const params = { categoryIds: categoryIds };
-    const response = await axios.patch(`${BASE_URL}/${MEMBERS}/${PROFILE}/interests`, { params });
+    const data = { categoryIds: categoryIds };
+    const response = await axios.patch(`${BASE_URL}/${MEMBERS}/${PROFILE}/interests`, data);
     return response.data;
   };
 };

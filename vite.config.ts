@@ -14,6 +14,7 @@ export default defineConfig({
       '@feature': '/src/features',
       '@hook': '/src/hooks',
       '@constant': '/src/constants',
+      '@image': '/src/assets/images',
     },
   },
   server: {
