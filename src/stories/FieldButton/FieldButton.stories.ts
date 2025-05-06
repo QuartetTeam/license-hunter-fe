@@ -14,60 +14,6 @@ type Story = StoryObj<typeof meta>;
 
 export default meta;
 
-export const ManagementIcon: Story = {
-  args: {
-    fieldName: Field.Management,
-  },
-};
-
-export const ElectricityIcon: Story = {
-  args: {
-    fieldName: Field.Electricity,
-  },
-};
-
-export const CashIcon: Story = {
-  args: {
-    fieldName: Field.Cash,
-  },
-};
-
-export const PoliceIcon: Story = {
-  args: {
-    fieldName: Field.Police,
-  },
-};
-
-export const DoctorIcon: Story = {
-  args: {
-    fieldName: Field.Doctor,
-  },
-};
-
-export const SocialWelfareIcon: Story = {
-  args: {
-    fieldName: Field.SocialWelfare,
-  },
-};
-
-export const ArtDesignIcon: Story = {
-  args: {
-    fieldName: Field.ArtDesign,
-  },
-};
-
-export const ChemBioIcon: Story = {
-  args: {
-    fieldName: Field.ChemBio,
-  },
-};
-
-export const BusinessSalesIcon: Story = {
-  args: {
-    fieldName: Field.BusinessSales,
-  },
-};
-
 export const ConstructionIcon: Story = {
   args: {
     fieldName: Field.Construction,
@@ -77,5 +23,53 @@ export const ConstructionIcon: Story = {
 export const MachineIcon: Story = {
   args: {
     fieldName: Field.Machine,
+  },
+};
+
+export const DoctorIcon: Story = {
+  args: {
+    fieldName: Field.Doctor,
+  },
+};
+
+export const ManagementIcon: Story = {
+  args: {
+    fieldName: Field.Management,
+  },
+};
+
+export const SafetyIcon: Story = {
+  args: {
+    fieldName: Field.Safety,
+  },
+};
+
+export const ArtDesignIcon: Story = {
+  args: {
+    fieldName: Field.ArtDesign,
+  },
+};
+
+export const ElectricityIcon: Story = {
+  args: {
+    fieldName: Field.Electricity,
+  },
+};
+
+export const ChemBioIcon: Story = {
+  args: {
+    fieldName: Field.ChemBio,
+  },
+};
+
+export const ITIcon: Story = {
+  args: {
+    fieldName: Field.IT,
+  },
+};
+
+export const CashIcon: Story = {
+  args: {
+    fieldName: Field.Cash,
   },
 };
