@@ -15,6 +15,11 @@ const useUserData = () => {
   return user;
 };
 
+const useRefreshUserData = () => {
+  const { refetch: refetchUser } = useGetUser();
+  return refetchUser;
+};
+
 const useChangeUserNick = (nickname: string) => {
   return usePatchUserNick(nickname, {
     onSuccess: () => {
@@ -84,6 +89,7 @@ const useDeleteUserData = () => {
 
 export {
   useUserData,
+  useRefreshUserData,
   useChangeUserNick,
   useChangeUserEmail,
   useChangeUserInterest,
