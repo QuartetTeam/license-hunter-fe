@@ -58,7 +58,7 @@ describe('마이페이지가 정상적으로 작동하는지 확인한다.', () 
     cy.wait('@changeMailingStatus').should('exist');
   });
 
-  it('계정 삭제 API가 정상적으로 호출되는지 확인한다.', () => {
+  it('계정 탈퇴 API가 정상적으로 호출되는지 확인한다.', () => {
     cy.intercept('DELETE', '/api/members/me/settings/delete-account').as('deleteAccount');
     cy.get('.delete-account__button').click();
     cy.get('.confirmButton').click();
