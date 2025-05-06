@@ -86,7 +86,7 @@ interface ICertList {
 interface ICertSearchList {
   code: number;
   message: string;
-  data: ICertData[];
+  data: ICertListData;
 }
 
 interface IQualification {

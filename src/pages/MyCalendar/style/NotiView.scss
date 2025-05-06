@@ -21,6 +21,10 @@
 
   &-certification {
     margin-bottom: 1rem;
+
+    svg {
+      cursor: pointer;
+    }
   }
 
   &-name {

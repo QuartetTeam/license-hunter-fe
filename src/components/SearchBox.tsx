@@ -1,10 +1,10 @@
-import { useState } from 'react';
 import Search from '@icon/icon-search.svg?react';
 import { useCertService } from '@feature/Certification/useCertService.ts';
+import certStore from '@store/certification/certStore';
 import './style/searchBox.scss';
 
 const SearchBox = ({ isTitle }: { isTitle: boolean }) => {
-  const [searchWord, setSearchWord] = useState('');
+  const { searchWord, setSearchWord } = certStore();
   const { moveToCertByName } = useCertService();
 
   return (

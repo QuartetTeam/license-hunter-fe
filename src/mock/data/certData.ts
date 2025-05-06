@@ -55,17 +55,44 @@ const certList: ICertList = {
 const certSearchList: ICertSearchList = {
   code: 200,
   message: '요청이 처리되었습니다.',
-  data: [
-    {
-      id: 2,
-      mainCategory: '기계',
-      subCategory: '기계장비설비.설치',
-      name: '건설기계기술사',
-      applicationDate: '2025-07-14T10:00:00Z',
-      examDate: '2025-04-19T09:00:00Z',
-      calendarSubscription: 0,
+  data: {
+    content: [
+      {
+        id: 2,
+        mainCategory: '기계',
+        subCategory: '기계장비설비.설치',
+        name: '건설기계기술사',
+        applicationDate: '2025-07-14T10:00:00Z',
+        examDate: '2025-04-19T09:00:00Z',
+        calendarSubscription: 0,
+      },
+    ],
+    pageable: {
+      pageNumber: 0,
+      pageSize: 2,
+      sort: {
+        empty: false,
+        sorted: true,
+        unsorted: false,
+      },
+      offset: 0,
+      paged: true,
+      unpaged: false,
     },
-  ],
+    last: false,
+    totalPages: 3,
+    totalElements: 6,
+    first: true,
+    size: 2,
+    number: 0,
+    sort: {
+      empty: false,
+      sorted: true,
+      unsorted: false,
+    },
+    numberOfElements: 2,
+    empty: false,
+  },
 };
 
 const certDetailList: ICertDetailList = {

@@ -2,9 +2,6 @@ import axios from 'axios';
 import authStore from '../store/auth/authStore';
 
 const accessTokenInterceptor = () => {
-  const { accessToken } = authStore();
-  console.log(accessToken);
-
   axios.interceptors.request.use(
     (config) => {
       if (config.url?.includes('/api/v1')) {

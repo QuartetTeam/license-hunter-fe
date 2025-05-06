@@ -14,6 +14,7 @@ import { useCertDetail } from '@feature/Certification/useCertService.ts';
 import { useAddUserMailing } from '@feature/MailingService/useMailingService.ts';
 import { useAddUserCalendar } from '@feature/MyCalendar/useCalendarService.ts';
 import { ICertDetailListDataTypes } from '@type/cert.ts';
+import QNetImage from '@image/QNet.png';
 import '../style/certDetailView.scss';
 
 const CertDetailView = () => {
@@ -42,7 +43,9 @@ const CertDetailView = () => {
           <div className="cert-detail-info">
             <div className="cert-preview">
               <div className="cert-preview-info">
-                <div className="cert-preview-info__image"></div>
+                <div className="cert-preview-info__image">
+                  <img src={QNetImage} alt="자격증 이미지" />
+                </div>
                 <div className="cert-preview-info__description">{certDetailData?.description}</div>
               </div>
               <div className="cert-btn-group">

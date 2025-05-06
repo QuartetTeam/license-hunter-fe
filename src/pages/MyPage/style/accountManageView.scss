@@ -22,6 +22,10 @@
     &__text {
       font-size: 32px;
     }
+
+    svg {
+      cursor: pointer;
+    }
   }
 
   .account-manage-box {
@@ -42,6 +46,10 @@
       &__toggle {
         display: flex;
         align-items: center;
+
+        svg {
+          cursor: pointer;
+        }
       }
     }
 
@@ -66,6 +74,7 @@
         font-size: 14px;
         color: white;
         background-color: black;
+        cursor: pointer;
       }
     }
   }

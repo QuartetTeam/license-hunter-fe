@@ -8,10 +8,16 @@ import {
 } from '../../api';
 import { usePatchMailingService } from '@api/queries/useUserQuery.ts';
 import { TOAST_MESSAGE } from '@constant/toastMessages.ts';
+import { AxiosError } from 'axios';
 
 const useUserData = () => {
   const { data: user } = useGetUser();
   return user;
+};
+
+const useRefreshUserData = () => {
+  const { refetch: refetchUser } = useGetUser();
+  return refetchUser;
 };
 
 const useChangeUserNick = (nickname: string) => {
@@ -19,8 +25,11 @@ const useChangeUserNick = (nickname: string) => {
     onSuccess: () => {
       toast.success(TOAST_MESSAGE.SUCCESS.CHANGE_NICKNAME);
     },
-    onError: () => {
-      toast.error(TOAST_MESSAGE.ERROR.CHANGE_NICKNAME);
+    onError: (error: unknown) => {
+      const errorMessage =
+        (error as AxiosError<{ message: string }>)?.response?.data?.message ||
+        TOAST_MESSAGE.ERROR.CHANGE_NICKNAME;
+      toast.error(errorMessage);
     },
   });
 };
@@ -30,8 +39,11 @@ const useChangeUserEmail = (email: string) => {
     onSuccess: () => {
       toast.success(TOAST_MESSAGE.SUCCESS.CHANGE_EMAIL);
     },
-    onError: () => {
-      toast.error(TOAST_MESSAGE.ERROR.CHANGE_EMAIL);
+    onError: (error: unknown) => {
+      const errorMessage =
+        (error as AxiosError<{ message: string }>)?.response?.data?.message ||
+        TOAST_MESSAGE.ERROR.CHANGE_EMAIL;
+      toast.error(errorMessage);
     },
   });
 };
@@ -41,16 +53,22 @@ const useChangeUserInterest = (categoryIds: number[]) => {
     onSuccess: () => {
       toast.success(TOAST_MESSAGE.SUCCESS.CHANGE_INTEREST);
     },
-    onError: () => {
-      toast.error(TOAST_MESSAGE.ERROR.CHANGE_INTEREST);
+    onError: (error: unknown) => {
+      const errorMessage =
+        (error as AxiosError<{ message: string }>)?.response?.data?.message ||
+        TOAST_MESSAGE.ERROR.CHANGE_INTEREST;
+      toast.error(errorMessage);
     },
   });
 };
 
 const useChangeMailingStatus = () => {
   return usePatchMailingService({
-    onError: () => {
-      toast.error(TOAST_MESSAGE.ERROR.CHANGE_MAILING);
+    onError: (error: unknown) => {
+      const errorMessage =
+        (error as AxiosError<{ message: string }>)?.response?.data?.message ||
+        TOAST_MESSAGE.ERROR.CHANGE_MAILING;
+      toast.error(errorMessage);
     },
   });
 };
@@ -60,14 +78,18 @@ const useDeleteUserData = () => {
     onSuccess: () => {
       toast.success(TOAST_MESSAGE.SUCCESS.DELETE_USER);
     },
-    onError: () => {
-      toast.error(TOAST_MESSAGE.ERROR.DELETE_USER);
+    onError: (error: unknown) => {
+      const errorMessage =
+        (error as AxiosError<{ message: string }>)?.response?.data?.message ||
+        TOAST_MESSAGE.ERROR.DELETE_USER;
+      toast.error(errorMessage);
     },
   });
 };
 
 export {
   useUserData,
+  useRefreshUserData,
   useChangeUserNick,
   useChangeUserEmail,
   useChangeUserInterest,
