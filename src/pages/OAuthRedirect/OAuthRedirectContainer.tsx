@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import authStore from '@store/auth/authStore';
+import { accessTokenStore, refreshTokenStore } from '@store/auth/authStore';
 // import useAuthService from '@feature/Auth/useAuthService.ts';
 
 const OAuthRedirectContainer = () => {
   // const { loginService } = useAuthService();
+  const { setAccessToken } = accessTokenStore();
+  const { setRefreshToken } = refreshTokenStore();
 
   const navigate = useNavigate();
   const moveToMainPage = () => {
@@ -13,13 +15,12 @@ const OAuthRedirectContainer = () => {
   };
   const [searchParams] = useSearchParams();
   const accessTokenByURL = searchParams.get('accessToken');
-  console.log(accessTokenByURL);
-  const { accessToken, setAccessToken } = authStore();
+  const refreshTokenByURL = searchParams.get('refreshToken');
 
   useEffect(() => {
     if (accessTokenByURL) {
       setAccessToken(accessTokenByURL || '');
-      console.log(accessToken);
+      setRefreshToken(refreshTokenByURL || '');
       // loginService();
       moveToMainPage();
     }

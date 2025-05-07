@@ -1,5 +1,6 @@
 import axios from 'axios';
-import authStore from '../store/auth/authStore';
+import authStore from '@store/auth/authStore.ts';
+import useAuthService from '@feature/Auth/useAuthService';
 
 const accessTokenInterceptor = () => {
   axios.interceptors.request.use(
@@ -17,4 +18,18 @@ const accessTokenInterceptor = () => {
   );
 };
 
-export default accessTokenInterceptor;
+const useRefreshTokenInterceptor = () => {
+  const { refreshService } = useAuthService();
+  axios.interceptors.response.use(
+    (response) => response,
+    async (error) => {
+      if (error.response?.status === 401 && !error.config._retry) {
+        error.config._retry = true;
+        refreshService();
+      }
+      return Promise.reject(error);
+    }
+  );
+};
+
+export { accessTokenInterceptor, useRefreshTokenInterceptor };
