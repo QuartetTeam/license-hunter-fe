@@ -12,8 +12,8 @@ const useCertDetail = (id: number) => {
   return certDetail;
 };
 
-const useCertSearch = (name?: string) => {
-  const { data: searchedCert } = useGetSearchCert(name);
+const useCertSearch = (name: string, page: number) => {
+  const { data: searchedCert } = useGetSearchCert(name, page, 10);
   return searchedCert;
 };
 

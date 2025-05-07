@@ -15,11 +15,10 @@ const useGetCert = (categoryId: number, page: number, pageSize: number) => {
   });
 };
 
-const useGetSearchCert = (name?: string) => {
+const useGetSearchCert = (name: string, page: number, pageSize: number) => {
   return useQuery({
-    queryKey: [certQueryKey.search, name],
-    queryFn: getSearchCertData(name),
-    enabled: !!name,
+    queryKey: [certQueryKey.search, name, page],
+    queryFn: getSearchCertData(name, page, pageSize),
   });
 };
 

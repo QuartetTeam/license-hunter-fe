@@ -110,10 +110,12 @@ const getCertData = (categoryId: number, page: number, pageSize: number) => {
 };
 
 // 자격증 검색
-const getSearchCertData = (name?: string) => {
+const getSearchCertData = (name: string, page: number, pageSize: number) => {
   return async (): Promise<ICertSearchList> => {
     const params = {
       name: name,
+      page: page,
+      pageSize: pageSize,
     };
     const response = await axios.get(`${BASE_URL}/${CERTIFICATIONS}/search`, { params });
     return response.data;
