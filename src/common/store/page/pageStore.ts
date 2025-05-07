@@ -1,9 +1,14 @@
 import { create } from 'zustand';
-import IPageType from './pageType';
+import { IPageType, ISearchedPageType } from './pageType';
 
 const pageStore = create<IPageType>((set) => ({
   page: 1,
   setPage: (page) => set({ page }),
 }));
 
-export default pageStore;
+const searchedPageStore = create<ISearchedPageType>((set) => ({
+  searchedPage: 1,
+  setSearchedPage: (searchedPage) => set({ searchedPage }),
+}));
+
+export { pageStore, searchedPageStore };

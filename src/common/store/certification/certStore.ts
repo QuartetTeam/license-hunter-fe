@@ -1,9 +1,14 @@
 import { create } from 'zustand';
-import ISearchWordType from './certType';
+import { ISearchWordType, IIsMainCategoryType } from './certType';
 
-const certStore = create<ISearchWordType>((set) => ({
+const searchWordStore = create<ISearchWordType>((set) => ({
   searchWord: '',
   setSearchWord: (searchWord) => set({ searchWord }),
 }));
 
-export default certStore;
+const isMainCategoryStore = create<IIsMainCategoryType>((set) => ({
+  isMainCategory: true,
+  setIsMainCategory: (isMainCategory) => set({ isMainCategory }),
+}));
+
+export { searchWordStore, isMainCategoryStore };

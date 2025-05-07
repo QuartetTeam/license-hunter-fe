@@ -2,6 +2,7 @@ import { useState } from 'react';
 import FieldButton from '@component/FieldButton.tsx';
 import { useCertService } from '@feature/Certification/useCertService';
 import { useDefaultCategory, useMoreCategory } from '@feature/Category/useCategoryService.ts';
+import { isMainCategoryStore } from '@store/certification/certStore.ts';
 import { ICategoryDataTypes } from '@type/category.ts';
 import '../style/menuBarView.scss';
 
@@ -10,9 +11,11 @@ const MenuBarView = () => {
   const handleIsDefault = () => {
     setIsDefault(!isDefault);
   };
+  const { setIsMainCategory } = isMainCategoryStore();
+
   const defaultCategory = useDefaultCategory();
   const moreCategory = useMoreCategory();
-  const { moveToCertById } = useCertService();
+  const { moveToCertById, moveToCertByName } = useCertService();
   const defaultCategoryData: ICategoryDataTypes[] | undefined = defaultCategory?.data;
   const moreCategoryData: ICategoryDataTypes[] | undefined = moreCategory?.data;
 
@@ -20,9 +23,17 @@ const MenuBarView = () => {
     if (id && fieldName) moveToCertById(id, fieldName, undefined);
   };
 
+  const onClickFieldButton = (id: number, fieldName: string, isMainCategory: boolean) => {
+    handleMoveToCertById(id, fieldName);
+    setIsMainCategory(isMainCategory);
+  };
+
   return (
     <div className="menuBar-view">
       <div className="menuBar">
+        <div className="total-certInfo-button" onClick={() => moveToCertByName('')}>
+          전체보기
+        </div>
         <div className="menu-button">
           <div className="menu-button-box">
             {defaultCategoryData
@@ -30,7 +41,7 @@ const MenuBarView = () => {
               .map((item, index) => (
                 <FieldButton
                   key={index}
-                  clickEvent={() => handleMoveToCertById(item.id, item.name)}
+                  clickEvent={() => onClickFieldButton(item.id, item.name, true)}
                   fieldName={item.name}
                 />
               ))}
@@ -42,7 +53,7 @@ const MenuBarView = () => {
                 <FieldButton
                   key={index}
                   fieldName={item.name}
-                  clickEvent={() => handleMoveToCertById(item.id, item.name)}
+                  clickEvent={() => onClickFieldButton(item.id, item.name, true)}
                 />
               ))}
           </div>
@@ -56,7 +67,7 @@ const MenuBarView = () => {
                   <FieldButton
                     key={index}
                     fieldName={item.name}
-                    clickEvent={() => handleMoveToCertById(item.id, item.name)}
+                    clickEvent={() => onClickFieldButton(item.id, item.name, false)}
                   />
                 ))}
             </div>
@@ -67,7 +78,7 @@ const MenuBarView = () => {
                   <FieldButton
                     key={index}
                     fieldName={item.name}
-                    clickEvent={() => handleMoveToCertById(item.id, item.name)}
+                    clickEvent={() => onClickFieldButton(item.id, item.name, false)}
                   />
                 ))}
             </div>

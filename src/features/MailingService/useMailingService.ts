@@ -23,9 +23,12 @@ const useAddUserMailing = (certificationId: number) => {
 };
 
 const useDeleteUserMailing = (mailingsId: number[]) => {
+  const { refetch: refetchMailing } = useGetMailing(0, 2);
+
   return useDeleteMailing(mailingsId, {
     onSuccess: () => {
       toast.success(TOAST_MESSAGE.SUCCESS.DELETE_MAILING);
+      refetchMailing();
     },
     onError: (error: unknown) => {
       const errorMessage =

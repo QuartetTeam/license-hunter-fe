@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Alert from '@component/Alert.tsx';
 import ArrowUp from '@icon/icon-arrow-up.svg?react';
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
@@ -16,6 +16,7 @@ import '../style/accountManageView.scss';
 const AccountManageView = ({ data }: IUserDataProps) => {
   const [accountManageVisible, setAccountManageVisible] = useState(true);
   const [deleteUserAlertVisible, setDeleteUserAlertVisible] = useState(false);
+  const [isActiveMailing, setIsActiveMailing] = useState(false);
   const onVisibleAccountManageClick = () => {
     setAccountManageVisible(!accountManageVisible);
   };
@@ -25,6 +26,12 @@ const AccountManageView = ({ data }: IUserDataProps) => {
 
   const { mutate: changeMailingStatus } = useChangeMailingStatus();
   const { mutate: deleteUserData } = useDeleteUserData();
+
+  useEffect(() => {
+    if (data) {
+      setIsActiveMailing(data.status === 'ACTIVE');
+    }
+  }, [data]);
 
   return (
     <div id="account-manage" className="account-manage">
@@ -41,7 +48,7 @@ const AccountManageView = ({ data }: IUserDataProps) => {
           <div className="mailing-service-interruption">
             <div className="mailing-service-interruption__text">메일링 서비스 일시 중단</div>
             <div>
-              {data?.status === 'ACTIVE' ? (
+              {isActiveMailing ? (
                 <div className="mailing-service-interruption__toggle">
                   ON
                   <ToggleON data-cy="changeMailingStatus" onClick={() => changeMailingStatus()} />

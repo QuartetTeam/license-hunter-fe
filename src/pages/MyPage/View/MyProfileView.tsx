@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ArrowDown from '@icon/icon-arrow-down.svg?react';
 import ArrowUp from '@icon/icon-arrow-up.svg?react';
 import FieldButton from '@component/FieldButton.tsx';
 import CheckFavoriteField from './CheckFavoriteField.tsx';
 import { cancelInterestMessage, confirmInterestMessage } from '../Messages/buttonMessages.ts';
-import { useChangeUserNick, useChangeUserEmail } from '@feature/User/useUserService.ts';
+import { useChangeUserNick } from '@feature/User/useUserService.ts';
 import { IUserDataProps } from '@type/user.ts';
 import '../style/myProfileView.scss';
 
@@ -21,7 +21,14 @@ const MyProfileView = ({ data }: IUserDataProps) => {
   };
 
   const { mutate: changeUserNick } = useChangeUserNick(nickname);
-  const { mutate: changeUserEmail } = useChangeUserEmail(email);
+  // const { mutate: changeUserEmail } = useChangeUserEmail(email);
+
+  useEffect(() => {
+    if (data) {
+      setNickname(data.nickname || '');
+      setEmail(data.email || '');
+    }
+  }, [data]);
 
   return (
     <>
@@ -46,7 +53,7 @@ const MyProfileView = ({ data }: IUserDataProps) => {
                 <div className="my-profile-info-box__group">
                   <input
                     className="my-profile-info-box__group__input"
-                    value={data?.nickname}
+                    value={nickname}
                     onChange={(e) => setNickname(e.target.value)}
                   />
                   <button
@@ -63,16 +70,17 @@ const MyProfileView = ({ data }: IUserDataProps) => {
                 <div className="my-profile-info-box__group">
                   <input
                     className="my-profile-info-box__group__input"
-                    value={data?.email}
+                    value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
-                  <button
+                  {/* <button
                     data-cy="changeUserEmail"
                     className="my-profile-info-box__group__button"
                     onClick={() => changeUserEmail()}
+                    disabled
                   >
                     저장
-                  </button>
+                  </button> */}
                 </div>
               </div>
               <div className="my-profile-interest-field">

@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
-import IAuthType from './authType.ts';
+import { IAccessTokenType, IRefreshTokenType } from './authType.ts';
 
-const authStore = create<IAuthType>()(
+const accessTokenStore = create<IAccessTokenType>()(
   persist(
     (set) => ({
       accessToken: '',
@@ -22,4 +22,16 @@ const authStore = create<IAuthType>()(
   )
 );
 
-export default authStore;
+const refreshTokenStore = create<IRefreshTokenType>((set) => ({
+  refreshToken: '',
+  setRefreshToken: (refreshToken: string) =>
+    set({
+      refreshToken: refreshToken,
+    }),
+  clearRefreshToken: () =>
+    set({
+      refreshToken: '',
+    }),
+}));
+
+export { accessTokenStore, refreshTokenStore };

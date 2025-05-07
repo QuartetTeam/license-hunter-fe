@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 import { useLogout, useRefresh } from '../../api';
-import authStore from '@store/auth/authStore.ts';
-import useHandleCookies from '../../common/utils/cookie.ts';
+import { accessTokenStore, refreshTokenStore } from '@store/auth/authStore.ts';
+// import useHandleCookies from '../../common/utils/cookie.ts';
 import { useMoveToPage } from '@hook/page.ts';
 import { TOAST_MESSAGE } from '@constant/toastMessages.ts';
 import { AxiosError } from 'axios';
@@ -12,7 +12,7 @@ const useAuthService = () => {
   // 로그인 (04/27 정윤님)
   // 현재 소셜 로그인 기능은 백엔드 쿠기 통신 이슈 해결 중에 있어 정상적으로 동작하지 않음.
   // 백엔드 API 명세서를 참고하여 추후 테스트할 수 있도록 작업함.
-  const { setAccessToken, clearAccessToken } = authStore();
+  const { setAccessToken, clearAccessToken } = accessTokenStore();
   // const login = useLogin();
   // const loginService = async () => {
   //   try {
@@ -34,33 +34,45 @@ const useAuthService = () => {
   //   }
   // };
 
-  const { cookies, saveCookie, deleteCookie } = useHandleCookies();
+  // const { cookies, saveCookie, deleteCookie } = useHandleCookies();
   // Refresh Token 재발급
-  const refreshToken = {
+  // const refreshToken = {
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     Authorization: `Bearer ${cookies?.refreshToken}`,
+  //   },
+  // };
+  const { refreshToken, setRefreshToken, clearRefreshToken } = refreshTokenStore();
+  const refreshTokenHeader = {
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${cookies?.refreshToken}`,
+      Authorization: `Bearer ${refreshToken}`,
     },
   };
-  const refresh = useRefresh(refreshToken);
+  const refresh = useRefresh(refreshTokenHeader);
   const refreshService = async () => {
     try {
       const response = await refresh.mutateAsync();
       const {
-        data: { code, accessToken },
+        data: { code },
       } = response;
       if (code === 204) {
+        const accessToken = response.headers['accesstoken'];
+        const refreshToken = response.headers['refreshtoken'];
         setAccessToken(accessToken);
-        saveCookie('accessToken', accessToken);
+        setRefreshToken(refreshToken);
+        // saveCookie('refreshToken', refreshToken);
       } else {
         clearAccessToken();
-        deleteCookie('refreshToken');
+        clearRefreshToken();
+        // deleteCookie('refreshToken');
         moveToPage('/login');
         toast.error(TOAST_MESSAGE.ERROR.REFRESH);
       }
     } catch (error: unknown) {
       clearAccessToken();
-      deleteCookie('refreshToken');
+      clearRefreshToken();
+      // deleteCookie('refreshToken');
       moveToPage('/login');
       const errorMessage =
         (error as AxiosError<{ message: string }>)?.response?.data?.message ||
@@ -78,15 +90,18 @@ const useAuthService = () => {
       } = response;
       if (code === 204) {
         clearAccessToken();
-        deleteCookie('refreshToken');
+        clearRefreshToken();
+        // deleteCookie('refreshToken');
       } else {
         clearAccessToken();
-        deleteCookie('refreshToken');
+        clearRefreshToken();
+        // deleteCookie('refreshToken');
         toast.error(TOAST_MESSAGE.ERROR.LOGOUT);
       }
     } catch (error: unknown) {
       clearAccessToken();
-      deleteCookie('refreshToken');
+      clearRefreshToken();
+      // deleteCookie('refreshToken');
       const errorMessage =
         (error as AxiosError<{ message: string }>)?.response?.data?.message ||
         TOAST_MESSAGE.ERROR.LOGOUT;
