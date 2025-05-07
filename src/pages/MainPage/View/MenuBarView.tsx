@@ -12,7 +12,7 @@ const MenuBarView = () => {
   };
   const defaultCategory = useDefaultCategory();
   const moreCategory = useMoreCategory();
-  const { moveToCertById } = useCertService();
+  const { moveToCertById, moveToCertByName } = useCertService();
   const defaultCategoryData: ICategoryDataTypes[] | undefined = defaultCategory?.data;
   const moreCategoryData: ICategoryDataTypes[] | undefined = moreCategory?.data;
 
@@ -23,6 +23,9 @@ const MenuBarView = () => {
   return (
     <div className="menuBar-view">
       <div className="menuBar">
+        <div className="total-certInfo-button" onClick={() => moveToCertByName('')}>
+          전체보기
+        </div>
         <div className="menu-button">
           <div className="menu-button-box">
             {defaultCategoryData
