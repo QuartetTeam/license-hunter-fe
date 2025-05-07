@@ -1,10 +1,10 @@
 import { useMoveToPage } from '@hook/page.ts';
 import useAuthService from '@feature/Auth/useAuthService.ts';
-import authStore from '@store/auth/authStore.ts';
+import { accessTokenStore } from '@store/auth/authStore.ts';
 import './style/Header.scss';
 
 const Header = () => {
-  const { accessToken } = authStore();
+  const { accessToken } = accessTokenStore();
   const { logoutService } = useAuthService();
   const moveToPage = useMoveToPage();
 
