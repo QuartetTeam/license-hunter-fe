@@ -3,4 +3,9 @@ interface ISearchWordType {
   setSearchWord: (searchWord: string) => void;
 }
 
-export default ISearchWordType;
+interface IIsMainCategoryType {
+  isMainCategory: boolean;
+  setIsMainCategory: (isMainCategory: boolean) => void;
+}
+
+export type { ISearchWordType, IIsMainCategoryType };

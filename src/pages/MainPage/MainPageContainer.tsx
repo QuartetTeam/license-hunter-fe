@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import MenuBarView from './View/MenuBarView.tsx';
 import RecommendCertView from './View/RecommendCertView.tsx';
 import SearchBox from '@component/SearchBox.tsx';
-import certStore from '@store/certification/certStore.ts';
+import { searchWordStore } from '@store/certification/certStore.ts';
 
 const MainPageContainer = () => {
-  const { setSearchWord } = certStore();
+  const { setSearchWord } = searchWordStore();
 
   useEffect(() => {
     setSearchWord('');

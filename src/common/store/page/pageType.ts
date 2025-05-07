@@ -3,4 +3,9 @@ interface IPageType {
   setPage: (page: number) => void;
 }
 
-export default IPageType;
+interface ISearchedPageType {
+  searchedPage: number;
+  setSearchedPage: (page: number) => void;
+}
+
+export type { IPageType, ISearchedPageType };

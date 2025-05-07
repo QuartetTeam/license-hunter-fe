@@ -7,19 +7,18 @@ import {
   getSearchCertData,
 } from '../API/API.ts';
 
-const useGetCert = (categoryId: number, page: number, pageSize: number) => {
+const useGetCert = (isMain: boolean, categoryId: number, page: number, pageSize: number) => {
   return useQuery({
     queryKey: [certQueryKey.get, categoryId, page],
-    queryFn: getCertData(categoryId, page, pageSize),
+    queryFn: getCertData(isMain, categoryId, page, pageSize),
     enabled: !!categoryId,
   });
 };
 
-const useGetSearchCert = (name?: string) => {
+const useGetSearchCert = (name: string, page: number, pageSize: number) => {
   return useQuery({
-    queryKey: [certQueryKey.search, name],
-    queryFn: getSearchCertData(name),
-    enabled: !!name,
+    queryKey: [certQueryKey.search, name, page],
+    queryFn: getSearchCertData(name, page, pageSize),
   });
 };
 

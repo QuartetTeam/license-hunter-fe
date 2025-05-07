@@ -17,5 +17,6 @@ export default meta;
 export const Pagination10: Story = {
   args: {
     certTotalPage: 10,
+    isSearchMode: true,
   },
 };

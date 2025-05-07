@@ -8,7 +8,7 @@
   .menuBar {
     width: 100%;
     margin: 64px 0;
-    padding: 64px 220px;
+    padding: 20px 220px 64px 220px;
     background: linear-gradient(180deg, #eaf0ff 0%, #ffffff 100%);
 
     .menu-button {
@@ -43,6 +43,18 @@
       margin-top: 16px;
       cursor: pointer;
 
+      &:hover {
+        color: style.$hover-blue;
+      }
+    }
+
+    .total-certInfo-button {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 16px;
+      cursor: pointer;
+      font-size: 13px;
+      color: style.$primary-blue;
       &:hover {
         color: style.$hover-blue;
       }
