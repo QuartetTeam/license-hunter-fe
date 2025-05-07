@@ -35,13 +35,9 @@
         }
       }
 
-      .login-button {
-        background: none;
-        border: none;
-        cursor: pointer;
-      }
-
-      .myPage-button {
+      .login-button,
+      .myPage-button,
+      .logout-button {
         background: none;
         border: none;
         cursor: pointer;
