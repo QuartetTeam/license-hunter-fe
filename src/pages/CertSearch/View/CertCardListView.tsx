@@ -4,6 +4,7 @@ import CertificateCard from '@component/CertificateCard.tsx';
 import Pagination from '@component/Pagination';
 import { useCertList, useCertSearch } from '@feature/Certification/useCertService.ts';
 import { pageStore, searchedPageStore } from '@store/page/pageStore';
+import { isMainCategoryStore } from '@store/certification/certStore.ts';
 import '../style/certCardListView.scss';
 
 const CertCardListView = () => {
@@ -11,6 +12,7 @@ const CertCardListView = () => {
   const { searchedPage, setSearchedPage } = searchedPageStore();
   const [searchParams] = useSearchParams();
   const [search, setSearch] = useState('');
+  const { isMainCategory } = isMainCategoryStore();
   const categoryId = Number(
     searchParams.get('subCategoryId')
       ? searchParams.get('subCategoryId')
@@ -22,7 +24,7 @@ const CertCardListView = () => {
   }, [searchParams]);
 
   const isSearchMode = searchParams.get('search') !== null;
-  const cert = useCertList(categoryId, page);
+  const cert = useCertList(isMainCategory, categoryId, page);
   const certData = cert?.data?.content ?? [];
   const certTotalPage = cert?.data?.totalPages ?? 0;
   const searchedCert = useCertSearch(search, searchedPage);

@@ -97,9 +97,10 @@ const deleteCalendarData = (certificationId: number) => {
 };
 
 // 자격증 조회
-const getCertData = (categoryId: number, page: number, pageSize: number) => {
+const getCertData = (isMain: boolean, categoryId: number, page: number, pageSize: number) => {
   return async (): Promise<ICertList> => {
     const params = {
+      isMain: isMain,
       categoryId: categoryId,
       page: page,
       pageSize: pageSize,

@@ -2,8 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { useGetCert, useGetCertDetail, useGetCertRecommend } from '../../api';
 import { useGetSearchCert } from '@api/queries/useCertQuery.ts';
 
-const useCertList = (id: number, page: number) => {
-  const { data: cert } = useGetCert(id, page, 10);
+const useCertList = (isMain: boolean, id: number, page: number) => {
+  const { data: cert } = useGetCert(isMain, id, page, 10);
   return cert;
 };
 
