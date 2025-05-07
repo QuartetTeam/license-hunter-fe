@@ -15,15 +15,13 @@ const useUserData = () => {
   return user;
 };
 
-const useRefreshUserData = () => {
-  const { refetch: refetchUser } = useGetUser();
-  return refetchUser;
-};
-
 const useChangeUserNick = (nickname: string) => {
+  const { refetch: refetchUser } = useGetUser();
+
   return usePatchUserNick(nickname, {
     onSuccess: () => {
       toast.success(TOAST_MESSAGE.SUCCESS.CHANGE_NICKNAME);
+      refetchUser();
     },
     onError: (error: unknown) => {
       const errorMessage =
@@ -35,9 +33,12 @@ const useChangeUserNick = (nickname: string) => {
 };
 
 const useChangeUserEmail = (email: string) => {
+  const { refetch: refetchUser } = useGetUser();
+
   return usePatchUserEmail(email, {
     onSuccess: () => {
       toast.success(TOAST_MESSAGE.SUCCESS.CHANGE_EMAIL);
+      refetchUser();
     },
     onError: (error: unknown) => {
       const errorMessage =
@@ -49,9 +50,12 @@ const useChangeUserEmail = (email: string) => {
 };
 
 const useChangeUserInterest = (categoryIds: number[]) => {
+  const { refetch: refetchUser } = useGetUser();
+
   return usePatchUserInterest(categoryIds, {
     onSuccess: () => {
       toast.success(TOAST_MESSAGE.SUCCESS.CHANGE_INTEREST);
+      refetchUser();
     },
     onError: (error: unknown) => {
       const errorMessage =
@@ -63,7 +67,12 @@ const useChangeUserInterest = (categoryIds: number[]) => {
 };
 
 const useChangeMailingStatus = () => {
+  const { refetch: refetchUser } = useGetUser();
+
   return usePatchMailingService({
+    onSuccess: () => {
+      refetchUser();
+    },
     onError: (error: unknown) => {
       const errorMessage =
         (error as AxiosError<{ message: string }>)?.response?.data?.message ||
@@ -74,9 +83,12 @@ const useChangeMailingStatus = () => {
 };
 
 const useDeleteUserData = () => {
+  const { refetch: refetchUser } = useGetUser();
+
   return useDeleteUser({
     onSuccess: () => {
       toast.success(TOAST_MESSAGE.SUCCESS.DELETE_USER);
+      refetchUser();
     },
     onError: (error: unknown) => {
       const errorMessage =
@@ -89,7 +101,6 @@ const useDeleteUserData = () => {
 
 export {
   useUserData,
-  useRefreshUserData,
   useChangeUserNick,
   useChangeUserEmail,
   useChangeUserInterest,

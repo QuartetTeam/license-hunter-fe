@@ -25,9 +25,12 @@ const useAddUserCalendar = (certificationId: number) => {
 };
 
 const useDeleteUserCalendar = (certificationId: number) => {
+  const { refetch: refetchCalendar } = useGetCalendar();
+
   return useDeleteCalendar(certificationId, {
     onSuccess: () => {
       toast.success(TOAST_MESSAGE.SUCCESS.DELETE_CALENDAR);
+      refetchCalendar();
     },
     onError: (error: unknown) => {
       const errorMessage =
