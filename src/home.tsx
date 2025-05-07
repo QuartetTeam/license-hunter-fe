@@ -1,8 +1,8 @@
 import { Header, Container, Footer } from './pages';
-import { useRefreshTokenInterceptor } from './common/utils/session';
+// import { useRefreshTokenInterceptor } from './common/utils/session';
 
 const Home = () => {
-  useRefreshTokenInterceptor();
+  // useRefreshTokenInterceptor();
 
   return (
     <>
