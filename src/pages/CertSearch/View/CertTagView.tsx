@@ -1,6 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
 import { useCertService } from '@feature/Certification/useCertService.ts';
 import { useChildCategory } from '@feature/Category/useCategoryService.ts';
+import { isMainCategoryStore } from '@store/certification/certStore.ts';
 import { ICategoryDataTypes } from '@type/category.ts';
 import '../style/certTagView.scss';
 
@@ -12,6 +13,13 @@ const CertTagView = () => {
   const childCategory = useChildCategory(categoryId);
   const childCategoryData: ICategoryDataTypes[] | undefined = childCategory?.data;
 
+  const { setIsMainCategory } = isMainCategoryStore();
+
+  const onClickCertTag = (categoryId: number, name: string, id: number) => {
+    if (categoryId && name && id) moveToCertById(categoryId, name, id);
+    setIsMainCategory(false);
+  };
+
   return (
     <div className="cert-tag-view">
       <div className="cert-tag-group">
@@ -20,7 +28,7 @@ const CertTagView = () => {
             key={index}
             className="cert-tag"
             onClick={() => {
-              moveToCertById(categoryId, name, item.id);
+              onClickCertTag(categoryId, name, item.id);
             }}
           >
             {item.name}
