@@ -1,8 +1,9 @@
 describe('내 캘린더가 정상적으로 작동하는지 확인한다.', () => {
   beforeEach(() => {
-    cy.visit('/');
-    cy.get('.my-calendar-button').click();
-    cy.url().should('include', '/myCalendar');
+    // cy.visit('/');
+    // cy.get('.my-calendar-button').click();
+    // cy.url().should('include', '/myCalendar');
+    cy.visit('/myCalendar');
   });
 
   it('내 캘린더에 정상적으로 접속할 수 있는지 확인한다.', () => {

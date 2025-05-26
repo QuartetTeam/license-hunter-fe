@@ -28,6 +28,7 @@ const MailingServiceView = () => {
   const mailing = useMailingList(page);
   const mailingData: IMailingContent[] | undefined = mailing?.data?.content;
   const totalPages: number = mailing?.data?.totalPages ?? 0;
+  const totalElements: number = mailing?.data?.totalElements ?? 0;
   const prevPage = (page: number) => {
     const prev = Math.max(page - 1, 0);
     setPage(prev);
@@ -39,13 +40,13 @@ const MailingServiceView = () => {
   };
   const { mutate: deleteUserMailing } = useDeleteUserMailing(checkArr);
   const handleCheckedAll = () => {
-    const checkAllArr: number[] = [];
-    mailingData?.map((item) => checkAllArr.push(item.id));
+    const checkAllArr: number[] = Array.from({ length: totalElements - 1 }, (_, i) => i);
     setCheckArr(checkAllArr);
   };
   const handleUncheckedAll = () => {
     setCheckArr([]);
   };
+  const checkAll = checkArr.length === totalElements;
 
   return (
     <div id="mailing-service" className="mailing-service">
@@ -64,7 +65,7 @@ const MailingServiceView = () => {
         <>
           <div className="mailing-serviceList">
             <div className="mailing-service-tools">
-              {(checkArr.length !== 0 ? checkArr.length === mailingData?.length : false) ? (
+              {checkAll ? (
                 <CheckboxChecked onClick={handleUncheckedAll} />
               ) : (
                 <CheckboxEmpty onClick={handleCheckedAll} />
