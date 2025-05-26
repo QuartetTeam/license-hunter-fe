@@ -16,6 +16,7 @@ const OAuthRedirectContainer = () => {
   const [searchParams] = useSearchParams();
   const accessTokenByURL = searchParams.get('accessToken');
   const refreshTokenByURL = searchParams.get('refreshToken');
+  console.log(accessTokenByURL);
 
   useEffect(() => {
     if (accessTokenByURL) {

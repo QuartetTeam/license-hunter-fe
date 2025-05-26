@@ -31,10 +31,10 @@ const CertificateCard = ({
         <div key={index} className={`certificate-info ${trashIconSelected && 'checked'} `}>
           {trashIconSelected && (
             <div className="certificate-info-checkbox">
-              {checkArr.includes(item.id) ? (
-                <CheckboxChecked onClick={() => handleCheckArr(item.id)} />
+              {checkArr.includes(index) ? (
+                <CheckboxChecked onClick={() => handleCheckArr(index)} />
               ) : (
-                <CheckboxEmpty onClick={() => handleCheckArr(item.id)} />
+                <CheckboxEmpty onClick={() => handleCheckArr(index)} />
               )}
             </div>
           )}

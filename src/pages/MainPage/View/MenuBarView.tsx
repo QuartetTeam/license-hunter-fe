@@ -19,13 +19,9 @@ const MenuBarView = () => {
   const defaultCategoryData: ICategoryDataTypes[] | undefined = defaultCategory?.data;
   const moreCategoryData: ICategoryDataTypes[] | undefined = moreCategory?.data;
 
-  const handleMoveToCertById = (id: number, fieldName: string) => {
-    if (id && fieldName) moveToCertById(id, fieldName, undefined);
-  };
-
-  const onClickFieldButton = (id: number, fieldName: string, isMainCategory: boolean) => {
-    handleMoveToCertById(id, fieldName);
-    setIsMainCategory(isMainCategory);
+  const onClickFieldButton = (id: number, fieldName: string) => {
+    if (id && fieldName) moveToCertById(id, fieldName);
+    setIsMainCategory(true);
   };
 
   return (
@@ -41,7 +37,7 @@ const MenuBarView = () => {
               .map((item, index) => (
                 <FieldButton
                   key={index}
-                  clickEvent={() => onClickFieldButton(item.id, item.name, true)}
+                  clickEvent={() => onClickFieldButton(item.id, item.name)}
                   fieldName={item.name}
                 />
               ))}
@@ -53,7 +49,7 @@ const MenuBarView = () => {
                 <FieldButton
                   key={index}
                   fieldName={item.name}
-                  clickEvent={() => onClickFieldButton(item.id, item.name, true)}
+                  clickEvent={() => onClickFieldButton(item.id, item.name)}
                 />
               ))}
           </div>
@@ -67,7 +63,7 @@ const MenuBarView = () => {
                   <FieldButton
                     key={index}
                     fieldName={item.name}
-                    clickEvent={() => onClickFieldButton(item.id, item.name, false)}
+                    clickEvent={() => onClickFieldButton(item.id, item.name)}
                   />
                 ))}
             </div>
@@ -78,7 +74,7 @@ const MenuBarView = () => {
                   <FieldButton
                     key={index}
                     fieldName={item.name}
-                    clickEvent={() => onClickFieldButton(item.id, item.name, false)}
+                    clickEvent={() => onClickFieldButton(item.id, item.name)}
                   />
                 ))}
             </div>
