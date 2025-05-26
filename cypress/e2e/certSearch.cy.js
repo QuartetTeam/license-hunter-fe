@@ -10,13 +10,15 @@ describe('자격증 검색 페이지가 정상적으로 작동하는지 확인�
   });
 
   it('자격증 부카테고리 조회 API가 정상적으로 호출되는지 확인한다.', () => {
-    cy.intercept('GET', '/api/certifications/category*').as('getSubCategory');
+    cy.intercept('GET', '/api/certifications/category?mainCategoryId=*').as('getSubCategory');
     cy.reload();
     cy.wait('@getSubCategory').should('exist');
   });
 
   it('자격증 부카테고리를 통해 자격증 검색 조회 API가 정상적으로 호출되는지 확인한다.', () => {
-    cy.intercept('GET', '/api/certifications?categoryId=*').as('getCertSearchBySubCategory');
+    cy.intercept('GET', '/api/certifications?isMain=*&categoryId=*&page=0&pageSize=10').as(
+      'getCertSearchBySubCategory'
+    );
     cy.get('.cert-tag').eq(1).click();
     cy.wait('@getCertSearchBySubCategory').should('exist');
   });
