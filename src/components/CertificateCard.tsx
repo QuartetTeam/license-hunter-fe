@@ -9,7 +9,6 @@ import './style/certificateCard.scss';
 
 const CertificateCard = ({
   data,
-  trashIconSelected = false,
   // requiredCalendar = false
 }: {
   data?: ICertData[] | IMailingContent[];
@@ -27,17 +26,15 @@ const CertificateCard = ({
   };
   return (
     <>
-      {data?.map((item, index) => (
-        <div key={index} className={`certificate-info ${trashIconSelected && 'checked'} `}>
-          {trashIconSelected && (
-            <div className="certificate-info-checkbox">
-              {checkArr.includes(index) ? (
-                <CheckboxChecked onClick={() => handleCheckArr(index)} />
-              ) : (
-                <CheckboxEmpty onClick={() => handleCheckArr(index)} />
-              )}
-            </div>
-          )}
+      {data?.map((item) => (
+        <div key={item.mailingId} className="certificate-info">
+          <div className="certificate-info-checkbox">
+            {checkArr.includes(item.mailingId) ? (
+              <CheckboxChecked onClick={() => handleCheckArr(item.mailingId)} />
+            ) : (
+              <CheckboxEmpty onClick={() => handleCheckArr(item.mailingId)} />
+            )}
+          </div>
           <div className="certificate-info-box" onClick={() => moveToCertDetailById(item?.id)}>
             <div className="certificate-info-box__image">
               <img src={QNetImage} alt="자격증 이미지" />

@@ -14,21 +14,18 @@ import '../style/mailingServiceView.scss';
 
 const MailingServiceView = () => {
   const [mailingServiceVisible, setMailingServiceVisible] = useState(true);
-  const [trashIconSelected, setTashIconSelected] = useState(false);
-  const [page, setPage] = useState(0);
-  const { checkArr, setCheckArr } = mailingStore();
+  const { page, setPage, checkArr, setCheckArr } = mailingStore();
 
   const onVisibleMailingServiceClick = () => {
     setMailingServiceVisible(!mailingServiceVisible);
   };
-  const onTrashButtonClick = () => {
-    setTashIconSelected(!trashIconSelected);
-  };
 
-  const mailing = useMailingList(page);
+  const pageSize = 4;
+  const mailing = useMailingList(page, pageSize);
   const mailingData: IMailingContent[] | undefined = mailing?.data?.content;
   const totalPages: number = mailing?.data?.totalPages ?? 0;
-  const totalElements: number = mailing?.data?.totalElements ?? 0;
+  const contentLength = mailing?.data?.content?.length;
+
   const prevPage = (page: number) => {
     const prev = Math.max(page - 1, 0);
     setPage(prev);
@@ -39,14 +36,15 @@ const MailingServiceView = () => {
     setPage(next);
   };
   const { mutate: deleteUserMailing } = useDeleteUserMailing(checkArr);
+
   const handleCheckedAll = () => {
-    const checkAllArr: number[] = Array.from({ length: totalElements - 1 }, (_, i) => i);
-    setCheckArr(checkAllArr);
+    const mailingIds = mailingData?.map((item) => item.mailingId) ?? [];
+    setCheckArr(mailingIds);
   };
   const handleUncheckedAll = () => {
     setCheckArr([]);
   };
-  const checkAll = checkArr.length === totalElements;
+  const checkAll = checkArr.length === contentLength;
 
   return (
     <div id="mailing-service" className="mailing-service">
@@ -70,30 +68,28 @@ const MailingServiceView = () => {
               ) : (
                 <CheckboxEmpty onClick={handleCheckedAll} />
               )}
-              <TrashIcon
-                data-cy="deleteUserMailing"
-                onClick={() => {
-                  onTrashButtonClick();
-                  if (checkArr.length !== 0) {
-                    deleteUserMailing();
-                  }
-                }}
-              />
+              <TrashIcon data-cy="deleteUserMailing" onClick={() => deleteUserMailing()} />
             </div>
             <div className="mailing-serviceList-group">
               {mailingData && mailingData.length > 0 && (
                 <ArrowLeft
                   className="mailing-serviceList-group__icon"
-                  onClick={() => prevPage(page)}
+                  onClick={() => {
+                    prevPage(page);
+                    handleUncheckedAll();
+                  }}
                 />
               )}
               <div className="mailing-serviceList-group__card">
-                <CertificateCard data={mailingData} trashIconSelected={trashIconSelected} />
+                <CertificateCard data={mailingData} />
               </div>
               {mailingData && mailingData.length > 0 && (
                 <ArrowRight
                   className="mailing-serviceList-group__icon"
-                  onClick={() => nextPage(page)}
+                  onClick={() => {
+                    nextPage(page);
+                    handleUncheckedAll();
+                  }}
                 />
               )}
             </div>

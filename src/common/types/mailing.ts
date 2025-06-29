@@ -1,11 +1,9 @@
 export interface IMailingContent {
-  id: number;
-  mainCategory: string;
-  subCategory: string;
+  mailingId: number;
+  certificationId: number;
   name: string;
   applicationDate: string;
   examDate: string;
-  calendarSubscription: number;
 }
 
 export interface IMailingData {
