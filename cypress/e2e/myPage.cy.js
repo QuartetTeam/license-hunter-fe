@@ -23,7 +23,7 @@ describe('마이페이지가 정상적으로 작동하는지 확인한다.', () 
   });
 
   it('메일링 서비스 조회 API가 정상적으로 호출되는지 확인한다.', () => {
-    cy.intercept('GET', '/api/mailings?page=0&pageSize=2').as('getUserMailing');
+    cy.intercept('GET', '/api/mailings?page=0&pageSize=4').as('getUserMailing');
     cy.reload();
     cy.wait('@getUserMailing').should('exist');
   });
