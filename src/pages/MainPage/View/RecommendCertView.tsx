@@ -16,7 +16,7 @@ const RecommendCertView = () => {
           </div>
           <div className="recommend-cert-card-group">
             <div className="recommend-cert-card">
-              <CertificateCard data={recommendData} />
+              <CertificateCard data={recommendData} isCheckBox={false} />
             </div>
           </div>
         </div>

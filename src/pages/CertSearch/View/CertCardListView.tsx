@@ -43,7 +43,7 @@ const CertCardListView = () => {
   return (
     <>
       <div className="cert-cardList-group">
-        <CertificateCard data={isSearchMode ? searchedCertData : certData} />
+        <CertificateCard data={isSearchMode ? searchedCertData : certData} isCheckBox={false} />
       </div>
       {(certTotalPage > 0 || searchedCertTotalPage > 0) && (
         <Pagination

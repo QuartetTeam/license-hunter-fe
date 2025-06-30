@@ -61,11 +61,9 @@ const addMailingsData = (certificationId: number) => {
 const deleteMailingsData = (mailingIds: number[]) => {
   return async () => {
     const params = {
-      mailingIds: mailingIds,
+      mailingIds: mailingIds.join(','),
     };
-    const response = await axios.delete(`${BASE_URL}/${MAILINGS}`, {
-      params,
-    });
+    const response = await axios.delete(`${BASE_URL}/${MAILINGS}`, { params });
     return response.data;
   };
 };

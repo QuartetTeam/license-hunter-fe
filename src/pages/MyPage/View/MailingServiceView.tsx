@@ -81,7 +81,7 @@ const MailingServiceView = () => {
                 />
               )}
               <div className="mailing-serviceList-group__card">
-                <CertificateCard data={mailingData} />
+                <CertificateCard data={mailingData} isCheckBox={true} />
               </div>
               {mailingData && mailingData.length > 0 && (
                 <ArrowRight
